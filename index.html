@@ -422,18 +422,32 @@ Você também pode utilizar a Calculadora de Aposentadoria do CalculaMundo para 
 
     </div>
   </div>
-<footer>
-  <p style="margin-bottom:8px;"><strong style="font-family:'Playfair Display',serif; color:var(--gold);">calculamundo · Calculadora de Juros Compostos</strong></p>
-  <p>Os resultados são estimativas. Investimentos reais podem variar. Consulte um assessor financeiro.</p>
-  <p style="margin-top:8px; font-size:11px;">© 2025 · <a href="https://calculamundo.com.br">calculamundo.com.br</a></p>
-  <nav>
-    <a href="sobre.html">Sobre</a>
-    <a href="contato.html">Contato</a>
-    <a href="politica-de-privacidade.html">Política de Privacidade</a>
-    <a href="termos-de-uso.html">Termos de Uso</a>
-  </nav>
-</footer>
+<footer style="text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--dark4); background: var(--dark2); position: relative; z-index: 10;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; align-items: center;">
+        
+        <!-- Links Institucionais cruciais para o AdSense -->
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
+            <a href="/sobre.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Sobre Nós</a>
+            <a href="/contato.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Contato</a>
+            <a href="/privacidade.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidade</a>
+            <a href="/termos.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Termos de Uso</a>
+        </div>
 
+        <!-- Aviso Legal (YMYL Exigido pelo Google) -->
+        <p style="max-width: 600px; line-height: 1.6; font-size: 12px; margin-bottom: 10px;">
+            Aviso: Os resultados gerados pelas ferramentas são simulações matemáticas baseadas em estimativas. Rendimentos passados não garantem retornos futuros. Consulte sempre um profissional certificado antes de tomar decisões financeiras.
+        </p>
+
+        <!-- Direitos Autorais e Domínio Corretos com Ano Automático -->
+        <p>© <span id="year-auto">2026</span> · <a href="https://calculamundo.com.br" style="color: var(--gold); text-decoration: none; font-weight: 500;">calculamundo.com.br</a> · Todos os direitos reservados.</p>
+        
+    </div>
+
+    <!-- Script simples para o ano nunca mais ficar desatualizado -->
+    <script>
+        document.getElementById('year-auto').textContent = new Date().getFullYear();
+    </script>
+</footer>
 <script>
 let period='mensal', chartInstance=null, lastResult=null;
 const SITE_URL = 'https://calculamundo.com.br';
