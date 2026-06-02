@@ -149,6 +149,91 @@ body.light { --dark: #F5F5F0; --dark2: #FFFFFF; --dark3: #F0F0EA; --dark4: #DDDD
   <div class="ad-label">Publicidade</div>
   <div class="ad-slot"><span>[ Espaço Google AdSense 728x90 ]</span></div>
 </div>
+<div class="container">
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">💰 Dados do Investimento</div>
+      <div class="field">
+        <label>Valor inicial (aporte único)</label>
+        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="inicial" placeholder="1000" min="0" value="1000"></div>
+      </div>
+      <div class="field">
+        <label>Aporte mensal</label>
+        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="aporte" placeholder="100" min="0" value="100"></div>
+      </div>
+      <div class="field">
+        <label>Taxa de juros (ao período)</label>
+        <div class="input-row"><span class="input-prefix">%</span><input type="number" id="taxa" placeholder="1.0" step="0.01" min="0" value="1"></div>
+      </div>
+      <div class="field">
+        <label>Período</label>
+        <div class="toggle-group">
+          <button class="active" onclick="setPeriod('mensal',this)">Mensal</button>
+          <button onclick="setPeriod('anual',this)">Anual</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>Prazo (em meses)</label>
+        <div class="input-row"><input type="number" id="meses" placeholder="24" min="1" value="24"></div>
+      </div>
+      <div class="field">
+        <label>Exemplos rápidos</label>
+        <div class="examples-row">
+          <button class="example-btn" onclick="loadExample(1000,100,0.8,24)">🌱 Iniciante</button>
+          <button class="example-btn" onclick="loadExample(5000,500,1.0,60)">🚀 Médio</button>
+          <button class="example-btn" onclick="loadExample(20000,1000,1.2,120)">⭐ Avançado</button>
+        </div>
+      </div>
+      <button class="btn-calc" onclick="calcular()">Calcular meu patrimônio →</button>
+    </div>
+
+    <div>
+      <div class="result-card" id="result-card">
+        <div class="result-main">
+          <div class="result-label">Patrimônio Final</div>
+          <div class="result-value" id="res-total">R$ 0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item"><div class="result-item-label">💵 Total investido</div><div class="result-item-value gold" id="res-investido">—</div></div>
+          <div class="result-item"><div class="result-item-label">📈 Juros ganhos</div><div class="result-item-value green" id="res-juros">—</div></div>
+          <div class="result-item"><div class="result-item-label">🔁 Multiplicação</div><div class="result-item-value gold" id="res-multi">—</div></div>
+          <div class="result-item"><div class="result-item-label">📅 Renda mensal</div><div class="result-item-value green" id="res-renda">—</div></div>
+        </div>
+        <div class="share-section">
+          <div class="share-title">✦ Compartilhe seu resultado</div>
+          <div class="share-btns">
+            <button class="share-btn btn-whatsapp" onclick="shareWhatsApp()">📱 WhatsApp</button>
+            <button class="share-btn btn-instagram" onclick="shareInstagram()">📸 Instagram</button>
+            <button class="share-btn btn-copy" onclick="copyLink()">📋 Copiar link</button>
+          </div>
+        </div>
+      </div>
+      <div id="result-placeholder" class="card" style="text-align:center; padding:60px 28px;">
+        <div style="font-size:48px; margin-bottom:16px;">📊</div>
+        <div style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--gold); margin-bottom:8px;">Seus resultados aparecerão aqui</div>
+        <div style="font-size:13px; color:var(--text-muted);">Preencha os dados e clique em calcular</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-card" id="chart-card">
+    <div class="section-title">📈 Evolução do Patrimônio</div>
+    <div class="chart-wrap"><canvas id="myChart"></canvas></div>
+  </div>
+
+  <div class="ai-card" id="ai-card">
+    <div class="ai-header">
+      <div class="ai-icon">🤖</div>
+      <div><div class="ai-title">Consultor Financeiro IA</div><div class="ai-subtitle">Tire dúvidas sobre seu resultado com o ChatGPT</div></div>
+    </div>
+    <div class="ai-response" id="ai-response" style="margin-bottom:16px;">
+      Sua simulação está pronta! Clique no botão abaixo para abrir o ChatGPT com os seus dados já preenchidos — é só perguntar o que quiser sobre seu investimento. 💡
+    </div>
+    <button class="btn-calc" id="btn-chatgpt" onclick="abrirChatGPT()" style="background:linear-gradient(135deg,#10a37f,#1a7f64); margin-top:0;">
+      💬 Analisar com ChatGPT →
+    </button>
+  </div>
+
 <section class="card" style="margin-bottom:24px;">
 <h2 class="section-title">🚀 O Poder dos Juros Compostos</h2>
 <p style="line-height:1.8;color:var(--text-muted);">
@@ -237,92 +322,7 @@ Você também pode utilizar a Calculadora de Aposentadoria do CalculaMundo para 
 <p style="line-height:1.8;color:var(--text-muted);">Não existe um investimento ideal para todos. A escolha depende do perfil e dos objetivos de cada pessoa.</p>
 <h3>Como usar a calculadora de juros compostos?</h3>
 <p style="line-height:1.8;color:var(--text-muted);">Basta informar valor inicial, aportes, taxa e prazo para visualizar uma projeção do crescimento do patrimônio.</p>
-</section>
-<div class="container">
-  <div class="grid">
-    <div class="card">
-      <div class="card-title">💰 Dados do Investimento</div>
-      <div class="field">
-        <label>Valor inicial (aporte único)</label>
-        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="inicial" placeholder="1000" min="0" value="1000"></div>
-      </div>
-      <div class="field">
-        <label>Aporte mensal</label>
-        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="aporte" placeholder="100" min="0" value="100"></div>
-      </div>
-      <div class="field">
-        <label>Taxa de juros (ao período)</label>
-        <div class="input-row"><span class="input-prefix">%</span><input type="number" id="taxa" placeholder="1.0" step="0.01" min="0" value="1"></div>
-      </div>
-      <div class="field">
-        <label>Período</label>
-        <div class="toggle-group">
-          <button class="active" onclick="setPeriod('mensal',this)">Mensal</button>
-          <button onclick="setPeriod('anual',this)">Anual</button>
-        </div>
-      </div>
-      <div class="field">
-        <label>Prazo (em meses)</label>
-        <div class="input-row"><input type="number" id="meses" placeholder="24" min="1" value="24"></div>
-      </div>
-      <div class="field">
-        <label>Exemplos rápidos</label>
-        <div class="examples-row">
-          <button class="example-btn" onclick="loadExample(1000,100,0.8,24)">🌱 Iniciante</button>
-          <button class="example-btn" onclick="loadExample(5000,500,1.0,60)">🚀 Médio</button>
-          <button class="example-btn" onclick="loadExample(20000,1000,1.2,120)">⭐ Avançado</button>
-        </div>
-      </div>
-      <button class="btn-calc" onclick="calcular()">Calcular meu patrimônio →</button>
-    </div>
-
-    <div>
-      <div class="result-card" id="result-card">
-        <div class="result-main">
-          <div class="result-label">Patrimônio Final</div>
-          <div class="result-value" id="res-total">R$ 0</div>
-        </div>
-        <div class="result-grid">
-          <div class="result-item"><div class="result-item-label">💵 Total investido</div><div class="result-item-value gold" id="res-investido">—</div></div>
-          <div class="result-item"><div class="result-item-label">📈 Juros ganhos</div><div class="result-item-value green" id="res-juros">—</div></div>
-          <div class="result-item"><div class="result-item-label">🔁 Multiplicação</div><div class="result-item-value gold" id="res-multi">—</div></div>
-          <div class="result-item"><div class="result-item-label">📅 Renda mensal</div><div class="result-item-value green" id="res-renda">—</div></div>
-        </div>
-        <div class="share-section">
-          <div class="share-title">✦ Compartilhe seu resultado</div>
-          <div class="share-btns">
-            <button class="share-btn btn-whatsapp" onclick="shareWhatsApp()">📱 WhatsApp</button>
-            <button class="share-btn btn-instagram" onclick="shareInstagram()">📸 Instagram</button>
-            <button class="share-btn btn-copy" onclick="copyLink()">📋 Copiar link</button>
-          </div>
-        </div>
-      </div>
-      <div id="result-placeholder" class="card" style="text-align:center; padding:60px 28px;">
-        <div style="font-size:48px; margin-bottom:16px;">📊</div>
-        <div style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--gold); margin-bottom:8px;">Seus resultados aparecerão aqui</div>
-        <div style="font-size:13px; color:var(--text-muted);">Preencha os dados e clique em calcular</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="chart-card" id="chart-card">
-    <div class="section-title">📈 Evolução do Patrimônio</div>
-    <div class="chart-wrap"><canvas id="myChart"></canvas></div>
-  </div>
-
-  <div class="ai-card" id="ai-card">
-    <div class="ai-header">
-      <div class="ai-icon">🤖</div>
-      <div><div class="ai-title">Consultor Financeiro IA</div><div class="ai-subtitle">Tire dúvidas sobre seu resultado com o ChatGPT</div></div>
-    </div>
-    <div class="ai-response" id="ai-response" style="margin-bottom:16px;">
-      Sua simulação está pronta! Clique no botão abaixo para abrir o ChatGPT com os seus dados já preenchidos — é só perguntar o que quiser sobre seu investimento. 💡
-    </div>
-    <button class="btn-calc" id="btn-chatgpt" onclick="abrirChatGPT()" style="background:linear-gradient(135deg,#10a37f,#1a7f64); margin-top:0;">
-      💬 Analisar com ChatGPT →
-    </button>
-  </div>
-
+</section><!
   <div class="ad-middle">
     <div class="ad-label">Publicidade</div>
     <div class="ad-slot" style="height:250px;"><span>[ Espaço Google AdSense 300x250 ]</span></div>
