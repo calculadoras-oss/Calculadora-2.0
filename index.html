@@ -120,6 +120,35 @@ label { display: block; font-size: 12px; letter-spacing: 1px; text-transform: up
 .tip-icon { font-size: 24px; margin-bottom: 10px; }
 .tip-title { font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
 .tip-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  footer { position: relative; z-index: 10; text-align: center; padding: 40px 20px; border-top: 1px solid var(--dark4); color: var(--text-muted); font-size: 13px; }
+footer a { color: var(--gold); text-decoration: none; }
+footer nav { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+@keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+body.light { --dark: #F5F5F0; --dark2: #FFFFFF; --dark3: #F0F0EA; --dark4: #DDDDD0; --text: #1A1A1A; --text-muted: #666655; }
+.theme-btn { position: fixed; bottom: 24px; right: 24px; z-index: 100; background: var(--dark2); border: 1px solid var(--dark4); border-radius: 50%; width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 20px; transition: all 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--dark4); }
+.toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--dark2); border: 1px solid var(--gold); color: var(--text); padding: 12px 24px; border-radius: 100px; font-size: 14px; opacity: 0; transition: all 0.3s; z-index: 9999; pointer-events: none; white-space: nowrap; max-width: 90vw; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+<div class="toast" id="toast"></div>
+
+<header>
+  <div class="badge">✦ calculamundo · Educação Financeira</div>
+  <h1>Calculadora de<br>Juros Compostos</h1>
+  <p class="subtitle">Descubra o poder dos juros sobre juros e veja quanto seu dinheiro pode crescer ao longo do tempo.</p>
+</header>
+
+<div class="ad-banner">
+  <div class="ad-label">Publicidade</div>
+  <div class="ad-slot"><span>[ Espaço Google AdSense 728x90 ]</span></div>
+</div>
 <section class="card" style="margin-bottom:24px;">
 <h2 class="section-title">🚀 O Poder dos Juros Compostos</h2>
 <p style="line-height:1.8;color:var(--text-muted);">
@@ -209,36 +238,6 @@ Você também pode utilizar a Calculadora de Aposentadoria do CalculaMundo para 
 <h3>Como usar a calculadora de juros compostos?</h3>
 <p style="line-height:1.8;color:var(--text-muted);">Basta informar valor inicial, aportes, taxa e prazo para visualizar uma projeção do crescimento do patrimônio.</p>
 </section>
-  footer { position: relative; z-index: 10; text-align: center; padding: 40px 20px; border-top: 1px solid var(--dark4); color: var(--text-muted); font-size: 13px; }
-footer a { color: var(--gold); text-decoration: none; }
-footer nav { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-@keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
-@keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
-body.light { --dark: #F5F5F0; --dark2: #FFFFFF; --dark3: #F0F0EA; --dark4: #DDDDD0; --text: #1A1A1A; --text-muted: #666655; }
-.theme-btn { position: fixed; bottom: 24px; right: 24px; z-index: 100; background: var(--dark2); border: 1px solid var(--dark4); border-radius: 50%; width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 20px; transition: all 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-.section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-.section-title::after { content: ''; flex: 1; height: 1px; background: var(--dark4); }
-.toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--dark2); border: 1px solid var(--gold); color: var(--text); padding: 12px 24px; border-radius: 100px; font-size: 14px; opacity: 0; transition: all 0.3s; z-index: 9999; pointer-events: none; white-space: nowrap; max-width: 90vw; }
-.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-</style>
-</head>
-<body>
-<div class="bg-grid"></div>
-<div class="bg-glow"></div>
-<button class="theme-btn" onclick="toggleTheme()">🌙</button>
-<div class="toast" id="toast"></div>
-
-<header>
-  <div class="badge">✦ calculamundo · Educação Financeira</div>
-  <h1>Calculadora de<br>Juros Compostos</h1>
-  <p class="subtitle">Descubra o poder dos juros sobre juros e veja quanto seu dinheiro pode crescer ao longo do tempo.</p>
-</header>
-
-<div class="ad-banner">
-  <div class="ad-label">Publicidade</div>
-  <div class="ad-slot"><span>[ Espaço Google AdSense 728x90 ]</span></div>
-</div>
-
 <div class="container">
   <div class="grid">
     <div class="card">
