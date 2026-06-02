@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contato | calculamundo</title>
 <meta name="description" content="Entre em contato com o calculamundo. Dúvidas, sugestões ou parcerias.">
-<link rel="canonical" href="https://calculamundo.netlify.app/contato.html">
+<link rel="canonical" href="https://calculamundo.com.br/contato.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -27,7 +27,7 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,2.8rem);font-we
 label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;}
 .input-wrap{background:var(--dark3);border:1px solid var(--dark4);border-radius:10px;transition:border-color 0.2s,box-shadow 0.2s;}
 .input-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.1);}
-.input-wrap input, .input-wrap textarea, .input-wrap select{width:100%;background:transparent;border:none;outline:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.95rem;padding:14px 16px;resize:none;}
+.input-wrap input,.input-wrap textarea,.input-wrap select{width:100%;background:transparent;border:none;outline:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.95rem;padding:14px 16px;resize:none;}
 .input-wrap select option{background:var(--dark2);}
 .input-wrap textarea{min-height:120px;}
 .btn-send{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));border:none;border-radius:12px;color:var(--dark);cursor:pointer;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;padding:18px;transition:all 0.3s;margin-top:4px;}
@@ -38,9 +38,6 @@ label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;c
 .info-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:14px;color:var(--text-muted);}
 .info-row:last-child{margin-bottom:0;}
 .info-icon{font-size:20px;flex-shrink:0;}
-footer{position:relative;z-index:10;text-align:center;padding:30px 20px;border-top:1px solid var(--dark4);color:var(--text-muted);font-size:13px;}
-footer a{color:var(--gold);text-decoration:none;}
-footer nav{margin-top:10px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
 </style>
 </head>
 <body>
@@ -48,6 +45,7 @@ footer nav{margin-top:10px;display:flex;justify-content:center;gap:16px;flex-wra
 <div class="bg-glow"></div>
 <div class="container">
   <a href="index.html" class="back-link">← Voltar para o início</a>
+
   <div class="hero">
     <div class="badge">✦ calculamundo · Fale conosco</div>
     <h1>Contato</h1>
@@ -83,43 +81,32 @@ footer nav{margin-top:10px;display:flex;justify-content:center;gap:16px;flex-wra
       <div class="input-wrap"><textarea id="mensagem" placeholder="Descreva sua dúvida ou mensagem…"></textarea></div>
     </div>
     <button class="btn-send" onclick="enviarMensagem()">Enviar mensagem →</button>
-    <div class="success-msg" id="success-msg">
-      ✅ Mensagem enviada! Entraremos em contato em breve.
-    </div>
+    <div class="success-msg" id="success-msg">✅ Mensagem enviada! Entraremos em contato em breve.</div>
   </div>
 
   <div class="info-card">
     <div class="info-row"><span class="info-icon">⏰</span><span>Respondemos em até <strong style="color:var(--text)">2 dias úteis</strong></span></div>
-    <div class="info-row"><span class="info-icon">🔒</span><span>Seus dados são tratados conforme nossa <a href="politica-de-privacidade.html" style="color:var(--gold)">Política de Privacidade</a></span></div>
+    <div class="info-row"><span class="info-icon">🔒</span><span>Seus dados são tratados conforme nossa <a href="privacidade.html" style="color:var(--gold)">Política de Privacidade</a></span></div>
     <div class="info-row"><span class="info-icon">🤝</span><span>Para parcerias e afiliações, informe o assunto "Proposta de parceria"</span></div>
   </div>
 </div>
-<footer style="text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--dark4); background: var(--dark2); position: relative; z-index: 10;">
-    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; align-items: center;">
-        
-        <!-- Links Institucionais cruciais para o AdSense -->
-        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
-            <a href="/sobre.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Sobre Nós</a>
-            <a href="/contato.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Contato</a>
-            <a href="/privacidade.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidade</a>
-            <a href="/termos.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Termos de Uso</a>
-        </div>
 
-        <!-- Aviso Legal (YMYL Exigido pelo Google) -->
-        <p style="max-width: 600px; line-height: 1.6; font-size: 12px; margin-bottom: 10px;">
-            Aviso: Os resultados gerados pelas ferramentas são simulações matemáticas baseadas em estimativas. Rendimentos passados não garantem retornos futuros. Consulte sempre um profissional certificado antes de tomar decisões financeiras.
-        </p>
-
-        <!-- Direitos Autorais e Domínio Corretos com Ano Automático -->
-        <p>© <span id="year-auto">2026</span> · <a href="https://calculamundo.com.br" style="color: var(--gold); text-decoration: none; font-weight: 500;">calculamundo.com.br</a> · Todos os direitos reservados.</p>
-        
+<footer style="text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--dark4); background: var(--dark2);">
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; align-items: center;">
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
+      <a href="/sobre.html" style="color: var(--text-muted); text-decoration: none;">Sobre Nós</a>
+      <a href="/contato.html" style="color: var(--text-muted); text-decoration: none;">Contato</a>
+      <a href="/privacidade.html" style="color: var(--text-muted); text-decoration: none;">Política de Privacidade</a>
+      <a href="/termos.html" style="color: var(--text-muted); text-decoration: none;">Termos de Uso</a>
     </div>
-
-    <!-- Script simples para o ano nunca mais ficar desatualizado -->
-    <script>
-        document.getElementById('year-auto').textContent = new Date().getFullYear();
-    </script>
+    <p style="max-width: 600px; line-height: 1.6; font-size: 12px; margin-bottom: 10px;">
+      Aviso: Os resultados gerados pelas ferramentas são simulações matemáticas baseadas em estimativas. Rendimentos passados não garantem retornos futuros. Consulte sempre um profissional certificado antes de tomar decisões financeiras.
+    </p>
+    <p>© <span id="year-auto">2026</span> · <a href="https://calculamundo.com.br" style="color: var(--gold); text-decoration: none; font-weight: 500;">calculamundo.com.br</a> · Todos os direitos reservados.</p>
+  </div>
+  <script>document.getElementById('year-auto').textContent = new Date().getFullYear();</script>
 </footer>
+
 <script>
 function enviarMensagem(){
   const nome=document.getElementById('nome').value.trim();
@@ -130,10 +117,9 @@ function enviarMensagem(){
     alert('Por favor, preencha todos os campos.');
     return;
   }
-  // Monta link mailto como fallback funcional
   const subject=encodeURIComponent('[calculamundo] '+assunto);
   const body=encodeURIComponent('Nome: '+nome+'\nE-mail: '+email+'\n\nMensagem:\n'+msg);
-  window.location.href='mailto:contato@calculamundo.netlify.app?subject='+subject+'&body='+body;
+  window.location.href='mailto:contato@calculamundo.com.br?subject='+subject+'&body='+body;
   document.getElementById('success-msg').classList.add('show');
 }
 </script>
