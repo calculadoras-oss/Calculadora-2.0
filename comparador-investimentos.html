@@ -13,12 +13,17 @@
 <style>
 :root{--gold:#C9A84C;--gold-light:#E8C97A;--dark:#0A0A0F;--dark2:#12121A;--dark3:#1A1A26;--dark4:#22223A;--text:#E8E8F0;--text-muted:#8888AA;--green:#2ECC71;--radius:16px;}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;}
-.bg-grid{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(201,168,76,0.03)1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03)1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
-.bg-glow{position:fixed;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(201,168,76,0.08)0%,transparent 70%);pointer-events:none;z-index:0;}
-header{position:relative;z-index:10;text-align:center;padding:50px 20px 30px;animation:fadeDown 0.8s ease;}
-.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--gold);text-decoration:none;font-size:13px;margin-bottom:20px;opacity:0.8;}
-.back-link:hover{opacity:1;}
+body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;transition:background 0.3s,color 0.3s;}
+body.light{--dark:#F5F5F0;--dark2:#FFFFFF;--dark3:#F0F0EA;--dark4:#DDDDD0;--text:#1A1A1A;--text-muted:#666655;}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--dark4);padding:0 20px;}
+body.light nav{background:rgba(245,245,240,0.92);}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);text-decoration:none;font-weight:700;}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap;}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:12px;padding:6px 10px;border-radius:8px;transition:all 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);background:rgba(201,168,76,0.08);}
+.theme-btn{background:var(--dark3);border:1px solid var(--dark4);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;flex-shrink:0;}
+header{position:relative;z-index:10;text-align:center;padding:40px 20px 30px;}
 .badge{display:inline-block;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:20px;}
 h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.1;background:linear-gradient(135deg,var(--gold-light),var(--gold),#A07830);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;}
 .subtitle{color:var(--text-muted);font-size:1.05rem;max-width:480px;margin:0 auto;line-height:1.6;}
@@ -49,115 +54,94 @@ label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;c
 .tool-link:hover{border-color:var(--gold);}
 .tool-link-name{font-size:0.9rem;color:var(--gold);margin-bottom:4px;}
 .tool-link-desc{font-size:12px;color:var(--text-muted);}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
-<div class="bg-grid"></div>
-<div class="bg-glow"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">✦ calculamundo</a>
+    <div class="nav-links">
+      <a href="index.html">Juros</a>
+      <a href="calculadora-aposentadoria.html">Aposentadoria</a>
+      <a href="simulador-financiamento.html">Financiamento</a>
+      <a href="comparador-investimentos.html" class="active">Comparador</a>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+  </div>
+</nav>
 <header>
-<a href="index.html" class="back-link">← Voltar para o início</a><br>
-<div class="badge">✦ calculamundo · Comparativo</div>
-<h1>Comparador de<br>Investimentos</h1>
-<p class="subtitle">Poupança, CDB e Tesouro Direto lado a lado. Descubra onde seu dinheiro rende mais.</p>
+  <div class="badge">✦ calculamundo · Comparativo</div>
+  <h1>Comparador de<br>Investimentos</h1>
+  <p class="subtitle">Poupança, CDB e Tesouro Direto lado a lado. Descubra onde seu dinheiro rende mais.</p>
 </header>
 <div class="container">
-<div class="card">
-<div class="card-title">⚖️ Dados para comparação</div>
-<div class="field">
-<label>Valor a investir (R$)</label>
-<div class="input-row"><span class="input-prefix">R$</span><input type="number" id="cmp-valor" value="10000" min="0"></div>
-</div>
-<div class="field">
-<label>Prazo (meses)</label>
-<div class="input-row"><input type="number" id="cmp-meses" value="24" min="1"></div>
-</div>
-<button class="btn-calc" onclick="calcComparador()">Comparar investimentos →</button>
-</div>
-<div class="result-box" id="cmp-result">
-<div class="inv-grid">
-<div class="inv-card" id="card-poup">
-<div><div class="inv-name">🏦 Poupança</div><div class="inv-rate">0,50% ao mês</div></div>
-<div style="text-align:right"><div class="inv-val" id="val-poup">—</div><div class="inv-gain" id="gain-poup">—</div></div>
-</div>
-<div class="inv-card" id="card-cdb">
-<div><div class="inv-name">📊 CDB 100% CDI</div><div class="inv-rate">~0,90% ao mês</div></div>
-<div style="text-align:right"><div class="inv-val" id="val-cdb">—</div><div class="inv-gain" id="gain-cdb">—</div></div>
-</div>
-<div class="inv-card" id="card-td">
-<div><div class="inv-name">🇧🇷 Tesouro Direto</div><div class="inv-rate">~0,95% ao mês</div></div>
-<div style="text-align:right"><div class="inv-val" id="val-td">—</div><div class="inv-gain" id="gain-td">—</div></div>
-</div>
-</div>
-<div class="card" style="padding:20px;">
-<div class="card-title" style="margin-bottom:12px;">📈 Evolução comparativa</div>
-<div class="chart-wrap"><canvas id="cmpChart"></canvas></div>
-</div>
-</div>
-<div class="card" style="margin-top:4px;">
-<div class="card-title">🛠️ Outras calculadoras</div>
-<div class="other-tools">
-<a href="index.html" class="tool-link"><div class="tool-link-name">📊 Juros Compostos</div><div class="tool-link-desc">Simule seu crescimento patrimonial</div></a>
-<a href="calculadora-aposentadoria.html" class="tool-link"><div class="tool-link-name">🏖️ Aposentadoria</div><div class="tool-link-desc">Planeje sua independência financeira</div></a>
-<a href="simulador-financiamento.html" class="tool-link"><div class="tool-link-name">🏠 Financiamento</div><div class="tool-link-desc">Compare Price e SAC</div></a>
-</div>
-</div>
+  <div class="card">
+    <div class="card-title">⚖️ Dados para comparação</div>
+    <div class="field"><label>Valor a investir (R$)</label><div class="input-row"><span class="input-prefix">R$</span><input type="number" id="cmp-valor" value="10000" min="0"></div></div>
+    <div class="field"><label>Prazo (meses)</label><div class="input-row"><input type="number" id="cmp-meses" value="24" min="1"></div></div>
+    <button class="btn-calc" onclick="calcComparador()">Comparar investimentos →</button>
+  </div>
+  <div class="result-box" id="cmp-result">
+    <div class="inv-grid">
+      <div class="inv-card" id="card-poup"><div><div class="inv-name">🏦 Poupança</div><div class="inv-rate">0,50% ao mês</div></div><div style="text-align:right"><div class="inv-val" id="val-poup">—</div><div class="inv-gain" id="gain-poup">—</div></div></div>
+      <div class="inv-card" id="card-cdb"><div><div class="inv-name">📊 CDB 100% CDI</div><div class="inv-rate">~0,90% ao mês</div></div><div style="text-align:right"><div class="inv-val" id="val-cdb">—</div><div class="inv-gain" id="gain-cdb">—</div></div></div>
+      <div class="inv-card" id="card-td"><div><div class="inv-name">🇧🇷 Tesouro Direto</div><div class="inv-rate">~0,95% ao mês</div></div><div style="text-align:right"><div class="inv-val" id="val-td">—</div><div class="inv-gain" id="gain-td">—</div></div></div>
+    </div>
+    <div class="card" style="padding:20px;">
+      <div class="card-title" style="margin-bottom:12px;">📈 Evolução comparativa</div>
+      <div class="chart-wrap"><canvas id="cmpChart"></canvas></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🛠️ Outras calculadoras</div>
+    <div class="other-tools">
+      <a href="index.html" class="tool-link"><div class="tool-link-name">📊 Juros Compostos</div><div class="tool-link-desc">Simule seu crescimento patrimonial</div></a>
+      <a href="calculadora-aposentadoria.html" class="tool-link"><div class="tool-link-name">🏖️ Aposentadoria</div><div class="tool-link-desc">Planeje sua independência financeira</div></a>
+      <a href="simulador-financiamento.html" class="tool-link"><div class="tool-link-name">🏠 Financiamento</div><div class="tool-link-desc">Compare Price e SAC</div></a>
+    </div>
+  </div>
 </div>
 <footer style="text-align:center;padding:40px 20px;color:var(--text-muted);font-size:13px;border-top:1px solid var(--dark4);background:var(--dark2);position:relative;z-index:10;">
-<div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:15px;align-items:center;">
-<div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;">
-<a href="/sobre.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Sobre Nós</a>
-<a href="/contato.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Contato</a>
-<a href="/privacidade.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidade</a>
-<a href="/termos.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Termos de Uso</a>
-</div>
-<p style="max-width:600px;line-height:1.6;font-size:12px;margin-bottom:10px;">Aviso: Os resultados gerados pelas ferramentas são simulações matemáticas baseadas em estimativas. Rendimentos passados não garantem retornos futuros. Consulte sempre um profissional certificado antes de tomar decisões financeiras.</p>
-<p>© <span id="year-auto">2026</span> · <a href="https://calculamundo.com.br" style="color:var(--gold);text-decoration:none;font-weight:500;">calculamundo.com.br</a> · Todos os direitos reservados.</p>
-</div>
-<script>document.getElementById('year-auto').textContent = new Date().getFullYear();</script>
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:15px;align-items:center;">
+    <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;">
+      <a href="/sobre.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Sobre Nós</a>
+      <a href="/contato.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Contato</a>
+      <a href="/privacidade.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidade</a>
+      <a href="/termos.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Termos de Uso</a>
+    </div>
+    <p style="max-width:600px;line-height:1.6;font-size:12px;margin-bottom:10px;">Aviso: Os resultados gerados pelas ferramentas são simulações matemáticas baseadas em estimativas. Rendimentos passados não garantem retornos futuros. Consulte sempre um profissional certificado antes de tomar decisões financeiras.</p>
+    <p>© <span id="year-auto">2026</span> · <a href="https://calculamundo.com.br" style="color:var(--gold);text-decoration:none;font-weight:500;">calculamundo.com.br</a> · Todos os direitos reservados.</p>
+  </div>
+  <script>document.getElementById('year-auto').textContent = new Date().getFullYear();</script>
 </footer>
 <script>
 let cmpChart=null;
 function fmt(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function toggleTheme(){document.body.classList.toggle('light');document.querySelector('.theme-btn').textContent=document.body.classList.contains('light')?'🌙':'☀️';}
 function calcComparador(){
-const valor=parseFloat(document.getElementById('cmp-valor').value)||0;
-const n=parseInt(document.getElementById('cmp-meses').value)||0;
-const iPoup=0.005,iCDB=0.009,iTD=0.0095;
-const poup=valor*Math.pow(1+iPoup,n);
-const cdb=valor*Math.pow(1+iCDB,n);
-const td=valor*Math.pow(1+iTD,n);
-const best=Math.max(poup,cdb,td);
-document.getElementById('val-poup').textContent=fmt(poup);
-document.getElementById('val-cdb').textContent=fmt(cdb);
-document.getElementById('val-td').textContent=fmt(td);
-document.getElementById('gain-poup').textContent='+'+fmt(poup-valor)+' rendimento';
-document.getElementById('gain-cdb').textContent='+'+fmt(cdb-valor)+' rendimento';
-document.getElementById('gain-td').textContent='+'+fmt(td-valor)+' rendimento';
-['card-poup','card-cdb','card-td'].forEach(id=>document.getElementById(id).classList.remove('best'));
-if(best===td)document.getElementById('card-td').classList.add('best');
-else if(best===cdb)document.getElementById('card-cdb').classList.add('best');
-else document.getElementById('card-poup').classList.add('best');
-const labels=[];const dPoup=[],dCDB=[],dTD=[];
-for(let m=0;m<=n;m++){
-labels.push(m===0?'Hoje':m%6===0?m+'m':'');
-dPoup.push(+(valor*Math.pow(1+iPoup,m)).toFixed(2));
-dCDB.push(+(valor*Math.pow(1+iCDB,m)).toFixed(2));
-dTD.push(+(valor*Math.pow(1+iTD,m)).toFixed(2));
-}
-if(cmpChart)cmpChart.destroy();
-cmpChart=new Chart(document.getElementById('cmpChart').getContext('2d'),{
-type:'line',
-data:{labels,datasets:[
-{label:'Tesouro Direto',data:dTD,borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,0.08)',fill:true,tension:0.4,pointRadius:0,borderWidth:2.5},
-{label:'CDB',data:dCDB,borderColor:'#2ECC71',backgroundColor:'rgba(46,204,113,0.05)',fill:false,tension:0.4,pointRadius:0,borderWidth:2},
-{label:'Poupança',data:dPoup,borderColor:'#8888AA',backgroundColor:'transparent',fill:false,tension:0.4,pointRadius:0,borderWidth:1.5,borderDash:[4,4]}
-]},
-options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
-plugins:{legend:{labels:{color:'#8888AA',font:{family:'DM Sans',size:11}}},tooltip:{backgroundColor:'#12121A',borderColor:'#C9A84C',borderWidth:1,titleColor:'#C9A84C',bodyColor:'#E8E8F0',callbacks:{label:ctx=>' '+ctx.dataset.label+': R$ '+ctx.parsed.y.toLocaleString('pt-BR',{minimumFractionDigits:2})}}},
-scales:{x:{ticks:{color:'#555577',font:{size:10}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#555577',font:{size:10},callback:v=>'R$'+(v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e3?(v/1e3).toFixed(1)+'k':v)},grid:{color:'rgba(255,255,255,0.04)'}}}}
-});
-document.getElementById('cmp-result').classList.add('show');
+  const valor=parseFloat(document.getElementById('cmp-valor').value)||0;
+  const n=parseInt(document.getElementById('cmp-meses').value)||0;
+  const iPoup=0.005,iCDB=0.009,iTD=0.0095;
+  const poup=valor*Math.pow(1+iPoup,n);
+  const cdb=valor*Math.pow(1+iCDB,n);
+  const td=valor*Math.pow(1+iTD,n);
+  const best=Math.max(poup,cdb,td);
+  document.getElementById('val-poup').textContent=fmt(poup);
+  document.getElementById('val-cdb').textContent=fmt(cdb);
+  document.getElementById('val-td').textContent=fmt(td);
+  document.getElementById('gain-poup').textContent='+'+fmt(poup-valor)+' rendimento';
+  document.getElementById('gain-cdb').textContent='+'+fmt(cdb-valor)+' rendimento';
+  document.getElementById('gain-td').textContent='+'+fmt(td-valor)+' rendimento';
+  ['card-poup','card-cdb','card-td'].forEach(id=>document.getElementById(id).classList.remove('best'));
+  if(best===td)document.getElementById('card-td').classList.add('best');
+  else if(best===cdb)document.getElementById('card-cdb').classList.add('best');
+  else document.getElementById('card-poup').classList.add('best');
+  const labels=[];const dPoup=[],dCDB=[],dTD=[];
+  for(let m=0;m<=n;m++){labels.push(m===0?'Hoje':m%6===0?m+'m':'');dPoup.push(+(valor*Math.pow(1+iPoup,m)).toFixed(2));dCDB.push(+(valor*Math.pow(1+iCDB,m)).toFixed(2));dTD.push(+(valor*Math.pow(1+iTD,m)).toFixed(2));}
+  if(cmpChart)cmpChart.destroy();
+  cmpChart=new Chart(document.getElementById('cmpChart').getContext('2d'),{type:'line',data:{labels,datasets:[{label:'Tesouro Direto',data:dTD,borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,0.08)',fill:true,tension:0.4,pointRadius:0,borderWidth:2.5},{label:'CDB',data:dCDB,borderColor:'#2ECC71',backgroundColor:'rgba(46,204,113,0.05)',fill:false,tension:0.4,pointRadius:0,borderWidth:2},{label:'Poupança',data:dPoup,borderColor:'#8888AA',backgroundColor:'transparent',fill:false,tension:0.4,pointRadius:0,borderWidth:1.5,borderDash:[4,4]}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{color:'#8888AA',font:{family:'DM Sans',size:11}}},tooltip:{backgroundColor:'#12121A',borderColor:'#C9A84C',borderWidth:1,titleColor:'#C9A84C',bodyColor:'#E8E8F0',callbacks:{label:ctx=>' '+ctx.dataset.label+': R$ '+ctx.parsed.y.toLocaleString('pt-BR',{minimumFractionDigits:2})}}},scales:{x:{ticks:{color:'#555577',font:{size:10}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#555577',font:{size:10},callback:v=>'R$'+(v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e3?(v/1e3).toFixed(1)+'k':v)},grid:{color:'rgba(255,255,255,0.04)'}}}}});
+  document.getElementById('cmp-result').classList.add('show');
 }
 </script>
 </body>
