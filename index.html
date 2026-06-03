@@ -84,10 +84,6 @@ label { display: block; font-size: 12px; letter-spacing: 1px; text-transform: up
 .ai-subtitle { font-size: 12px; color: var(--text-muted); }
 .ai-response { background: var(--dark3); border-radius: 12px; padding: 20px; font-size: 0.95rem; line-height: 1.7; color: var(--text); min-height: 60px; }
 .ai-response.loading { color: var(--text-muted); font-style: italic; }
-.ai-input-row { display: flex; gap: 10px; margin-top: 14px; }
-.ai-input { flex: 1; background: var(--dark3); border: 1px solid var(--dark4); border-radius: 10px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; padding: 12px 16px; outline: none; transition: border-color 0.2s; }
-.ai-input:focus { border-color: var(--gold); }
-.ai-send { background: var(--gold); border: none; border-radius: 10px; color: var(--dark); cursor: pointer; font-weight: 700; padding: 12px 20px; transition: all 0.2s; white-space: nowrap; }
 .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 24px; }
 .tool-card { background: var(--dark2); border: 1px solid var(--dark4); border-radius: var(--radius); padding: 24px; cursor: pointer; transition: all 0.3s; text-decoration: none; display: block; }
 .tool-card:hover { border-color: var(--gold); transform: translateY(-3px); }
@@ -103,24 +99,32 @@ label { display: block; font-size: 12px; letter-spacing: 1px; text-transform: up
 .aff-name { font-weight: 600; color: var(--text); font-size: 1rem; margin-bottom: 4px; }
 .aff-benefit { font-size: 12px; color: var(--green); margin-bottom: 10px; }
 .aff-cta { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--dark); border-radius: 6px; font-size: 12px; font-weight: 700; padding: 6px 14px; }
+
+/* ===== PRODUTO CARDS COM IMAGEM ===== */
 .prod-section { background: var(--dark2); border: 1px solid var(--dark4); border-radius: var(--radius); padding: 28px; margin-bottom: 24px; }
-.prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
-.prod-card { background: var(--dark3); border: 1px solid var(--dark4); border-radius: 12px; padding: 16px; text-align: center; text-decoration: none; transition: all 0.3s; display: block; }
-.prod-card:hover { transform: translateY(-2px); }
+.prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.prod-card { background: var(--dark3); border: 1px solid var(--dark4); border-radius: 12px; overflow: hidden; text-decoration: none; transition: all 0.3s; display: flex; flex-direction: column; }
+.prod-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
 .prod-card.shopee:hover { border-color: #EE4D2D; }
 .prod-card.mercado:hover { border-color: #FFE600; }
-.prod-emoji { font-size: 32px; margin-bottom: 10px; }
-.prod-name { font-weight: 600; color: var(--text); font-size: 0.9rem; margin-bottom: 6px; line-height: 1.3; }
-.prod-tag { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; }
-.cta-shopee { display: inline-block; background: #EE4D2D; color: white; border-radius: 6px; font-size: 12px; font-weight: 700; padding: 6px 14px; }
-.cta-mercado { display: inline-block; background: #FFE600; color: #333; border-radius: 6px; font-size: 12px; font-weight: 700; padding: 6px 14px; }
+.prod-img-wrap { width: 100%; aspect-ratio: 3/4; overflow: hidden; background: var(--dark4); position: relative; }
+.prod-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.4s ease; }
+.prod-card:hover .prod-img-wrap img { transform: scale(1.05); }
+.prod-img-wrap.calc-img { aspect-ratio: 1/1; }
+.prod-img-wrap.calc-img img { object-position: center; }
+.prod-info { padding: 12px 14px 14px; display: flex; flex-direction: column; flex: 1; }
+.prod-name { font-weight: 600; color: var(--text); font-size: 0.88rem; margin-bottom: 4px; line-height: 1.35; }
+.prod-tag { font-size: 11px; color: var(--text-muted); margin-bottom: 12px; flex: 1; }
+.cta-shopee { display: block; text-align: center; background: #EE4D2D; color: white; border-radius: 6px; font-size: 12px; font-weight: 700; padding: 7px 10px; }
+.cta-mercado { display: block; text-align: center; background: #FFE600; color: #333; border-radius: 6px; font-size: 12px; font-weight: 700; padding: 7px 10px; }
+
 .ad-middle { background: var(--dark2); border: 1px solid var(--dark4); border-radius: var(--radius); padding: 10px; margin-bottom: 24px; text-align: center; }
 .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
 .tip-card { background: var(--dark2); border: 1px solid var(--dark4); border-radius: var(--radius); padding: 22px; }
 .tip-icon { font-size: 24px; margin-bottom: 10px; }
 .tip-title { font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
 .tip-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-  footer { position: relative; z-index: 10; text-align: center; padding: 40px 20px; border-top: 1px solid var(--dark4); color: var(--text-muted); font-size: 13px; }
+footer { position: relative; z-index: 10; text-align: center; padding: 40px 20px; border-top: 1px solid var(--dark4); color: var(--text-muted); font-size: 13px; }
 footer a { color: var(--gold); text-decoration: none; }
 footer nav { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
 @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
@@ -138,13 +142,15 @@ body.light { --dark: #F5F5F0; --dark2: #FFFFFF; --dark3: #F0F0EA; --dark4: #DDDD
 <div class="bg-glow"></div>
 <button class="theme-btn" onclick="toggleTheme()">🌙</button>
 <div class="toast" id="toast"></div>
-
 <header>
   <div class="badge">✦ calculamundo · Educação Financeira</div>
   <h1>Calculadora de<br>Juros Compostos</h1>
   <p class="subtitle">Descubra o poder dos juros sobre juros e veja quanto seu dinheiro pode crescer ao longo do tempo.</p>
 </header>
-
+<div class="ad-banner">
+  <div class="ad-label">Publicidade</div>
+  <div class="ad-slot"><span>[ Espaço Google AdSense 728x90 ]</span></div>
+</div>
 <div class="container">
   <div class="grid">
     <div class="card">
@@ -182,7 +188,6 @@ body.light { --dark: #F5F5F0; --dark2: #FFFFFF; --dark3: #F0F0EA; --dark4: #DDDD
       </div>
       <button class="btn-calc" onclick="calcular()">Calcular meu patrimônio →</button>
     </div>
-
     <div>
       <div class="result-card" id="result-card">
         <div class="result-main">
@@ -223,55 +228,40 @@ body.light { --dark: #F5F5F0; --dark2: #FFFFFF; --dark3: #F0F0EA; --dark4: #DDDD
       <div><div class="ai-title">Consultor Financeiro IA</div><div class="ai-subtitle">Tire dúvidas sobre seu resultado com o ChatGPT</div></div>
     </div>
     <div class="ai-response" id="ai-response" style="margin-bottom:16px;">
-      Sua simulação está pronta! Clique no botão abaixo para abrir o ChatGPT com os seus dados já preenchidos — é só perguntar o que quiser sobre seu investimento. 💡
+Sua simulação está pronta! Clique no botão abaixo para abrir o ChatGPT com os seus dados já preenchidos — é só perguntar o que quiser sobre seu investimento. 💡
     </div>
     <button class="btn-calc" id="btn-chatgpt" onclick="abrirChatGPT()" style="background:linear-gradient(135deg,#10a37f,#1a7f64); margin-top:0;">
-      💬 Analisar com ChatGPT →
+💬 Analisar com ChatGPT →
     </button>
   </div>
 
 <section class="card" style="margin-bottom:24px;">
 <h2 class="section-title">🚀 O Poder dos Juros Compostos</h2>
-<p style="line-height:1.8;color:var(--text-muted);">
-Os juros compostos são um dos conceitos mais importantes das finanças pessoais. Diferentemente dos juros simples, em que os rendimentos incidem apenas sobre o valor inicial investido, os juros compostos fazem com que os ganhos acumulados também passem a gerar novos ganhos.
-</p>
-<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
-Na prática, isso significa que o crescimento do patrimônio tende a acelerar com o passar do tempo. Quanto maior o prazo e mais consistente for a estratégia de investimento, maior tende a ser o efeito dos juros sobre juros.
-</p>
-<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
-Por esse motivo, investidores de longo prazo costumam dar grande importância ao tempo de investimento. Em muitos casos, começar cedo pode fazer mais diferença do que investir valores elevados por um período curto.
-</p>
+<p style="line-height:1.8;color:var(--text-muted);">Os juros compostos são um dos conceitos mais importantes das finanças pessoais. Diferentemente dos juros simples, em que os rendimentos incidem apenas sobre o valor inicial investido, os juros compostos fazem com que os ganhos acumulados também passem a gerar novos ganhos.</p>
+<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Na prática, isso significa que o crescimento do patrimônio tende a acelerar com o passar do tempo. Quanto maior o prazo e mais consistente for a estratégia de investimento, maior tende a ser o efeito dos juros sobre juros.</p>
+<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Por esse motivo, investidores de longo prazo costumam dar grande importância ao tempo de investimento. Em muitos casos, começar cedo pode fazer mais diferença do que investir valores elevados por um período curto.</p>
 </section>
+
 <section class="card" style="margin-bottom:24px;">
 <h2 class="section-title">⏳ Por Que Começar a Investir o Quanto Antes?</h2>
-<p style="line-height:1.8;color:var(--text-muted);">
-O tempo é um dos fatores mais importantes para o crescimento do patrimônio. Imagine duas pessoas que investem exatamente o mesmo valor mensal. Aquela que começa dez anos antes normalmente terá uma vantagem significativa ao final da jornada.
-</p>
-<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
-Isso acontece porque os juros compostos precisam de tempo para mostrar todo seu potencial. Nos primeiros anos o crescimento pode parecer lento, mas após uma ou duas décadas o patrimônio tende a acelerar de forma expressiva.
-</p>
-<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
-Por isso, mesmo pequenos aportes mensais podem fazer diferença quando mantidos de forma consistente ao longo dos anos.
-</p>
+<p style="line-height:1.8;color:var(--text-muted);">O tempo é um dos fatores mais importantes para o crescimento do patrimônio. Imagine duas pessoas que investem exatamente o mesmo valor mensal. Aquela que começa dez anos antes normalmente terá uma vantagem significativa ao final da jornada.</p>
+<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Isso acontece porque os juros compostos precisam de tempo para mostrar todo seu potencial. Nos primeiros anos o crescimento pode parecer lento, mas após uma ou duas décadas o patrimônio tende a acelerar de forma expressiva.</p>
+<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Por isso, mesmo pequenos aportes mensais podem fazer diferença quando mantidos de forma consistente ao longo dos anos.</p>
 </section>
+
 <section class="card" style="margin-bottom:24px;">
 <h2 class="section-title">💰 Quanto Pode Crescer um Investimento?</h2>
-<p style="line-height:1.8;color:var(--text-muted);">
-Muitas pessoas procuram respostas para perguntas como:
-</p>
+<p style="line-height:1.8;color:var(--text-muted);">Muitas pessoas procuram respostas para perguntas como:</p>
 <ul style="line-height:2;color:var(--text-muted);padding-left:20px;">
 <li>Quanto rende R$ 10.000 investidos?</li>
 <li>Quanto rende R$ 100.000 investidos?</li>
 <li>Quanto rende R$ 1.000.000 investidos?</li>
 <li>Quanto preciso investir para viver de renda?</li>
 </ul>
-<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
-A resposta depende principalmente da taxa de rentabilidade, do prazo e dos aportes realizados ao longo do tempo. Utilizando a calculadora acima é possível criar cenários personalizados para entender melhor o potencial de crescimento do patrimônio.
-</p>
-<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
-Pequenas diferenças de rentabilidade podem gerar impactos significativos após vários anos de investimento.
-</p>
+<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">A resposta depende principalmente da taxa de rentabilidade, do prazo e dos aportes realizados ao longo do tempo. Utilizando a calculadora acima é possível criar cenários personalizados para entender melhor o potencial de crescimento do patrimônio.</p>
+<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Pequenas diferenças de rentabilidade podem gerar impactos significativos após vários anos de investimento.</p>
 </section>
+
 <section class="card" style="margin-bottom:24px;">
 <h2 class="section-title">🎯 Benefícios de Entender os Juros Compostos</h2>
 <ul style="line-height:2;color:var(--text-muted);padding-left:20px;">
@@ -284,51 +274,42 @@ Pequenas diferenças de rentabilidade podem gerar impactos significativos após 
 <li>Desenvolver hábitos financeiros mais saudáveis.</li>
 </ul>
 </section>
+
 <section class="card" style="margin-bottom:24px;">
 <h2 class="section-title">🏖️ Como Planejar a Aposentadoria</h2>
-<p style="line-height:1.8;color:var(--text-muted);">
-Planejar a aposentadoria não significa apenas acumular dinheiro. O objetivo é construir uma fonte de renda capaz de ajudar a manter o padrão de vida desejado no futuro.
-</p>
-<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
-Quanto antes o planejamento começar, menor tende a ser o esforço necessário para atingir a meta. Por isso, a combinação entre tempo, disciplina e juros compostos é uma das bases do planejamento financeiro de longo prazo.
-</p>
-<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
-Você também pode utilizar a Calculadora de Aposentadoria do CalculaMundo para estimar quanto precisa acumular para alcançar seus objetivos financeiros.
-</p>
+<p style="line-height:1.8;color:var(--text-muted);">Planejar a aposentadoria não significa apenas acumular dinheiro. O objetivo é construir uma fonte de renda capaz de ajudar a manter o padrão de vida desejado no futuro.</p>
+<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Quanto antes o planejamento começar, menor tende a ser o esforço necessário para atingir a meta. Por isso, a combinação entre tempo, disciplina e juros compostos é uma das bases do planejamento financeiro de longo prazo.</p>
+<p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Você também pode utilizar a Calculadora de Aposentadoria do CalculaMundo para estimar quanto precisa acumular para alcançar seus objetivos financeiros.</p>
 </section>
+
 <section class="card" style="margin-bottom:24px;">
 <h2 class="section-title">📊 Guia Rápido de Rendimentos</h2>
-
 <h3>O que são juros compostos?</h3>
 <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">É o efeito "bola de neve" onde os juros rendem sobre os juros já acumulados, multiplicando seu capital no longo prazo. <a href="#top" style="color:var(--gold);text-decoration:none;font-weight:500;">Simular na Calculadora ➔</a></p>
-
 <h3>Qual a diferença entre juros simples e compostos?</h3>
 <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">Os juros simples incidem apenas sobre o valor inicial; os compostos rendem sobre o saldo total atualizado a cada mês. <a href="#top" style="color:var(--gold);text-decoration:none;font-weight:500;">Subir para ver o Gráfico ➔</a></p>
-
 <h3>Quanto devo investir por mês?</h3>
 <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">A regra de ouro das finanças é poupar e investir de forma consistente no mínimo 20% do que você ganha todos os meses. <a href="https://s.shopee.com.br/8KmllFgFkw?share_channel_code=1" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:500;">Livro Recomendado na Shopee ➔</a></p>
-
 <h3>Quanto rende R$ 10.000 investidos?</h3>
 <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">Gera cerca de R$ 1.000 por ano (aprox. R$ 80 por mês) com total segurança em aplicações básicas de Renda Fixa. <a href="#top" style="color:var(--gold);text-decoration:none;font-weight:500;">Calcular prazos maiores ➔</a></p>
-
 <h3>Quanto rende R$ 100.000 investidos?</h3>
 <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">Rende cerca de R$ 10.000 por ano, garantindo uma renda extra média de R$ 800 todos os meses na sua conta de investimentos. <a href="https://s.shopee.com.br/4qCtaeoTQO?share_channel_code=1" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:500;">Ver Guia na Shopee ➔</a></p>
-
 <h3>Quanto rende R$ 1 milhão?</h3>
 <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">Produz cerca de R$ 100.000 por ano, liberando saques mensais seguros de até R$ 8.000 sem reduzir o seu patrimônio principal. <a href="#top" style="color:var(--gold);text-decoration:none;font-weight:500;">Calcular Meta de 1 Milhão ➔</a></p>
-
 <h3>O que é renda passiva?</h3>
 <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">É o dinheiro gerado de forma automática por ativos financeiros (como dividendos e fundos imobiliários), sem depender do seu trabalho. <a href="https://s.shopee.com.br/5VSaNhYmR0?share_channel_code=1" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:500;">Ver Kit Pai Rico na Shopee ➔</a></p>
-
 <h3>Posso viver apenas dos rendimentos?</h3>
 <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">Sim, você atinge a liberdade financeira quando seu patrimônio acumulado soma de 25 a 30 vezes o seu custo de vida anual. <a href="calculadora-aposentadoria.html" style="color:var(--gold);text-decoration:none;font-weight:500;">Simular Aposentadoria ➔</a></p>
-
 <h3>Qual o melhor investimento?</h3>
 <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">Não existe um único ideal: use o Tesouro Selic para objetivos de curto prazo e ações ou FIIs para prazos mais longos. <a href="comparador-investimentos.html" style="color:var(--gold);text-decoration:none;font-weight:500;">Comparador de Investimentos ➔</a></p>
-
 <h3>Como usar a calculadora de juros compostos?</h3>
 <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">Preencha o valor inicial, aportes mensais, taxa e tempo para ver os juros reais gerados pelo mercado a favor do seu bolso. <a href="https://meli.la/1PFqGCz" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:500;">Ver HP 12C no Mercado Livre ➔</a></p>
-</section><!
+</section>
+
+  <div class="ad-middle">
+    <div class="ad-label">Publicidade</div>
+    <div class="ad-slot" style="height:250px;"><span>[ Espaço Google AdSense 300x250 ]</span></div>
+  </div>
 
   <div class="section-title">🛠️ Outras Calculadoras</div>
   <div class="tools-grid">
@@ -367,91 +348,98 @@ Você também pode utilizar a Calculadora de Aposentadoria do CalculaMundo para 
       </a>
     </div>
   </div>
-  <div style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:13px;color:#8888AA;line-height:1.6;">
-    <strong style="color:#C9A84C;">Aviso de links de afiliados:</strong> Alguns links abaixo são de afiliados. Se você comprar por eles, recebemos uma comissão sem custo extra para você. Recomendamos apenas produtos que consideramos úteis.
-  </div>
- <div class="prod-section">
+
+  <div class="prod-section">
     <div class="aff-title">📚 Aprenda mais sobre investimentos</div>
     <div class="aff-sub">Livros e ferramentas recomendados para turbinar seus resultados:</div>
     <div class="prod-grid">
-      
-      <!-- PRODUTO 1 -->
-      <a href="https://shopee.com.br" target="_blank" rel="noopener" class="prod-card shopee">
-        <div style="font-size: 40px; margin-bottom: 12px; display: block; text-shadow: 0 4px 15px rgba(201,168,76,0.3);">📗</div>
-        <div class="prod-name">Segredos da Mente Milionária</div>
-        <div class="prod-tag">T. Harv Eker · Best-seller mundial</div>
-        <span class="cta-shopee">Ver na Shopee →</span>
+
+      <!-- PRODUTO 1 — Segredos da Mente Milionária -->
+      <a href="https://s.shopee.com.br/4qCtaeoTQO?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
+        <div class="prod-img-wrap">
+          <img src="img-mente-milionaria.jpg" alt="Segredos da Mente Milionária" loading="lazy">
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Segredos da Mente Milionária</div>
+          <div class="prod-tag">T. Harv Eker · Best-seller mundial</div>
+          <span class="cta-shopee">Ver na Shopee →</span>
+        </div>
       </a>
 
-      <!-- PRODUTO 2 -->
-      <a href="https://shopee.com.br" target="_blank" rel="noopener" class="prod-card shopee">
-        <div style="font-size: 40px; margin-bottom: 12px; display: block; text-shadow: 0 4px 15px rgba(201,168,76,0.3);">📘</div>
-        <div class="prod-name">Kit Pai Rico Pai Pobre</div>
-        <div class="prod-tag">Robert Kiyosaki · Kit completo</div>
-        <span class="cta-shopee">Ver na Shopee →</span>
+      <!-- PRODUTO 2 — Kit Pai Rico Pai Pobre -->
+      <a href="https://s.shopee.com.br/5VSaNhYmR0?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
+        <div class="prod-img-wrap">
+          <img src="img-kit-pai-rico.jpg" alt="Kit Pai Rico Pai Pobre" loading="lazy">
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Kit Pai Rico Pai Pobre</div>
+          <div class="prod-tag">Robert Kiyosaki · Kit completo</div>
+          <span class="cta-shopee">Ver na Shopee →</span>
+        </div>
       </a>
 
-      <!-- PRODUTO 3 -->
-      <a href="https://shopee.com.br" target="_blank" rel="noopener" class="prod-card shopee">
-        <div style="font-size: 40px; margin-bottom: 12px; display: block; text-shadow: 0 4px 15px rgba(201,168,76,0.3);">📙</div>
-        <div class="prod-name">Pai Rico Pai Pobre</div>
-        <div class="prod-tag">Robert Kiyosaki · O clássico</div>
-        <span class="cta-shopee">Ver na Shopee →</span>
+      <!-- PRODUTO 3 — Pai Rico Pai Pobre -->
+      <a href="https://s.shopee.com.br/8KmllFgFkw?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
+        <div class="prod-img-wrap">
+          <img src="img-pai-rico.jpg" alt="Pai Rico Pai Pobre" loading="lazy">
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Pai Rico Pai Pobre</div>
+          <div class="prod-tag">Robert Kiyosaki · O clássico</div>
+          <span class="cta-shopee">Ver na Shopee →</span>
+        </div>
       </a>
 
-      <!-- PRODUTO 4 -->
-      <a href="https://meli.la" target="_blank" rel="noopener" class="prod-card mercado">
-        <div style="font-size: 40px; margin-bottom: 12px; display: block; text-shadow: 0 4px 15px rgba(201,168,76,0.3);">🧮</div>
-        <div class="prod-name">Calculadora Financeira HP 12C</div>
-        <div class="prod-tag">Indispensável para investidores</div>
-        <span class="cta-mercado">Ver no Mercado Livre →</span>
+      <!-- PRODUTO 4 — HP 12C -->
+      <a href="https://meli.la/1PFqGCz" target="_blank" rel="noopener" class="prod-card mercado">
+        <div class="prod-img-wrap calc-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/HP_12C_programmable_calculator.jpg/640px-HP_12C_programmable_calculator.jpg" alt="Calculadora HP 12C" loading="lazy">
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Calculadora Financeira HP 12C</div>
+          <div class="prod-tag">Indispensável para investidores</div>
+          <span class="cta-mercado">Ver no Mercado Livre →</span>
+        </div>
       </a>
 
-      <!-- PRODUTO 5 -->
-      <a href="https://meli.la" target="_blank" rel="noopener" class="prod-card mercado">
-        <div style="font-size: 40px; margin-bottom: 12px; display: block; text-shadow: 0 4px 15px rgba(201,168,76,0.3);">🔬</div>
-        <div class="prod-name">Calculadora Científica Casio FX-82</div>
-        <div class="prod-tag">Para alunos de Engenharia e Exatas</div>
-        <span class="cta-mercado">Ver no Mercado Livre →</span>
+      <!-- PRODUTO 5 — Casio FX-82 -->
+      <a href="https://meli.la/1Xdf84B" target="_blank" rel="noopener" class="prod-card mercado">
+        <div class="prod-img-wrap calc-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Casio_fx-82MS_2nd_edition.jpg/480px-Casio_fx-82MS_2nd_edition.jpg" alt="Calculadora Casio FX-82" loading="lazy">
+        </div>
+        <div class="prod-info">
+          <div class="prod-name">Calculadora Científica Casio FX-82</div>
+          <div class="prod-tag">Para alunos de Engenharia e Exatas</div>
+          <span class="cta-mercado">Ver no Mercado Livre →</span>
+        </div>
       </a>
 
     </div>
   </div>
+
 <footer style="text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--dark4); background: var(--dark2); position: relative; z-index: 10;">
     <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; align-items: center;">
-        
-        <!-- Links Institucionais cruciais para o AdSense -->
         <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
             <a href="/sobre.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Sobre Nós</a>
             <a href="/contato.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Contato</a>
             <a href="/privacidade.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidade</a>
             <a href="/termos.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Termos de Uso</a>
         </div>
-
-        <!-- Aviso Legal (YMYL Exigido pelo Google) -->
         <p style="max-width: 600px; line-height: 1.6; font-size: 12px; margin-bottom: 10px;">
-            Aviso: Os resultados gerados pelas ferramentas são simulações matemáticas baseadas em estimativas. Rendimentos passados não garantem retornos futuros. Consulte sempre um profissional certificado antes de tomar decisões financeiras.
+Aviso: Os resultados gerados pelas ferramentas são simulações matemáticas baseadas em estimativas. Rendimentos passados não garantem retornos futuros. Consulte sempre um profissional certificado antes de tomar decisões financeiras.
         </p>
-
-        <!-- Direitos Autorais e Domínio Corretos com Ano Automático -->
         <p>© <span id="year-auto">2026</span> · <a href="https://calculamundo.com.br" style="color: var(--gold); text-decoration: none; font-weight: 500;">calculamundo.com.br</a> · Todos os direitos reservados.</p>
-        
     </div>
-
-    <!-- Script simples para o ano nunca mais ficar desatualizado -->
-    <script>
-        document.getElementById('year-auto').textContent = new Date().getFullYear();
-    </script>
+    <script>document.getElementById('year-auto').textContent = new Date().getFullYear();</script>
 </footer>
+
 <script>
 let period='mensal', chartInstance=null, lastResult=null;
 const SITE_URL = 'https://calculamundo.com.br';
-
 function setPeriod(p,btn){period=p;document.querySelectorAll('.toggle-group button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
 function loadExample(ini,ap,taxa,meses){document.getElementById('inicial').value=ini;document.getElementById('aporte').value=ap;document.getElementById('taxa').value=taxa;document.getElementById('meses').value=meses;calcular();}
 function fmt(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
-
 function calcular(){
   const P=parseFloat(document.getElementById('inicial').value)||0;
   const Ap=parseFloat(document.getElementById('aporte').value)||0;
@@ -480,7 +468,6 @@ function calcular(){
   renderChart(labels,totais,investidos);
   showAI(P,Ap,i,n,total,investido,juros,renda);
 }
-
 function renderChart(labels,totais,investidos){
   document.getElementById('chart-card').classList.add('show');
   if(chartInstance)chartInstance.destroy();
@@ -495,7 +482,6 @@ function renderChart(labels,totais,investidos){
       scales:{x:{ticks:{color:'#555577',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#555577',font:{size:11},callback:v=>'R$'+(v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e3?(v/1e3).toFixed(0)+'k':v)},grid:{color:'rgba(255,255,255,0.04)'}}}}
   });
 }
-
 function showAI(P,Ap,i,meses,total,investido,juros,renda){
   document.getElementById('ai-card').classList.add('show');
 }
@@ -514,14 +500,12 @@ function abrirChatGPT(){
     +'Por favor: 1) Avalie se é um bom resultado, 2) Explique o poder dos juros compostos neste caso, 3) Dê 2 dicas práticas para melhorar ainda mais.';
   window.open('https://chat.openai.com/?q='+encodeURIComponent(prompt),'_blank');
 }
-
 function shareWhatsApp(){
   if(!lastResult)return;
   const{total,juros}=lastResult;
   const txt=`🤑 Simulei na calculamundo!\n💰 Patrimônio: ${fmt(total)}\n📈 Juros ganhos: ${fmt(juros)}\n\n🔗 Simule você também: ${SITE_URL}`;
   window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(txt),'_blank');
 }
-
 function shareInstagram(){
   if(!lastResult)return;
   const{total,juros}=lastResult;
@@ -534,7 +518,6 @@ function shareInstagram(){
     showToast('🔗 Acesse: '+SITE_URL);
   }
 }
-
 function copyLink(){
   if(navigator.clipboard){
     navigator.clipboard.writeText(SITE_URL).then(()=>{
@@ -545,7 +528,6 @@ function copyLink(){
     });
   }
 }
-
 function toggleTheme(){document.body.classList.toggle('light');document.querySelector('.theme-btn').textContent=document.body.classList.contains('light')?'🌙':'☀️';}
 calcular();
 </script>
