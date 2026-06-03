@@ -3,16 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271"
-     crossorigin="anonymous"></script>
-
-<title>Calculadora de Juros Compostos | calculamundo</title>
-</head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Simulador de Financiamento Price e SAC | calculamundo</title>
 <meta name="description" content="Compare os sistemas Price e SAC para financiamentos imobiliários e de veículos. Veja parcelas, total pago e economia.">
-<link rel="canonical" href="https://calculamundo.netlify.app/simulador-financiamento.html">
+<link rel="canonical" href="https://calculamundo.com.br/simulador-financiamento.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -56,9 +50,6 @@ label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;c
 .tool-link:hover{border-color:var(--gold);}
 .tool-link-name{font-size:0.9rem;color:var(--gold);margin-bottom:4px;}
 .tool-link-desc{font-size:12px;color:var(--text-muted);}
-footer{position:relative;z-index:10;text-align:center;padding:30px 20px;border-top:1px solid var(--dark4);color:var(--text-muted);font-size:13px;}
-footer a{color:var(--gold);text-decoration:none;}
-footer nav{margin-top:10px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
 @media(max-width:500px){.compare-grid{grid-template-columns:1fr;}}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
@@ -68,110 +59,90 @@ footer nav{margin-top:10px;display:flex;justify-content:center;gap:16px;flex-wra
 <div class="bg-grid"></div>
 <div class="bg-glow"></div>
 <header>
-  <a href="index.html" class="back-link">← Voltar para o início</a><br>
-  <div class="badge">✦ calculamundo · Crédito</div>
-  <h1>Simulador de<br>Financiamento</h1>
-  <p class="subtitle">Compare os sistemas Price e SAC e descubra qual é mais vantajoso para o seu caso.</p>
+<a href="index.html" class="back-link">← Voltar para o início</a><br>
+<div class="badge">✦ calculamundo · Crédito</div>
+<h1>Simulador de<br>Financiamento</h1>
+<p class="subtitle">Compare os sistemas Price e SAC e descubra qual é mais vantajoso para o seu caso.</p>
 </header>
 <div class="container">
-  <div class="card">
-    <div class="card-title">🏠 Dados do financiamento</div>
-    <div class="field">
-      <label>Valor do financiamento (R$)</label>
-      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="fin-valor" value="300000" min="0"></div>
-    </div>
-    <div class="field">
-      <label>Taxa de juros mensal (%)</label>
-      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="fin-taxa" value="0.9" step="0.1" min="0.1"></div>
-    </div>
-    <div class="field">
-      <label>Prazo (meses)</label>
-      <div class="input-row"><input type="number" id="fin-meses" value="360" min="1"></div>
-    </div>
-    <button class="btn-calc" onclick="calcFinanciamento()">Simular financiamento →</button>
-  </div>
-
-  <div class="result-box" id="fin-result">
-    <div class="compare-grid">
-      <div class="sys-card">
-        <div class="sys-title">📊 Sistema PRICE</div>
-        <div class="sys-row"><span>Parcela fixa:</span><span id="price-parcela" style="color:var(--gold)">—</span></div>
-        <div class="sys-row"><span>Total pago:</span><span id="price-total">—</span></div>
-        <div class="sys-row"><span>Juros totais:</span><span id="price-juros" style="color:#E74C3C">—</span></div>
-      </div>
-      <div class="sys-card winner">
-        <div class="sys-title">📉 Sistema SAC ✦</div>
-        <div class="sys-row"><span>1ª parcela:</span><span id="sac-primeira" style="color:var(--gold)">—</span></div>
-        <div class="sys-row"><span>Última parcela:</span><span id="sac-ultima" style="color:var(--green)">—</span></div>
-        <div class="sys-row"><span>Total pago:</span><span id="sac-total">—</span></div>
-        <div class="sys-row"><span>Juros totais:</span><span id="sac-juros" style="color:#E74C3C">—</span></div>
-      </div>
-    </div>
-    <div class="economy-banner">
-      <div class="economy-val" id="economy-val">—</div>
-      <div class="economy-label">economia no SAC em relação ao PRICE</div>
-    </div>
-  </div>
-
-  <div class="card" style="margin-top:20px;">
-    <div class="card-title">🛠️ Outras calculadoras</div>
-    <div class="other-tools">
-      <a href="index.html" class="tool-link"><div class="tool-link-name">📊 Juros Compostos</div><div class="tool-link-desc">Simule seu crescimento patrimonial</div></a>
-      <a href="calculadora-aposentadoria.html" class="tool-link"><div class="tool-link-name">🏖️ Aposentadoria</div><div class="tool-link-desc">Planeje sua independência financeira</div></a>
-      <a href="comparador-investimentos.html" class="tool-link"><div class="tool-link-name">⚖️ Comparador</div><div class="tool-link-desc">Poupança vs CDB vs Tesouro</div></a>
-    </div>
-  </div>
+<div class="card">
+<div class="card-title">🏠 Dados do financiamento</div>
+<div class="field">
+<label>Valor do financiamento (R$)</label>
+<div class="input-row"><span class="input-prefix">R$</span><input type="number" id="fin-valor" value="300000" min="0"></div>
 </div>
-<footer style="text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--dark4); background: var(--dark2); position: relative; z-index: 10;">
-    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; align-items: center;">
-        
-        <!-- Links Institucionais cruciais para o AdSense -->
-        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
-            <a href="/sobre.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Sobre Nós</a>
-            <a href="/contato.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Contato</a>
-            <a href="/privacidade.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidade</a>
-            <a href="/termos.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Termos de Uso</a>
-        </div>
-
-        <!-- Aviso Legal (YMYL Exigido pelo Google) -->
-        <p style="max-width: 600px; line-height: 1.6; font-size: 12px; margin-bottom: 10px;">
-            Aviso: Os resultados gerados pelas ferramentas são simulações matemáticas baseadas em estimativas. Rendimentos passados não garantem retornos futuros. Consulte sempre um profissional certificado antes de tomar decisões financeiras.
-        </p>
-
-        <!-- Direitos Autorais e Domínio Corretos com Ano Automático -->
-        <p>© <span id="year-auto">2026</span> · <a href="https://calculamundo.com.br" style="color: var(--gold); text-decoration: none; font-weight: 500;">calculamundo.com.br</a> · Todos os direitos reservados.</p>
-        
-    </div>
-
-    <!-- Script simples para o ano nunca mais ficar desatualizado -->
-    <script>
-        document.getElementById('year-auto').textContent = new Date().getFullYear();
-    </script>
+<div class="field">
+<label>Taxa de juros mensal (%)</label>
+<div class="input-row"><span class="input-prefix">%</span><input type="number" id="fin-taxa" value="0.9" step="0.1" min="0.1"></div>
+</div>
+<div class="field">
+<label>Prazo (meses)</label>
+<div class="input-row"><input type="number" id="fin-meses" value="360" min="1"></div>
+</div>
+<button class="btn-calc" onclick="calcFinanciamento()">Simular financiamento →</button>
+</div>
+<div class="result-box" id="fin-result">
+<div class="compare-grid">
+<div class="sys-card">
+<div class="sys-title">📊 Sistema PRICE</div>
+<div class="sys-row"><span>Parcela fixa:</span><span id="price-parcela" style="color:var(--gold)">—</span></div>
+<div class="sys-row"><span>Total pago:</span><span id="price-total">—</span></div>
+<div class="sys-row"><span>Juros totais:</span><span id="price-juros" style="color:#E74C3C">—</span></div>
+</div>
+<div class="sys-card winner">
+<div class="sys-title">📉 Sistema SAC ✦</div>
+<div class="sys-row"><span>1ª parcela:</span><span id="sac-primeira" style="color:var(--gold)">—</span></div>
+<div class="sys-row"><span>Última parcela:</span><span id="sac-ultima" style="color:var(--green)">—</span></div>
+<div class="sys-row"><span>Total pago:</span><span id="sac-total">—</span></div>
+<div class="sys-row"><span>Juros totais:</span><span id="sac-juros" style="color:#E74C3C">—</span></div>
+</div>
+</div>
+<div class="economy-banner">
+<div class="economy-val" id="economy-val">—</div>
+<div class="economy-label">economia no SAC em relação ao PRICE</div>
+</div>
+</div>
+<div class="card" style="margin-top:20px;">
+<div class="card-title">🛠️ Outras calculadoras</div>
+<div class="other-tools">
+<a href="index.html" class="tool-link"><div class="tool-link-name">📊 Juros Compostos</div><div class="tool-link-desc">Simule seu crescimento patrimonial</div></a>
+<a href="calculadora-aposentadoria.html" class="tool-link"><div class="tool-link-name">🏖️ Aposentadoria</div><div class="tool-link-desc">Planeje sua independência financeira</div></a>
+<a href="comparador-investimentos.html" class="tool-link"><div class="tool-link-name">⚖️ Comparador</div><div class="tool-link-desc">Poupança vs CDB vs Tesouro</div></a>
+</div>
+</div>
+</div>
+<footer style="text-align:center;padding:40px 20px;color:var(--text-muted);font-size:13px;border-top:1px solid var(--dark4);background:var(--dark2);position:relative;z-index:10;">
+<div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:15px;align-items:center;">
+<div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;">
+<a href="/sobre.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Sobre Nós</a>
+<a href="/contato.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Contato</a>
+<a href="/privacidade.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidade</a>
+<a href="/termos.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Termos de Uso</a>
+</div>
+<p style="max-width:600px;line-height:1.6;font-size:12px;margin-bottom:10px;">Aviso: Os resultados gerados pelas ferramentas são simulações matemáticas baseadas em estimativas. Rendimentos passados não garantem retornos futuros. Consulte sempre um profissional certificado antes de tomar decisões financeiras.</p>
+<p>© <span id="year-auto">2026</span> · <a href="https://calculamundo.com.br" style="color:var(--gold);text-decoration:none;font-weight:500;">calculamundo.com.br</a> · Todos os direitos reservados.</p>
+</div>
+<script>document.getElementById('year-auto').textContent = new Date().getFullYear();</script>
 </footer>
 <script>
 function fmt(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function calcFinanciamento(){
-  const valor=parseFloat(document.getElementById('fin-valor').value)||0;
-  const i=parseFloat(document.getElementById('fin-taxa').value)/100||0;
-  const n=parseInt(document.getElementById('fin-meses').value)||0;
-  const price=i>0?valor*i*Math.pow(1+i,n)/(Math.pow(1+i,n)-1):valor/n;
-  const tPrice=price*n;
-  const jPrice=tPrice-valor;
-  const sacAmort=valor/n;
-  const sacP1=sacAmort+valor*i;
-  const sacUlt=sacAmort+sacAmort*i;
-  const tSac=valor+(valor*i*(n+1))/2;
-  const jSac=tSac-valor;
-  const economy=tPrice-tSac;
-  document.getElementById('price-parcela').textContent=fmt(price);
-  document.getElementById('price-total').textContent=fmt(tPrice);
-  document.getElementById('price-juros').textContent=fmt(jPrice);
-  document.getElementById('sac-primeira').textContent=fmt(sacP1);
-  document.getElementById('sac-ultima').textContent=fmt(sacUlt);
-  document.getElementById('sac-total').textContent=fmt(tSac);
-  document.getElementById('sac-juros').textContent=fmt(jSac);
-  document.getElementById('economy-val').textContent=fmt(economy);
-  document.getElementById('fin-result').classList.add('show');
+const valor=parseFloat(document.getElementById('fin-valor').value)||0;
+const i=parseFloat(document.getElementById('fin-taxa').value)/100||0;
+const n=parseInt(document.getElementById('fin-meses').value)||0;
+const price=i>0?valor*i*Math.pow(1+i,n)/(Math.pow(1+i,n)-1):valor/n;
+const tPrice=price*n;const jPrice=tPrice-valor;
+const sacAmort=valor/n;const sacP1=sacAmort+valor*i;const sacUlt=sacAmort+sacAmort*i;
+const tSac=valor+(valor*i*(n+1))/2;const jSac=tSac-valor;const economy=tPrice-tSac;
+document.getElementById('price-parcela').textContent=fmt(price);
+document.getElementById('price-total').textContent=fmt(tPrice);
+document.getElementById('price-juros').textContent=fmt(jPrice);
+document.getElementById('sac-primeira').textContent=fmt(sacP1);
+document.getElementById('sac-ultima').textContent=fmt(sacUlt);
+document.getElementById('sac-total').textContent=fmt(tSac);
+document.getElementById('sac-juros').textContent=fmt(jSac);
+document.getElementById('economy-val').textContent=fmt(economy);
+document.getElementById('fin-result').classList.add('show');
 }
 </script>
 </body>

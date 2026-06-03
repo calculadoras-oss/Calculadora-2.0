@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271"
-     crossorigin="anonymous"></script>
-
-<title>Calculadora de Juros Compostos | calculamundo</title>
-</head>  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculadora de Aposentadoria | calculamundo</title>
 <meta name="description" content="Descubra quanto precisa investir todo mês para se aposentar com a renda que deseja. Planejamento financeiro gratuito.">
-<link rel="canonical" href="https://calculamundo.netlify.app/calculadora-aposentadoria.html">
+<link rel="canonical" href="https://calculamundo.com.br/calculadora-aposentadoria.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -53,9 +47,6 @@ label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;c
 .tool-link:hover{border-color:var(--gold);}
 .tool-link-name{font-size:0.9rem;color:var(--gold);margin-bottom:4px;}
 .tool-link-desc{font-size:12px;color:var(--text-muted);}
-footer{position:relative;z-index:10;text-align:center;padding:30px 20px;border-top:1px solid var(--dark4);color:var(--text-muted);font-size:13px;}
-footer a{color:var(--gold);text-decoration:none;}
-footer nav{margin-top:10px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 </style>
@@ -64,92 +55,77 @@ footer nav{margin-top:10px;display:flex;justify-content:center;gap:16px;flex-wra
 <div class="bg-grid"></div>
 <div class="bg-glow"></div>
 <header>
-  <a href="index.html" class="back-link">← Voltar para o início</a><br>
-  <div class="badge">✦ calculamundo · Planejamento</div>
-  <h1>Calculadora de<br>Aposentadoria</h1>
-  <p class="subtitle">Descubra quanto precisa acumular e quanto investir por mês para se aposentar com a renda que deseja.</p>
+<a href="index.html" class="back-link">← Voltar para o início</a><br>
+<div class="badge">✦ calculamundo · Planejamento</div>
+<h1>Calculadora de<br>Aposentadoria</h1>
+<p class="subtitle">Descubra quanto precisa acumular e quanto investir por mês para se aposentar com a renda que deseja.</p>
 </header>
 <div class="container">
-  <div class="card">
-    <div class="card-title">🏖️ Seus dados de aposentadoria</div>
-    <div class="field">
-      <label>Renda mensal desejada na aposentadoria (R$)</label>
-      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="ap-renda" value="5000" min="0"></div>
-    </div>
-    <div class="field">
-      <label>Taxa de juros esperada (% ao mês)</label>
-      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="ap-taxa" value="0.8" step="0.1" min="0.1"></div>
-    </div>
-    <div class="field">
-      <label>Anos até a aposentadoria</label>
-      <div class="input-row"><input type="number" id="ap-anos" value="20" min="1"></div>
-    </div>
-    <button class="btn-calc" onclick="calcAposentadoria()">Calcular minha aposentadoria →</button>
-  </div>
-
-  <div class="result-box" id="ap-result">
-    <div class="res-main">
-      <div class="res-label">Patrimônio necessário</div>
-      <div class="res-val" id="ap-patrimonio">—</div>
-    </div>
-    <div class="res-grid">
-      <div class="res-item"><div class="res-item-label">💰 Aporte mensal necessário</div><div class="res-item-value" id="ap-aporte">—</div></div>
-      <div class="res-item"><div class="res-item-label">📅 Renda desejada</div><div class="res-item-value" id="ap-renda-show">—</div></div>
-      <div class="res-item"><div class="res-item-label">📆 Prazo</div><div class="res-item-value" id="ap-prazo">—</div></div>
-      <div class="res-item"><div class="res-item-label">📈 Taxa mensal</div><div class="res-item-value" id="ap-taxa-show">—</div></div>
-    </div>
-  </div>
-
-  <div class="card" style="margin-top:20px;">
-    <div class="card-title">🛠️ Outras calculadoras</div>
-    <div class="other-tools">
-      <a href="index.html" class="tool-link"><div class="tool-link-name">📊 Juros Compostos</div><div class="tool-link-desc">Simule seu crescimento patrimonial</div></a>
-      <a href="simulador-financiamento.html" class="tool-link"><div class="tool-link-name">🏠 Financiamento</div><div class="tool-link-desc">Compare Price e SAC</div></a>
-      <a href="comparador-investimentos.html" class="tool-link"><div class="tool-link-name">⚖️ Comparador</div><div class="tool-link-desc">Poupança vs CDB vs Tesouro</div></a>
-    </div>
-  </div>
+<div class="card">
+<div class="card-title">🏖️ Seus dados de aposentadoria</div>
+<div class="field">
+<label>Renda mensal desejada na aposentadoria (R$)</label>
+<div class="input-row"><span class="input-prefix">R$</span><input type="number" id="ap-renda" value="5000" min="0"></div>
 </div>
-<footer style="text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--dark4); background: var(--dark2); position: relative; z-index: 10;">
-    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; align-items: center;">
-        
-        <!-- Links Institucionais cruciais para o AdSense -->
-        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
-            <a href="/sobre.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Sobre Nós</a>
-            <a href="/contato.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Contato</a>
-            <a href="/privacidade.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidade</a>
-            <a href="/termos.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Termos de Uso</a>
-        </div>
-
-        <!-- Aviso Legal (YMYL Exigido pelo Google) -->
-        <p style="max-width: 600px; line-height: 1.6; font-size: 12px; margin-bottom: 10px;">
-            Aviso: Os resultados gerados pelas ferramentas são simulações matemáticas baseadas em estimativas. Rendimentos passados não garantem retornos futuros. Consulte sempre um profissional certificado antes de tomar decisões financeiras.
-        </p>
-
-        <!-- Direitos Autorais e Domínio Corretos com Ano Automático -->
-        <p>© <span id="year-auto">2026</span> · <a href="https://calculamundo.com.br" style="color: var(--gold); text-decoration: none; font-weight: 500;">calculamundo.com.br</a> · Todos os direitos reservados.</p>
-        
-    </div>
-
-    <!-- Script simples para o ano nunca mais ficar desatualizado -->
-    <script>
-        document.getElementById('year-auto').textContent = new Date().getFullYear();
-    </script>
+<div class="field">
+<label>Taxa de juros esperada (% ao mês)</label>
+<div class="input-row"><span class="input-prefix">%</span><input type="number" id="ap-taxa" value="0.8" step="0.1" min="0.1"></div>
+</div>
+<div class="field">
+<label>Anos até a aposentadoria</label>
+<div class="input-row"><input type="number" id="ap-anos" value="20" min="1"></div>
+</div>
+<button class="btn-calc" onclick="calcAposentadoria()">Calcular minha aposentadoria →</button>
+</div>
+<div class="result-box" id="ap-result">
+<div class="res-main">
+<div class="res-label">Patrimônio necessário</div>
+<div class="res-val" id="ap-patrimonio">—</div>
+</div>
+<div class="res-grid">
+<div class="res-item"><div class="res-item-label">💰 Aporte mensal necessário</div><div class="res-item-value" id="ap-aporte">—</div></div>
+<div class="res-item"><div class="res-item-label">📅 Renda desejada</div><div class="res-item-value" id="ap-renda-show">—</div></div>
+<div class="res-item"><div class="res-item-label">📆 Prazo</div><div class="res-item-value" id="ap-prazo">—</div></div>
+<div class="res-item"><div class="res-item-label">📈 Taxa mensal</div><div class="res-item-value" id="ap-taxa-show">—</div></div>
+</div>
+</div>
+<div class="card" style="margin-top:20px;">
+<div class="card-title">🛠️ Outras calculadoras</div>
+<div class="other-tools">
+<a href="index.html" class="tool-link"><div class="tool-link-name">📊 Juros Compostos</div><div class="tool-link-desc">Simule seu crescimento patrimonial</div></a>
+<a href="simulador-financiamento.html" class="tool-link"><div class="tool-link-name">🏠 Financiamento</div><div class="tool-link-desc">Compare Price e SAC</div></a>
+<a href="comparador-investimentos.html" class="tool-link"><div class="tool-link-name">⚖️ Comparador</div><div class="tool-link-desc">Poupança vs CDB vs Tesouro</div></a>
+</div>
+</div>
+</div>
+<footer style="text-align:center;padding:40px 20px;color:var(--text-muted);font-size:13px;border-top:1px solid var(--dark4);background:var(--dark2);position:relative;z-index:10;">
+<div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:15px;align-items:center;">
+<div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;">
+<a href="/sobre.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Sobre Nós</a>
+<a href="/contato.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Contato</a>
+<a href="/privacidade.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidade</a>
+<a href="/termos.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Termos de Uso</a>
+</div>
+<p style="max-width:600px;line-height:1.6;font-size:12px;margin-bottom:10px;">Aviso: Os resultados gerados pelas ferramentas são simulações matemáticas baseadas em estimativas. Rendimentos passados não garantem retornos futuros. Consulte sempre um profissional certificado antes de tomar decisões financeiras.</p>
+<p>© <span id="year-auto">2026</span> · <a href="https://calculamundo.com.br" style="color:var(--gold);text-decoration:none;font-weight:500;">calculamundo.com.br</a> · Todos os direitos reservados.</p>
+</div>
+<script>document.getElementById('year-auto').textContent = new Date().getFullYear();</script>
 </footer>
 <script>
 function fmt(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function calcAposentadoria(){
-  const renda=parseFloat(document.getElementById('ap-renda').value)||0;
-  const taxa=parseFloat(document.getElementById('ap-taxa').value)/100||0;
-  const anos=parseInt(document.getElementById('ap-anos').value)||0;
-  const meses=anos*12;
-  const pat=taxa>0?renda/taxa:renda*12*20;
-  const ap=taxa>0&&meses>0?pat*taxa/(Math.pow(1+taxa,meses)-1):pat/meses;
-  document.getElementById('ap-patrimonio').textContent=fmt(pat);
-  document.getElementById('ap-aporte').textContent=fmt(ap)+'/mês';
-  document.getElementById('ap-renda-show').textContent=fmt(renda)+'/mês';
-  document.getElementById('ap-prazo').textContent=anos+' anos ('+meses+' meses)';
-  document.getElementById('ap-taxa-show').textContent=(taxa*100).toFixed(2)+'% a.m.';
-  document.getElementById('ap-result').classList.add('show');
+const renda=parseFloat(document.getElementById('ap-renda').value)||0;
+const taxa=parseFloat(document.getElementById('ap-taxa').value)/100||0;
+const anos=parseInt(document.getElementById('ap-anos').value)||0;
+const meses=anos*12;
+const pat=taxa>0?renda/taxa:renda*12*20;
+const ap=taxa>0&&meses>0?pat*taxa/(Math.pow(1+taxa,meses)-1):pat/meses;
+document.getElementById('ap-patrimonio').textContent=fmt(pat);
+document.getElementById('ap-aporte').textContent=fmt(ap)+'/mês';
+document.getElementById('ap-renda-show').textContent=fmt(renda)+'/mês';
+document.getElementById('ap-prazo').textContent=anos+' anos ('+meses+' meses)';
+document.getElementById('ap-taxa-show').textContent=(taxa*100).toFixed(2)+'% a.m.';
+document.getElementById('ap-result').classList.add('show');
 }
 </script>
 </body>
