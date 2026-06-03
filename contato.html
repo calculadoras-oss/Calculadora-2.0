@@ -67,7 +67,7 @@ label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;c
   </div>
   <div class="card">
     <div class="card-title">✉️ Envie uma mensagem</div>
-    <form action="https://formspree.io/f/calculamundo" method="POST">
+    <form action="https://formspree.io/f/mgobwrjw" method="POST">
       <div class="field"><label>Seu nome</label><div class="input-wrap"><input type="text" name="nome" placeholder="Como podemos te chamar?" required></div></div>
       <div class="field"><label>E-mail para resposta</label><div class="input-wrap"><input type="email" name="email" placeholder="seu@email.com" required></div></div>
       <div class="field"><label>Assunto</label><div class="input-wrap"><select name="assunto" required><option value="">Selecione um assunto…</option><option value="duvida">Dúvida sobre as calculadoras</option><option value="bug">Reportar um problema / bug</option><option value="sugestao">Sugestão de melhoria</option><option value="parceria">Proposta de parceria</option><option value="privacidade">Solicitação LGPD / privacidade</option><option value="outro">Outro</option></select></div></div>
@@ -95,7 +95,8 @@ label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;c
   <script>document.getElementById('year-auto').textContent = new Date().getFullYear();</script>
 </footer>
 <script>
-function toggleTheme(){document.body.classList.toggle('light');document.querySelector('.theme-btn').textContent=document.body.classList.contains('light')?'🌙':'☀️';}
+function toggleTheme(){document.body.classList.toggle('light');localStorage.setItem('theme',document.body.classList.contains('light')?'light':'dark');}
+const t=localStorage.getItem('theme');if(t==='light')document.body.classList.add('light');
 </script>
 </body>
 </html>
