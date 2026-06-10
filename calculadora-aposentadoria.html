@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Aposentadoria | calculamundo</title>
+<meta name="description" content="Descubra quanto precisa investir todo mês para se aposentar com a renda que deseja. Planejamento financeiro gratuito.">
+<link rel="canonical" href="https://calculamundo.com.br/calculadora-aposentadoria.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Quanto preciso acumular para me aposentar?","acceptedAnswer":{"@type":"Answer","text":"Divida a renda mensal desejada pela taxa de retorno mensal. Ex: R$ 5.000 ÷ 0,8% = R$ 625.000 de patrimônio necessário."}},
+    {"@type":"Question","name":"Quanto preciso investir por mês para me aposentar?","acceptedAnswer":{"@type":"Answer","text":"Depende do patrimônio necessário, da taxa de retorno e do prazo. Use a calculadora acima para descobrir seu valor exato."}},
+    {"@type":"Question","name":"Com quanto posso me aposentar no Brasil?","acceptedAnswer":{"@type":"Answer","text":"Pela regra dos 4%, você precisa de 25 vezes o seu custo de vida anual. Para gastar R$ 5.000/mês (R$ 60.000/ano), são necessários R$ 1.500.000 acumulados."}}
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ3JR6GST6"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EZ3JR6GST6');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+ 
+<!-- CSS COMPARTILHADO -->
+<link rel="stylesheet" href="shared-calc.css">
+ 
+<style>
+/* === CSS ESPECÍFICO — Aposentadoria === */
+.container { max-width: 700px; }
+ 
+.result-box {
+  display: none;
+  background: linear-gradient(135deg, var(--dark2), var(--dark3));
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: var(--radius);
+  padding: 28px;
+  animation: fadeIn 0.4s ease;
+  margin-bottom: 20px;
+}
+.result-box.show { display: block; }
+ 
+.res-main { text-align: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--dark4); }
+.res-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+.res-val {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 900;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+ 
+.res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.res-item { background: var(--dark); border-radius: 10px; padding: 14px; text-align: center; }
+.res-item-label { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+.res-item-value { font-size: 0.95rem; font-weight: 600; color: var(--gold); }
+ 
+.other-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.tool-link {
+  background: var(--dark3); border: 1px solid var(--dark4);
+  border-radius: 12px; padding: 16px; text-decoration: none; transition: all 0.2s;
+  display: block;
+}
+.tool-link:hover { border-color: var(--gold); }
+.tool-link-name { font-size: 0.9rem; color: var(--gold); margin-bottom: 4px; }
+.tool-link-desc { font-size: 12px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<!-- NAV injetado pelo shared-calc.js -->
+ 
+<header>
+  <div class="badge">✦ calculamundo · Planejamento</div>
+  <h1>Calculadora de<br>Aposentadoria</h1>
+  <p class="subtitle">Descubra quanto precisa acumular e quanto investir por mês para se aposentar com a renda que deseja.</p>
+</header>
+ 
+<div class="container">
+  <div class="card">
+    <div class="card-title">🏖️ Seus dados de aposentadoria</div>
+    <div class="field">
+      <label>Renda mensal desejada na aposentadoria (R$)</label>
+      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="ap-renda" value="5000" min="0"></div>
+    </div>
+    <div class="field">
+      <label>Taxa de juros esperada (% ao mês)</label>
+      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="ap-taxa" value="0.8" step="0.1" min="0.1"></div>
+    </div>
+    <div class="field">
+      <label>Anos até a aposentadoria</label>
+      <div class="input-row"><input type="number" id="ap-anos" value="20" min="1"></div>
+    </div>
+    <button class="btn-calc" onclick="calcAposentadoria()">Calcular minha aposentadoria →</button>
+  </div>
+ 
+  <div class="result-box" id="ap-result">
+    <div class="res-main">
+      <div class="res-label">Patrimônio necessário</div>
+      <div class="res-val" id="ap-patrimonio">—</div>
+    </div>
+    <div class="res-grid">
+      <div class="res-item"><div class="res-item-label">💰 Aporte mensal necessário</div><div class="res-item-value" id="ap-aporte">—</div></div>
+      <div class="res-item"><div class="res-item-label">📅 Renda desejada</div><div class="res-item-value" id="ap-renda-show">—</div></div>
+      <div class="res-item"><div class="res-item-label">📆 Prazo</div><div class="res-item-value" id="ap-prazo">—</div></div>
+      <div class="res-item"><div class="res-item-label">📈 Taxa mensal</div><div class="res-item-value" id="ap-taxa-show">—</div></div>
+    </div>
+  </div>
+ 
+  <!-- Conteúdo editorial -->
+  <section class="card">
+    <h2 class="section-title">🏖️ Como Funciona o Cálculo</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">O patrimônio necessário é calculado dividindo a renda mensal desejada pela taxa de juros mensal esperada. Esse é o valor que, investido à taxa informada, gera exatamente a renda que você quer sem consumir o principal.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">O aporte mensal necessário é quanto você precisa investir todo mês, a partir de hoje, para acumular esse patrimônio no prazo definido — considerando os juros compostos trabalhando a seu favor.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Lembre-se: a inflação corrói o poder de compra ao longo do tempo. Revise suas metas periodicamente e considere indexar parte do patrimônio ao IPCA com produtos como o Tesouro IPCA+.</p>
+  </section>
+ 
+  <section class="card">
+    <h2 class="section-title">📐 A Regra dos 25x</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">Uma regra prática do planejamento financeiro: multiplique sua despesa anual por 25 para encontrar o patrimônio necessário para a aposentadoria. Esse número assume uma taxa de retirada segura de 4% ao ano — historicamente sustentável por mais de 30 anos.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Exemplo: se você gasta R$ 5.000/mês (R$ 60.000/ano), o patrimônio alvo seria R$ 1.500.000. Com esse valor investido a 1% ao mês, você teria R$ 15.000 brutos mensais — quase três vezes seu custo de vida, dando margem para inflação e imprevistos.</p>
+    <a href="quanto-rende-1-milhao.html" style="display:inline-block;margin-top:14px;color:var(--gold);font-weight:600;font-size:14px;text-decoration:none;">💎 Veja quanto rende R$ 1 milhão investido →</a>
+  </section>
+ 
+  <div class="section-title">🛠️ Outras Calculadoras</div>
+  <div class="other-tools" style="margin-bottom:24px;">
+    <a href="index.html" class="tool-link"><div class="tool-link-name">📊 Juros Compostos</div><div class="tool-link-desc">Simule seu crescimento patrimonial</div></a>
+    <a href="simulador-financiamento.html" class="tool-link"><div class="tool-link-name">🏠 Financiamento</div><div class="tool-link-desc">Compare Price e SAC</div></a>
+    <a href="comparador-investimentos.html" class="tool-link"><div class="tool-link-name">⚖️ Comparador</div><div class="tool-link-desc">Poupança vs CDB vs Tesouro</div></a>
+    <a href="quanto-rende-1-milhao.html" class="tool-link"><div class="tool-link-name">💎 R$ 1 Milhão</div><div class="tool-link-desc">Quanto rende um patrimônio de 1 mi</div></a>
+  </div>
+</div>
+ 
+<!-- JS COMPARTILHADO -->
+<script src="shared-calc.js"></script>
+ 
+<!-- JS ESPECÍFICO -->
+<script>
+function calcAposentadoria() {
+  const renda = parseFloat(document.getElementById('ap-renda').value) || 0;
+  const taxa  = parseFloat(document.getElementById('ap-taxa').value) / 100 || 0;
+  const anos  = parseInt(document.getElementById('ap-anos').value) || 0;
+  const meses = anos * 12;
+ 
+  const pat = taxa > 0 ? renda / taxa : renda * 12 * 20;
+  const ap  = taxa > 0 && meses > 0 ? pat * taxa / (Math.pow(1 + taxa, meses) - 1) : pat / meses;
+ 
+  document.getElementById('ap-patrimonio').textContent  = fmtBRL(pat);
+  document.getElementById('ap-aporte').textContent      = fmtBRL(ap) + '/mês';
+  document.getElementById('ap-renda-show').textContent  = fmtBRL(renda) + '/mês';
+  document.getElementById('ap-prazo').textContent       = anos + ' anos (' + meses + ' meses)';
+  document.getElementById('ap-taxa-show').textContent   = (taxa * 100).toFixed(2) + '% a.m.';
+ 
+  document.getElementById('ap-result').classList.add('show');
+}
+</script>
+</body>
+</html>
