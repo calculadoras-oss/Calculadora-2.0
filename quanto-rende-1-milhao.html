@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quanto Rende R$ 1 Milhão Investido? Simulação Completa 2025 | calculamundo</title>
+<meta name="description" content="Descubra quanto rende 1 milhão de reais investido por mês. Simule cenários no Tesouro Direto, CDB e Fundos Imobiliários e veja se é possível viver de renda passiva.">
+<meta name="keywords" content="quanto rende 1 milhão, rendimento 1 milhão por mês, renda passiva 1 milhão, viver de renda 1 milhão, 1 milhão investido">
+<meta property="og:title" content="Quanto Rende R$ 1 Milhão Investido? | calculamundo">
+<meta property="og:description" content="Simule o rendimento mensal de 1 milhão de reais em diferentes investimentos e veja se é possível viver de renda.">
+<meta property="og:url" content="https://calculamundo.com.br/quanto-rende-1-milhao.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://calculamundo.com.br/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://calculamundo.com.br/quanto-rende-1-milhao.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Quanto rende R$ 1 milhão por mês?","acceptedAnswer":{"@type":"Answer","text":"Com taxa de 1% ao mês, R$ 1 milhão gera cerca de R$ 10.000 brutos por mês. Após IR (15% a 22,5% dependendo do prazo), o rendimento líquido fica entre R$ 7.750 e R$ 8.500 mensais."}},
+    {"@type":"Question","name":"É possível viver de renda com R$ 1 milhão?","acceptedAnswer":{"@type":"Answer","text":"Depende do seu custo de vida. Com R$ 1 milhão rendendo ~1% ao mês, você teria cerca de R$ 7.500 a R$ 8.500 líquidos mensais. Para quem vive em cidades de custo moderado, pode ser suficiente."}},
+    {"@type":"Question","name":"Qual o melhor investimento para R$ 1 milhão?","acceptedAnswer":{"@type":"Answer","text":"A diversificação é a estratégia mais recomendada: parte em renda fixa (Tesouro Direto, CDB), parte em renda variável (FIIs, ações de dividendos) e uma reserva de emergência em liquidez diária."}},
+    {"@type":"Question","name":"R$ 1 milhão perde valor com a inflação?","acceptedAnswer":{"@type":"Answer","text":"Sim, se o rendimento não superar a inflação. Por isso é importante escolher investimentos que superem o IPCA, como o Tesouro IPCA+ ou fundos imobiliários com boa distribuição de dividendos."}},
+    {"@type":"Question","name":"Quanto tempo leva para juntar R$ 1 milhão?","acceptedAnswer":{"@type":"Answer","text":"Investindo R$ 1.000 por mês com rendimento de 1% ao mês, o patrimônio de R$ 1 milhão é atingido em aproximadamente 20 anos. Com R$ 2.000 mensais, em torno de 16 anos."}},
+    {"@type":"Question","name":"R$ 1 milhão é suficiente para se aposentar?","acceptedAnswer":{"@type":"Answer","text":"Pela regra dos 4%, você pode retirar R$ 40.000 por ano (R$ 3.333/mês) sem esgotar o patrimônio em 30 anos. Para rendimentos maiores, é preciso um patrimônio maior ou um custo de vida menor."}},
+    {"@type":"Question","name":"Como proteger R$ 1 milhão da inflação?","acceptedAnswer":{"@type":"Answer","text":"Alocando parte em Tesouro IPCA+, fundos imobiliários, ações de empresas com poder de reajuste de preços e ativos no exterior para diversificação cambial."}}
+  ]
+}
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ3JR6GST6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EZ3JR6GST6');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- CSS COMPARTILHADO -->
+<link rel="stylesheet" href="shared-calc.css">
+
+<style>
+/* === CSS ESPECÍFICO DESTA PÁGINA === */
+
+/* Hero de destaque no topo */
+.hero-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 28px 0;
+}
+.hero-num-card {
+  background: var(--dark3);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+}
+.hero-num-label { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+.hero-num-value {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #E8C97A, #C9A84C);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-num-sub { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+/* Tabela de cenários */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--dark4);
+  margin: 16px 0;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--gold); text-decoration: none; }
+.breadcrumb span { color: var(--dark4); }
+
+/* Checklist */
+.check-list { list-style: none; padding: 0; }
+.check-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--dark4);
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  display: flex;
+  gap: 10px;
+}
+.check-list li:last-child { border-bottom: none; }
+.check-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+/* Callout box */
+.callout {
+  background: rgba(201,168,76,0.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.callout strong { color: var(--gold); }
+
+/* Link interno destaque */
+.internal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 14px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 8px;
+  transition: all 0.2s;
+  margin-top: 12px;
+  display: inline-block;
+}
+.internal-link:hover { background: rgba(201,168,76,0.15); transform: translateX(2px); }
+
+@media (max-width: 600px) {
+  .hero-numbers { grid-template-columns: 1fr 1fr; }
+  .hero-numbers .hero-num-card:last-child { grid-column: 1 / -1; }
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<!-- NAV injetado pelo shared-calc.js -->
+
+<header>
+  <div class="badge">✦ calculamundo · Renda Passiva</div>
+  <h1>Quanto Rende<br>R$ 1 Milhão?</h1>
+  <p class="subtitle">Simule o rendimento mensal de um patrimônio de R$ 1.000.000 e descubra se é possível viver de renda passiva.</p>
+</header>
+
+<div class="container">
+
+  <div class="breadcrumb">
+    <a href="index.html">Juros Compostos</a>
+    <span>›</span>
+    <span>Quanto Rende R$ 1 Milhão?</span>
+  </div>
+
+  <!-- NÚMEROS DE DESTAQUE -->
+  <div class="hero-numbers">
+    <div class="hero-num-card">
+      <div class="hero-num-label">Rendimento bruto (1%/mês)</div>
+      <div class="hero-num-value">R$ 10.000</div>
+      <div class="hero-num-sub">por mês</div>
+    </div>
+    <div class="hero-num-card">
+      <div class="hero-num-label">Rendimento líquido (IR 15%)</div>
+      <div class="hero-num-value">R$ 8.500</div>
+      <div class="hero-num-sub">por mês estimado</div>
+    </div>
+    <div class="hero-num-card">
+      <div class="hero-num-label">Em 10 anos (sem retirada)</div>
+      <div class="hero-num-value">R$ 3,3 mi</div>
+      <div class="hero-num-sub">reinvestindo tudo</div>
+    </div>
+  </div>
+
+  <!-- SIMULADOR -->
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">💎 Simule seu R$ 1 milhão</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:20px;">Os campos já estão pré-preenchidos com R$ 1 milhão. Ajuste a taxa e o prazo para ver diferentes cenários.</p>
+
+      <div class="field">
+        <label>Valor inicial</label>
+        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="inicial" value="1000000" min="0"></div>
+      </div>
+      <div class="field">
+        <label>Aporte mensal adicional</label>
+        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="aporte" value="0" min="0"></div>
+      </div>
+      <div class="field">
+        <label>Taxa de juros mensal (%)</label>
+        <div class="input-row"><span class="input-prefix">%</span><input type="number" id="taxa" value="1.0" step="0.01" min="0"></div>
+      </div>
+      <div class="field">
+        <label>Prazo em meses</label>
+        <div class="input-row"><input type="number" id="meses" value="120" min="1"></div>
+      </div>
+      <div class="field">
+        <label>Cenários prontos</label>
+        <div class="examples-row">
+          <button class="example-btn" onclick="loadEx(1000000,0,0.8,60)">Conservador</button>
+          <button class="example-btn" onclick="loadEx(1000000,0,1.0,120)">Moderado</button>
+          <button class="example-btn" onclick="loadEx(1000000,0,1.2,240)">Arrojado</button>
+        </div>
+      </div>
+      <button class="btn-calc" onclick="calcular()">Simular rendimento →</button>
+    </div>
+
+    <!-- RESULTADO -->
+    <div>
+      <div class="result-card" id="result-card">
+        <div class="result-main">
+          <div class="result-label">Patrimônio ao final do prazo</div>
+          <div class="result-value" id="res-total">—</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item"><div class="result-item-label">💵 Total investido</div><div class="result-item-value gold" id="res-investido">—</div></div>
+          <div class="result-item"><div class="result-item-label">📈 Juros totais</div><div class="result-item-value green" id="res-juros">—</div></div>
+          <div class="result-item"><div class="result-item-label">🔁 Multiplicação</div><div class="result-item-value gold" id="res-multi">—</div></div>
+          <div class="result-item"><div class="result-item-label">📅 Renda mensal</div><div class="result-item-value green" id="res-renda">—</div></div>
+        </div>
+        <div class="share-section">
+          <div class="share-title">✦ Compartilhe sua simulação</div>
+          <div class="share-btns">
+            <button class="share-btn btn-whatsapp"  onclick="compartilharWpp()">📱 WhatsApp</button>
+            <button class="share-btn btn-instagram" onclick="compartilharInsta()">📸 Instagram</button>
+            <button class="share-btn btn-copy"      onclick="copyLink()">📋 Copiar link</button>
+          </div>
+        </div>
+      </div>
+      <div id="result-placeholder" class="card" style="text-align:center;padding:60px 28px;">
+        <div style="font-size:48px;margin-bottom:16px;">💎</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);margin-bottom:8px;">Seu rendimento aparecerá aqui</div>
+        <div style="font-size:13px;color:var(--text-muted);">Clique em simular para calcular</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRÁFICO -->
+  <div class="chart-card" id="chart-card">
+    <div class="section-title">📈 Crescimento do Patrimônio</div>
+    <div class="chart-wrap"><canvas id="myChart"></canvas></div>
+  </div>
+
+  <!-- IA -->
+  <div class="ai-card" id="ai-card">
+    <div class="ai-header">
+      <div class="ai-icon">🤖</div>
+      <div>
+        <div class="ai-title">Consultor Financeiro IA</div>
+        <div class="ai-subtitle">Análise personalizada do seu milhão com ChatGPT</div>
+      </div>
+    </div>
+    <div class="ai-response" style="margin-bottom:16px;">
+      Sua simulação está pronta! Clique abaixo para abrir o ChatGPT com seus dados e receber uma análise completa sobre como estruturar a renda passiva. 💡
+    </div>
+    <button class="btn-calc" onclick="abrirIA()" style="background:linear-gradient(135deg,#10a37f,#1a7f64);margin-top:0;">
+      💬 Analisar com ChatGPT →
+    </button>
+  </div>
+
+  <!-- TABELA DE CENÁRIOS -->
+  <section class="card">
+    <h2 class="section-title">📊 Quanto Rende R$ 1 Milhão — Tabela por Taxa</h2>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">
+      Comparativo de rendimento bruto mensal conforme a taxa de retorno. Os valores líquidos consideram IR de 15% (prazo acima de 2 anos).
+    </p>
+    <div class="table-wrapper">
+      <table class="scenario-table">
+        <thead>
+          <tr>
+            <th>Taxa mensal</th>
+            <th>Equivalente anual</th>
+            <th>Renda bruta/mês</th>
+            <th>Renda líquida/mês</th>
+            <th>Referência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>0,6%</td><td>~7,4% a.a.</td><td class="highlight">R$ 6.000</td><td class="green">R$ 5.100</td><td>Poupança (aprox.)</td></tr>
+          <tr><td>0,8%</td><td>~10% a.a.</td><td class="highlight">R$ 8.000</td><td class="green">R$ 6.800</td><td>CDB conservador</td></tr>
+          <tr><td>1,0%</td><td>~12,7% a.a.</td><td class="highlight">R$ 10.000</td><td class="green">R$ 8.500</td><td>Tesouro Selic / CDB médio</td></tr>
+          <tr><td>1,2%</td><td>~15,4% a.a.</td><td class="highlight">R$ 12.000</td><td class="green">R$ 10.200</td><td>CDB premium / FIIs</td></tr>
+          <tr><td>1,5%</td><td>~19,6% a.a.</td><td class="highlight">R$ 15.000</td><td class="green">R$ 12.750</td><td>Carteira diversificada</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <strong>Atenção:</strong> Os valores são estimativas baseadas em cálculo de juros compostos e alíquota de IR de 15%. Rendimentos reais variam conforme o produto, prazo e condições de mercado. Não constituem recomendação de investimento.
+    </div>
+  </section>
+
+  <!-- EDITORIAL LONGO -->
+  <section class="card">
+    <h2 class="section-title">💡 É Possível Viver de Renda com R$ 1 Milhão?</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">
+      R$ 1 milhão é a meta financeira mais buscada pelos brasileiros — e não à toa. Com esse patrimônio investido a uma taxa de 1% ao mês (equivalente a cerca de 12,7% ao ano), o rendimento bruto mensal fica em torno de <strong style="color:var(--text)">R$ 10.000</strong>. Depois do Imposto de Renda, o valor líquido fica entre R$ 7.500 e R$ 8.500, dependendo do tipo e do prazo do investimento.
+    </p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
+      A resposta para "é possível viver de renda?" depende diretamente do seu custo de vida. Para quem mora em cidades de custo moderado com despesas mensais abaixo de R$ 6.000, a renda passiva gerada por R$ 1 milhão pode ser suficiente. Nas grandes capitais, onde os custos são maiores, pode ser necessário um patrimônio mais robusto.
+    </p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
+      Vale lembrar também que a inflação corrói o poder de compra ao longo do tempo. Por isso, parte do patrimônio deve estar alocada em ativos que protejam contra o IPCA — como o <strong style="color:var(--text)">Tesouro IPCA+</strong>, fundos imobiliários ou ações de empresas com poder de precificação.
+    </p>
+    <a href="calculadora-aposentadoria.html" class="internal-link">🏖️ Calcule quanto você precisa para se aposentar →</a>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">🏦 Como Investir R$ 1 Milhão da Forma Certa?</h2>
+    <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">
+      Nenhum especialista em finanças recomenda concentrar R$ 1 milhão em um único produto. A diversificação é a estratégia que equilibra rentabilidade, segurança e liquidez. Uma distribuição possível:
+    </p>
+    <ul class="check-list">
+      <li><strong style="color:var(--text)">Reserva de emergência (10%) — R$ 100 mil:</strong> Tesouro Selic ou CDB com liquidez diária. Acesso imediato sem perda de rendimento.</li>
+      <li><strong style="color:var(--text)">Renda fixa de médio prazo (40%) — R$ 400 mil:</strong> CDB, LCI, LCA e Tesouro IPCA+. Proteção contra inflação e rentabilidade previsível.</li>
+      <li><strong style="color:var(--text)">Fundos Imobiliários — FIIs (30%) — R$ 300 mil:</strong> Distribuição mensal de dividendos isenta de IR para pessoa física. Exposição ao mercado imobiliário com liquidez de bolsa.</li>
+      <li><strong style="color:var(--text)">Ações de dividendos (20%) — R$ 200 mil:</strong> Empresas sólidas com histórico consistente de pagamento de proventos (bancos, utilities, commodities).</li>
+    </ul>
+    <div class="callout">
+      <strong>Dica:</strong> Essa é apenas uma distribuição ilustrativa. O perfil ideal depende da sua tolerância a risco, horizonte de tempo e objetivos. Consulte um assessor de investimentos certificado antes de tomar qualquer decisão.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">⏱️ Quanto Tempo Para Juntar R$ 1 Milhão?</h2>
+    <p style="line-height:1.8;color:var(--text-muted);margin-bottom:16px;">
+      Esse é o outro lado da moeda — e igualmente importante. O tempo necessário para acumular R$ 1 milhão depende do aporte mensal e da taxa de retorno:
+    </p>
+    <div class="table-wrapper">
+      <table class="scenario-table">
+        <thead>
+          <tr>
+            <th>Aporte mensal</th>
+            <th>Taxa 0,8%/mês</th>
+            <th>Taxa 1,0%/mês</th>
+            <th>Taxa 1,2%/mês</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>R$ 500</td><td>~35 anos</td><td>~30 anos</td><td>~26 anos</td></tr>
+          <tr><td>R$ 1.000</td><td>~27 anos</td><td>~23 anos</td><td class="green">~20 anos</td></tr>
+          <tr><td>R$ 2.000</td><td>~20 anos</td><td class="green">~17 anos</td><td>~15 anos</td></tr>
+          <tr><td>R$ 5.000</td><td class="green">~13 anos</td><td>~11 anos</td><td>~10 anos</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">Prazos aproximados, sem aporte inicial, considerando reinvestimento total dos rendimentos.</p>
+    <a href="index.html" class="internal-link">📊 Simule seu prazo na calculadora de juros compostos →</a>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title">📉 O Que Acontece se Você Retirar Todo o Rendimento?</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">
+      Se você retira exatamente o valor dos juros mensais e não toca no principal, o patrimônio de R$ 1 milhão permanece intacto e continua gerando a mesma renda indefinidamente — esse é o conceito de <strong style="color:var(--text)">renda perpétua</strong>.
+    </p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
+      O problema é que, com o tempo, a inflação reduz o poder de compra dessa renda fixa em reais. Uma retirada de R$ 8.000 mensais em 2025 equivalerá a menos em termos reais em 2035. Por isso, a estratégia mais sustentável é reinvestir parte dos rendimentos para que o patrimônio cresça acima da inflação.
+    </p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
+      A <strong style="color:var(--text)">regra dos 4%</strong> — amplamente usada no planejamento de aposentadoria — sugere retirar no máximo 4% do patrimônio ao ano (R$ 40.000 no caso de R$ 1 milhão, ou R$ 3.333/mês), o que historicamente permite que o patrimônio dure mais de 30 anos.
+    </p>
+    <a href="calculadora-aposentadoria.html" class="internal-link">🏖️ Use a calculadora de aposentadoria para planejar suas retiradas →</a>
+  </section>
+
+  <!-- FAQ -->
+  <div class="section-title">❓ Perguntas Frequentes</div>
+  <section class="card" style="padding:0">
+    <div style="padding:28px">
+      <div style="border-bottom:1px solid var(--dark4);padding-bottom:18px;margin-bottom:18px;">
+        <div style="font-weight:600;color:var(--text);font-size:0.95rem;margin-bottom:8px;">Quanto rende R$ 1 milhão por mês?</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">Com taxa de 1% ao mês, o rendimento bruto é de R$ 10.000. Após IR de 15%, o valor líquido estimado fica em R$ 8.500. <a href="#" onclick="document.getElementById('inicial').value=1000000;calcular();window.scrollTo(0,0);return false;" style="color:var(--gold);text-decoration:none;font-weight:500;">Simular agora ↑</a></div>
+      </div>
+      <div style="border-bottom:1px solid var(--dark4);padding-bottom:18px;margin-bottom:18px;">
+        <div style="font-weight:600;color:var(--text);font-size:0.95rem;margin-bottom:8px;">É possível viver de renda com R$ 1 milhão?</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">Depende do seu custo de vida. Com ~R$ 8.500 líquidos mensais, é viável em cidades de custo moderado. Em capitais como São Paulo, pode exigir um patrimônio maior.</div>
+      </div>
+      <div style="border-bottom:1px solid var(--dark4);padding-bottom:18px;margin-bottom:18px;">
+        <div style="font-weight:600;color:var(--text);font-size:0.95rem;margin-bottom:8px;">Qual o melhor investimento para R$ 1 milhão?</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">Diversificação entre renda fixa (CDB, Tesouro IPCA+), FIIs e ações de dividendos tende a oferecer o melhor equilíbrio entre rentabilidade, segurança e proteção contra inflação. <a href="comparador-investimentos.html" style="color:var(--gold);text-decoration:none;font-weight:500;">Compare investimentos →</a></div>
+      </div>
+      <div style="border-bottom:1px solid var(--dark4);padding-bottom:18px;margin-bottom:18px;">
+        <div style="font-weight:600;color:var(--text);font-size:0.95rem;margin-bottom:8px;">Quanto tempo leva para juntar R$ 1 milhão?</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">Investindo R$ 1.000/mês a 1% ao mês, cerca de 23 anos. Com R$ 2.000/mês, aproximadamente 17 anos. <a href="index.html" style="color:var(--gold);text-decoration:none;font-weight:500;">Simular meu prazo →</a></div>
+      </div>
+      <div style="border-bottom:1px solid var(--dark4);padding-bottom:18px;margin-bottom:18px;">
+        <div style="font-weight:600;color:var(--text);font-size:0.95rem;margin-bottom:8px;">R$ 1 milhão é suficiente para se aposentar?</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">Pela regra dos 4%, você pode retirar R$ 3.333/mês por mais de 30 anos. Para rendas maiores, é preciso um patrimônio maior ou despesas menores. <a href="calculadora-aposentadoria.html" style="color:var(--gold);text-decoration:none;font-weight:500;">Calcular minha aposentadoria →</a></div>
+      </div>
+      <div style="border-bottom:1px solid var(--dark4);padding-bottom:18px;margin-bottom:18px;">
+        <div style="font-weight:600;color:var(--text);font-size:0.95rem;margin-bottom:8px;">R$ 1 milhão perde valor com a inflação?</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">Sim, se a rentabilidade não superar o IPCA. Por isso é importante alocar parte em Tesouro IPCA+, FIIs e outros ativos com correção inflacionária.</div>
+      </div>
+      <div>
+        <div style="font-weight:600;color:var(--text);font-size:0.95rem;margin-bottom:8px;">Como proteger R$ 1 milhão da inflação?</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">Alocando em Tesouro IPCA+, fundos imobiliários, ações de empresas com poder de reajuste de preços e diversificando parte em ativos no exterior para proteção cambial.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTRAS CALCULADORAS -->
+  <div class="section-title">🛠️ Outras Ferramentas</div>
+  <div class="tools-grid">
+    <a href="index.html" class="tool-card">
+      <div class="tool-icon">📊</div>
+      <div class="tool-name">Calculadora de Juros Compostos</div>
+      <div class="tool-desc">Simule o crescimento de qualquer valor com aportes mensais e taxas personalizadas.</div>
+    </a>
+    <a href="calculadora-aposentadoria.html" class="tool-card">
+      <div class="tool-icon">🏖️</div>
+      <div class="tool-name">Calculadora de Aposentadoria</div>
+      <div class="tool-desc">Descubra exatamente quanto precisa acumular para se aposentar com a renda que deseja.</div>
+    </a>
+    <a href="simulador-financiamento.html" class="tool-card">
+      <div class="tool-icon">🏠</div>
+      <div class="tool-name">Simulador de Financiamento</div>
+      <div class="tool-desc">Compare sistemas Price e SAC para financiamentos imobiliários e de veículos.</div>
+    </a>
+    <a href="comparador-investimentos.html" class="tool-card">
+      <div class="tool-icon">⚖️</div>
+      <div class="tool-name">Comparador de Investimentos</div>
+      <div class="tool-desc">Tesouro Direto vs CDB vs Poupança: qual rende mais para o seu perfil?</div>
+    </a>
+  </div>
+
+  <!-- AFILIADOS -->
+  <div class="aff-section">
+    <div class="aff-title">🏦 Comece a construir seu milhão hoje</div>
+    <div class="aff-sub">Plataformas recomendadas para colocar seu dinheiro para trabalhar:</div>
+    <div class="aff-grid">
+      <a href="https://www.xpi.com.br" target="_blank" rel="noopener" class="aff-card">
+        <div class="aff-name">XP Investimentos</div><div class="aff-benefit">✅ Conta gratuita</div><span class="aff-cta">Abrir conta →</span>
+      </a>
+      <a href="https://www.rico.com.vc" target="_blank" rel="noopener" class="aff-card">
+        <div class="aff-name">Rico</div><div class="aff-benefit">✅ CDB acima da média</div><span class="aff-cta">Abrir conta →</span>
+      </a>
+      <a href="https://www.nubank.com.br" target="_blank" rel="noopener" class="aff-card">
+        <div class="aff-name">Nubank</div><div class="aff-benefit">✅ 100% digital, zero taxa</div><span class="aff-cta">Abrir conta →</span>
+      </a>
+      <a href="https://www.tesourodireto.com.br" target="_blank" rel="noopener" class="aff-card">
+        <div class="aff-name">Tesouro Direto</div><div class="aff-benefit">✅ Mais seguro do Brasil</div><span class="aff-cta">Conhecer →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- PRODUTOS -->
+  <div class="prod-section">
+    <div class="aff-title">📚 Leituras essenciais sobre renda passiva</div>
+    <div class="aff-sub">Para entender ainda mais como fazer R$ 1 milhão trabalhar por você:</div>
+    <div class="prod-grid">
+      <a href="https://s.shopee.com.br/4qCtaeoTQO?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
+        <div class="prod-img-wrap"><img src="img-mente-milionaria.jpg" alt="Segredos da Mente Milionária" loading="lazy"></div>
+        <div class="prod-info"><div class="prod-name">Segredos da Mente Milionária</div><div class="prod-tag">T. Harv Eker · Best-seller mundial</div><span class="cta-shopee">Ver na Shopee →</span></div>
+      </a>
+      <a href="https://s.shopee.com.br/5VSaNhYmR0?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
+        <div class="prod-img-wrap"><img src="img-kit-pai-rico.jpg" alt="Kit Pai Rico Pai Pobre" loading="lazy"></div>
+        <div class="prod-info"><div class="prod-name">Kit Pai Rico Pai Pobre</div><div class="prod-tag">Robert Kiyosaki · Kit completo</div><span class="cta-shopee">Ver na Shopee →</span></div>
+      </a>
+      <a href="https://s.shopee.com.br/8KmllFgFkw?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
+        <div class="prod-img-wrap"><img src="img-pai-rico.jpg" alt="Pai Rico Pai Pobre" loading="lazy"></div>
+        <div class="prod-info"><div class="prod-name">Pai Rico Pai Pobre</div><div class="prod-tag">Robert Kiyosaki · O clássico</div><span class="cta-shopee">Ver na Shopee →</span></div>
+      </a>
+      <a href="https://meli.la/1PFqGCz" target="_blank" rel="noopener" class="prod-card mercado">
+        <div class="prod-img-wrap calc-img"><img src="img-hp12c.jpg" alt="Calculadora HP 12C" loading="lazy"></div>
+        <div class="prod-info"><div class="prod-name">Calculadora Financeira HP 12C</div><div class="prod-tag">Indispensável para investidores</div><span class="cta-mercado">Ver no Mercado Livre →</span></div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- JS COMPARTILHADO -->
+<script src="shared-calc.js"></script>
+
+<!-- JS ESPECÍFICO DESTA PÁGINA -->
+<script>
+let chartInstance = null;
+let lastResult    = null;
+
+function loadEx(ini, ap, taxa, meses) {
+  document.getElementById('inicial').value = ini;
+  document.getElementById('aporte').value  = ap;
+  document.getElementById('taxa').value    = taxa;
+  document.getElementById('meses').value   = meses;
+  calcular();
+}
+
+function calcular() {
+  const P  = parseFloat(document.getElementById('inicial').value) || 1000000;
+  const Ap = parseFloat(document.getElementById('aporte').value)  || 0;
+  const i  = parseFloat(document.getElementById('taxa').value) / 100 || 0.01;
+  const n  = parseInt(document.getElementById('meses').value) || 120;
+
+  const r = calcJuros(P, Ap, i, n);
+  lastResult = { P, Ap, i, meses: n, ...r };
+
+  document.getElementById('res-total').textContent     = fmtBRL(r.total);
+  document.getElementById('res-investido').textContent = fmtBRL(r.investido);
+  document.getElementById('res-juros').textContent     = fmtBRL(r.juros);
+  document.getElementById('res-multi').textContent     = r.investido > 0 ? (r.total / r.investido).toFixed(2) + 'x' : '—';
+  document.getElementById('res-renda').textContent     = fmtBRL(r.renda) + '/mês';
+
+  document.getElementById('result-card').classList.add('show');
+  document.getElementById('result-placeholder').style.display = 'none';
+
+  document.getElementById('chart-card').classList.add('show');
+  if (chartInstance) chartInstance.destroy();
+  chartInstance = renderLineChart('myChart', r.labels, r.totais, r.investidos);
+
+  document.getElementById('ai-card').classList.add('show');
+}
+
+function abrirIA() {
+  if (!lastResult) return;
+  abrirChatGPT(lastResult);
+}
+
+function compartilharWpp() {
+  if (!lastResult) return;
+  const txt =
+    `💎 Simulei quanto rende R$ 1 milhão na calculamundo!\n` +
+    `📅 Renda mensal estimada: ${fmtBRL(lastResult.renda)}\n` +
+    `📈 Patrimônio em ${lastResult.meses} meses: ${fmtBRL(lastResult.total)}\n\n` +
+    `🔗 Simule você também: https://calculamundo.com.br/quanto-rende-1-milhao.html`;
+  shareWhatsApp(txt);
+}
+
+function compartilharInsta() {
+  if (!lastResult) return;
+  const txt =
+    `💎 Simulei quanto rende R$ 1 milhão!\n` +
+    `📅 Renda mensal: ${fmtBRL(lastResult.renda)}\n` +
+    `🔗 calculamundo.com.br/quanto-rende-1-milhao.html`;
+  shareInstagram(txt);
+}
+
+// Calcula automaticamente ao carregar
+calcular();
+</script>
+</body>
+</html>
