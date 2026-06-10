@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparador de Investimentos: Poupança x CDB x Tesouro | calculamundo</title>
+<meta name="description" content="Compare Poupança, CDB e Tesouro Direto e descubra qual rende mais para o seu perfil e prazo. Simulação gratuita e visual.">
+<link rel="canonical" href="https://calculamundo.com.br/comparador-investimentos.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Poupança ou CDB: qual rende mais?","acceptedAnswer":{"@type":"Answer","text":"O CDB rende mais na maioria dos casos. Um CDB a 100% do CDI rende cerca de 0,90% ao mês, contra 0,50% da poupança. Em 24 meses, a diferença em R$ 10.000 pode superar R$ 1.000."}},
+    {"@type":"Question","name":"Tesouro Direto é melhor que CDB?","acceptedAnswer":{"@type":"Answer","text":"Depende do produto. O Tesouro Selic é muito seguro e tem liquidez diária. CDBs de bancos menores podem oferecer taxas maiores, mas com menos liquidez. Para segurança máxima, o Tesouro Direto é imbatível."}},
+    {"@type":"Question","name":"A poupança ainda vale a pena?","acceptedAnswer":{"@type":"Answer","text":"Na maioria dos casos, não. Quando a Selic está acima de 8,5% ao ano, a poupança rende apenas 0,5% ao mês — abaixo do CDI e de outras opções de renda fixa com liquidez equivalente."}}
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ3JR6GST6"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EZ3JR6GST6');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
+<!-- CSS COMPARTILHADO -->
+<link rel="stylesheet" href="shared-calc.css">
+ 
+<style>
+/* === CSS ESPECÍFICO — Comparador === */
+.container { max-width: 700px; }
+ 
+.result-box { display: none; animation: fadeIn 0.4s ease; }
+.result-box.show { display: block; }
+ 
+.inv-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 16px; }
+.inv-card {
+  background: var(--dark3); border: 1px solid var(--dark4);
+  border-radius: 12px; padding: 18px;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: border-color 0.2s;
+}
+.inv-card.best { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+.inv-name { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
+.inv-rate { font-size: 12px; color: var(--text-muted); }
+.inv-val  { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--gold); }
+.inv-gain { font-size: 12px; color: var(--green); margin-top: 2px; }
+.inv-best-badge {
+  display: inline-block; background: var(--gold); color: var(--dark);
+  font-size: 10px; font-weight: 700; padding: 2px 8px;
+  border-radius: 100px; margin-left: 8px; letter-spacing: 1px;
+}
+ 
+.other-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.tool-link {
+  background: var(--dark3); border: 1px solid var(--dark4);
+  border-radius: 12px; padding: 16px; text-decoration: none; transition: all 0.2s; display: block;
+}
+.tool-link:hover { border-color: var(--gold); }
+.tool-link-name { font-size: 0.9rem; color: var(--gold); margin-bottom: 4px; }
+.tool-link-desc  { font-size: 12px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<!-- NAV injetado pelo shared-calc.js -->
+ 
+<header>
+  <div class="badge">✦ calculamundo · Comparativo</div>
+  <h1>Comparador de<br>Investimentos</h1>
+  <p class="subtitle">Poupança, CDB e Tesouro Direto lado a lado. Descubra onde seu dinheiro rende mais.</p>
+</header>
+ 
+<div class="container">
+  <div class="card">
+    <div class="card-title">⚖️ Dados para comparação</div>
+    <div class="field">
+      <label>Valor a investir (R$)</label>
+      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="cmp-valor" value="10000" min="0"></div>
+    </div>
+    <div class="field">
+      <label>Prazo (meses)</label>
+      <div class="input-row"><input type="number" id="cmp-meses" value="24" min="1"></div>
+    </div>
+    <button class="btn-calc" onclick="calcComparador()">Comparar investimentos →</button>
+  </div>
+ 
+  <div class="result-box" id="cmp-result">
+    <div class="inv-grid" id="inv-grid"></div>
+    <div class="chart-card show" style="margin-bottom:20px;">
+      <div class="section-title">📈 Evolução comparativa</div>
+      <div class="chart-wrap"><canvas id="cmpChart"></canvas></div>
+    </div>
+  </div>
+ 
+  <!-- Editorial -->
+  <section class="card">
+    <h2 class="section-title">🏦 Poupança, CDB ou Tesouro?</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">A poupança é o investimento mais popular do Brasil, mas não é o mais rentável. Quando a taxa Selic está acima de 8,5% ao ano, a poupança rende apenas 0,5% ao mês — enquanto CDBs e Tesouro Direto acompanham o CDI ou a Selic, oferecendo rendimentos maiores com segurança equivalente.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">O CDB é emitido por bancos e tem cobertura do FGC (Fundo Garantidor de Créditos) até R$ 250.000 por CPF por instituição. O Tesouro Direto é garantido pelo governo federal — considerado o investimento mais seguro do Brasil.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Para quem quer começar a investir com segurança, o Tesouro Selic e CDBs de liquidez diária são ótimas alternativas à poupança, com rentabilidade superior e risco equivalente.</p>
+  </section>
+ 
+  <div class="section-title">🛠️ Outras Calculadoras</div>
+  <div class="other-tools" style="margin-bottom:24px;">
+    <a href="index.html" class="tool-link"><div class="tool-link-name">📊 Juros Compostos</div><div class="tool-link-desc">Simule seu crescimento patrimonial</div></a>
+    <a href="calculadora-aposentadoria.html" class="tool-link"><div class="tool-link-name">🏖️ Aposentadoria</div><div class="tool-link-desc">Planeje sua independência financeira</div></a>
+    <a href="simulador-financiamento.html" class="tool-link"><div class="tool-link-name">🏠 Financiamento</div><div class="tool-link-desc">Compare Price e SAC</div></a>
+    <a href="quanto-rende-1-milhao.html" class="tool-link"><div class="tool-link-name">💎 R$ 1 Milhão</div><div class="tool-link-desc">Quanto rende um patrimônio de 1 mi</div></a>
+  </div>
+</div>
+ 
+<!-- JS COMPARTILHADO -->
+<script src="shared-calc.js"></script>
+ 
+<!-- JS ESPECÍFICO -->
+<script>
+let cmpChart = null;
+ 
+const INVESTIMENTOS = [
+  { id: 'poup', nome: '🏦 Poupança',        taxa: 0.005,  label: '0,50% ao mês',  ir: false },
+  { id: 'cdb',  nome: '📊 CDB 100% CDI',    taxa: 0.009,  label: '~0,90% ao mês', ir: true  },
+  { id: 'td',   nome: '🇧🇷 Tesouro Direto',  taxa: 0.0095, label: '~0,95% ao mês', ir: true  },
+];
+ 
+const IR_RATE = 0.15; // IR para prazo > 720 dias
+ 
+function calcComparador() {
+  const valor = parseFloat(document.getElementById('cmp-valor').value) || 0;
+  const n     = parseInt(document.getElementById('cmp-meses').value) || 0;
+ 
+  const resultados = INVESTIMENTOS.map(inv => {
+    const bruto = valor * Math.pow(1 + inv.taxa, n);
+    const lucro = bruto - valor;
+    const liquido = inv.ir ? valor + lucro * (1 - IR_RATE) : bruto;
+    return { ...inv, bruto, liquido, lucro: liquido - valor };
+  });
+ 
+  const melhor = Math.max(...resultados.map(r => r.liquido));
+ 
+  // Renderiza cards
+  const grid = document.getElementById('inv-grid');
+  grid.innerHTML = resultados.map(r => `
+    <div class="inv-card ${r.liquido === melhor ? 'best' : ''}">
+      <div>
+        <div class="inv-name">${r.nome}${r.liquido === melhor ? '<span class="inv-best-badge">MELHOR</span>' : ''}</div>
+        <div class="inv-rate">${r.label}${r.ir ? ' · IR 15%' : ' · Isento'}</div>
+      </div>
+      <div style="text-align:right">
+        <div class="inv-val">${fmtBRL(r.liquido)}</div>
+        <div class="inv-gain">+${fmtBRL(r.lucro)} líquido</div>
+      </div>
+    </div>
+  `).join('');
+ 
+  // Gráfico
+  const labels = [];
+  const datasets = INVESTIMENTOS.map((inv, idx) => {
+    const data = [];
+    for (let m = 0; m <= n; m++) {
+      const bruto = valor * Math.pow(1 + inv.taxa, m);
+      const lucro = bruto - valor;
+      data.push(+(inv.ir ? valor + lucro * (1 - IR_RATE) : bruto).toFixed(2));
+      if (idx === 0) labels.push(m === 0 ? 'Hoje' : m % 6 === 0 ? m + 'm' : '');
+    }
+    const cores = ['#8888AA', '#2ECC71', '#C9A84C'];
+    const dashes = [[4,4], [], []];
+    return {
+      label: inv.nome.replace(/\p{Emoji}/u, '').trim(),
+      data,
+      borderColor: cores[idx],
+      backgroundColor: idx === 2 ? 'rgba(201,168,76,0.08)' : 'transparent',
+      fill: idx === 2,
+      tension: 0.4, pointRadius: 0, borderWidth: idx === 0 ? 1.5 : 2.5,
+      borderDash: dashes[idx],
+    };
+  });
+ 
+  if (cmpChart) cmpChart.destroy();
+  cmpChart = new Chart(document.getElementById('cmpChart').getContext('2d'), {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { labels: { color: '#8888AA', font: { family: 'DM Sans', size: 11 } } },
+        tooltip: {
+          backgroundColor: '#12121A', borderColor: '#C9A84C', borderWidth: 1,
+          titleColor: '#C9A84C', bodyColor: '#E8E8F0',
+          callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + fmtBRL(ctx.parsed.y) },
+        },
+      },
+      scales: {
+        x: { ticks: { color: '#555577', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' } },
+        y: {
+          ticks: { color: '#555577', font: { size: 10 }, callback: v => 'R$' + (v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(1)+'k' : v) },
+          grid: { color: 'rgba(255,255,255,0.04)' },
+        },
+      },
+    },
+  });
+ 
+  document.getElementById('cmp-result').classList.add('show');
+}
+</script>
+</body>
+</html>
