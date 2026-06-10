@@ -2,11 +2,11 @@
    shared-calc.js — calculamundo · Lógica compartilhada
    Inclua no FINAL do <body> de TODAS as páginas
    ============================================================ */
- 
+
 /* ---------- Constantes ---------- */
 const SITE_URL  = 'https://calculamundo.com.br';
 const SITE_NAME = 'calculamundo';
- 
+
 /* ---------- Páginas do site (nav) ---------- */
 const CM_PAGES = [
   { href: 'index.html',                    label: 'Juros Compostos' },
@@ -15,7 +15,7 @@ const CM_PAGES = [
   { href: 'comparador-investimentos.html', label: 'Comparador'      },
   { href: 'quanto-rende-1-milhao.html',    label: 'R$ 1 Milhão'     },
 ];
- 
+
 /* ---------- Todas as calculadoras (para seção "Outras") ---------- */
 const CM_CALCULADORAS = [
   { href: 'index.html',                     icon: '📈', name: 'Calculadora de Juros Compostos',      desc: 'Simule o crescimento do seu patrimônio com juros compostos.' },
@@ -29,14 +29,14 @@ const CM_CALCULADORAS = [
   { href: 'renda-passiva-100-mil.html',     icon: '💵', name: 'Renda Passiva com R$ 100 Mil',        desc: 'Descubra quanto você recebe por mês com R$ 100.000 investidos.' },
   { href: 'quanto-rende-1-milhao.html',     icon: '💎', name: 'Quanto Rende R$ 1 Milhão?',          desc: 'Simule a renda passiva mensal gerada por um patrimônio de R$ 1 milhão.' },
 ];
- 
+
 /* ---------- Injeta Nav ---------- */
 (function injectNav() {
   const current = window.location.pathname.split('/').pop() || 'index.html';
   const links = CM_PAGES.map(p =>
     `<a href="${p.href}"${current === p.href ? ' class="active"' : ''}>${p.label}</a>`
   ).join('');
- 
+
   const navHTML = `
     <nav>
       <div class="nav-inner">
@@ -45,26 +45,26 @@ const CM_CALCULADORAS = [
         <button class="nav-theme-btn" id="theme-btn" onclick="toggleTheme()">🌙</button>
       </div>
     </nav>`;
- 
+
   document.body.insertAdjacentHTML('afterbegin', navHTML);
 })();
- 
+
 /* ---------- Injeta Footer + seção "Outras Calculadoras" ---------- */
 (function injectFooter() {
   const current = window.location.pathname.split('/').pop() || 'index.html';
   const outras = CM_CALCULADORAS.filter(c => c.href !== current);
- 
+
   const cards = outras.map(c => `
     <a href="${c.href}" class="tool-card">
       <div class="tool-icon">${c.icon}</div>
       <div class="tool-name">${c.name}</div>
       <div class="tool-desc">${c.desc}</div>
     </a>`).join('');
- 
+
   const outrasSection = `
     <div class="section-title">🛠️ Outras Calculadoras</div>
     <div class="tools-grid">${cards}</div>`;
- 
+
   const footerHTML = `
     <footer>
       <div class="footer-inner">
@@ -86,17 +86,17 @@ const CM_CALCULADORAS = [
       </div>
     </footer>
     <div class="toast" id="toast"></div>`;
- 
+
   // Injeta "Outras Calculadoras" antes do footer, dentro do .container
   const container = document.querySelector('.container');
   if (container) container.insertAdjacentHTML('beforeend', outrasSection);
- 
+
   document.body.insertAdjacentHTML('beforeend', footerHTML);
   document.querySelectorAll('.year-auto').forEach(el => {
     el.textContent = new Date().getFullYear();
   });
 })();
- 
+
 /* ---------- Tema (dark/light) ---------- */
 function toggleTheme() {
   const isLight = document.body.classList.toggle('light');
@@ -104,7 +104,7 @@ function toggleTheme() {
   if (btn) btn.textContent = isLight ? '🌙' : '☀️';
   localStorage.setItem('cm-theme', isLight ? 'light' : 'dark');
 }
- 
+
 (function applyTheme() {
   if (localStorage.getItem('cm-theme') === 'light') {
     document.body.classList.add('light');
@@ -114,7 +114,7 @@ function toggleTheme() {
     });
   }
 })();
- 
+
 /* ---------- Toast ---------- */
 function showToast(msg) {
   const t = document.getElementById('toast');
@@ -123,7 +123,7 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3500);
 }
- 
+
 /* ---------- Compartilhar ---------- */
 function copyLink() {
   const url = window.location.href.split('?')[0];
@@ -135,12 +135,12 @@ function copyLink() {
     });
   }
 }
- 
+
 function shareWhatsApp(texto) {
   const txt = texto || `🤑 Simulei na ${SITE_NAME}!\n🔗 ${window.location.href}`;
   window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(txt), '_blank');
 }
- 
+
 function shareInstagram(texto) {
   const txt = texto || `🤑 Simulei na ${SITE_NAME}!\n🔗 ${window.location.href}`;
   if (navigator.clipboard) {
@@ -149,11 +149,11 @@ function shareInstagram(texto) {
     });
   }
 }
- 
+
 /* ============================================================
    MOTOR DE CÁLCULO — reutilizável por todas as páginas
    ============================================================ */
- 
+
 /**
  * Calcula juros compostos mês a mês.
  */
@@ -161,7 +161,7 @@ function calcJuros(P, Ap, i, n) {
   const labels    = [];
   const totais    = [];
   const investidos = [];
- 
+
   for (let m = 1; m <= n; m++) {
     const saldo = i > 0
       ? P * Math.pow(1 + i, m) + Ap * (Math.pow(1 + i, m) - 1) / i
@@ -170,22 +170,22 @@ function calcJuros(P, Ap, i, n) {
     totais.push(+saldo.toFixed(2));
     investidos.push(+(P + Ap * m).toFixed(2));
   }
- 
+
   const total     = totais[totais.length - 1] || 0;
   const investido = P + Ap * n;
   const juros     = total - investido;
   const renda     = i > 0 ? total * i : 0;
- 
+
   return { total, investido, juros, renda, labels, totais, investidos };
 }
- 
+
 /**
  * Formata número como moeda BRL.
  */
 function fmtBRL(v) {
   return 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
- 
+
 /**
  * Renderiza gráfico de linha (patrimônio vs investido).
  */
@@ -240,7 +240,7 @@ function renderLineChart(canvasId, labels, totais, investidos) {
     },
   });
 }
- 
+
 /**
  * Abre ChatGPT com prompt pré-preenchido com os dados da simulação.
  */
