@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quanto Rende R$ 1.000 Investidos? Simulação 2025 | calculamundo</title>
+<meta name="description" content="Descubra quanto rende R$ 1.000 reais investidos na poupança, CDB, Tesouro Direto e outros. Simulação gratuita e atualizada.">
+<link rel="canonical" href="https://calculamundo.com.br/quanto-rende-1000-reais.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Quanto rende R$ 1.000 reais por mês?","acceptedAnswer":{"@type":"Answer","text":"R$ 1.000 investidos a 1% ao mês rendem cerca de R$ 10 no primeiro mês. Em 12 meses, com juros compostos, o rendimento total chega a aproximadamente R$ 126, levando o saldo a R$ 1.126."}},
+    {"@type":"Question","name":"Quanto rende R$ 1.000 na poupança em 2025?","acceptedAnswer":{"@type":"Answer","text":"Com a Selic acima de 8,5% ao ano, a poupança rende 0,5% ao mês. R$ 1.000 na poupança renderiam cerca de R$ 5 no primeiro mês e R$ 61 em 12 meses."}},
+    {"@type":"Question","name":"Quanto rende R$ 1.000 no Tesouro Selic?","acceptedAnswer":{"@type":"Answer","text":"O Tesouro Selic acompanha a taxa Selic diária. Com a Selic em torno de 10,5% ao ano, R$ 1.000 renderiam aproximadamente R$ 100 a R$ 110 em 12 meses, descontando o IR."}},
+    {"@type":"Question","name":"Vale a pena investir R$ 1.000?","acceptedAnswer":{"@type":"Answer","text":"Sim, vale muito a pena. O mais importante é começar. R$ 1.000 investidos regularmente, com aportes mensais adicionais, podem crescer significativamente ao longo dos anos graças aos juros compostos."}}
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ3JR6GST6"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EZ3JR6GST6');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="shared-calc.css">
+<style>
+/* === CSS ESPECÍFICO — Quanto Rende 1000 === */
+.container { max-width: 780px; }
+.scenario-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--dark4); margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<header>
+  <div class="badge">✦ calculamundo · Simulação</div>
+  <h1>Quanto Rende<br>R$ 1.000 Reais?</h1>
+  <p class="subtitle">Simule o rendimento de R$ 1.000 em diferentes investimentos e descubra onde seu dinheiro cresce mais.</p>
+</header>
+
+<div class="container">
+
+  <!-- TABELA DE CENÁRIOS FIXOS -->
+  <div class="card">
+    <div class="card-title">📊 Rendimento de R$ 1.000 por prazo</div>
+    <div class="scenario-wrap">
+      <table class="scenario-table">
+        <thead>
+          <tr>
+            <th>Investimento</th>
+            <th>Taxa/mês</th>
+            <th>1 ano</th>
+            <th>2 anos</th>
+            <th>5 anos</th>
+            <th>IR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>🏦 Poupança</td><td>0,50%</td><td class="highlight">R$ 1.062</td><td class="highlight">R$ 1.127</td><td class="highlight">R$ 1.349</td><td>Isento</td></tr>
+          <tr><td>📊 CDB 100% CDI</td><td>~0,87%</td><td class="green">R$ 1.098</td><td class="green">R$ 1.205</td><td class="green">R$ 1.632</td><td>15%</td></tr>
+          <tr><td>🇧🇷 Tesouro Selic</td><td>~0,88%</td><td class="green">R$ 1.100</td><td class="green">R$ 1.210</td><td class="green">R$ 1.643</td><td>15%</td></tr>
+          <tr><td>📈 CDB 110% CDI</td><td>~0,96%</td><td class="green">R$ 1.107</td><td class="green">R$ 1.225</td><td class="green">R$ 1.677</td><td>15%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);">* Valores simulados com taxas aproximadas. CDI referência: ~10,5% a.a. Consulte sempre as taxas vigentes.</p>
+  </div>
+
+  <!-- SIMULADOR PERSONALIZADO -->
+  <div class="card">
+    <div class="card-title">🎛️ Simule com seus próprios números</div>
+    <div class="field">
+      <label>Valor inicial (R$)</label>
+      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="s-inicial" value="1000" min="0"></div>
+    </div>
+    <div class="field">
+      <label>Aporte mensal adicional (R$)</label>
+      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="s-aporte" value="0" min="0"></div>
+    </div>
+    <div class="field">
+      <label>Taxa mensal (%)</label>
+      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="s-taxa" value="1.0" step="0.01" min="0"></div>
+    </div>
+    <div class="field">
+      <label>Prazo (meses)</label>
+      <div class="input-row"><input type="number" id="s-meses" value="12" min="1"></div>
+    </div>
+    <div class="field">
+      <label>Exemplos rápidos</label>
+      <div class="examples-row">
+        <button class="example-btn" onclick="setEx(1000,0,0.5,12)">🏦 Poupança 1 ano</button>
+        <button class="example-btn" onclick="setEx(1000,0,0.87,12)">📊 CDB 1 ano</button>
+        <button class="example-btn" onclick="setEx(1000,100,1.0,60)">🚀 Com aportes 5 anos</button>
+      </div>
+    </div>
+    <button class="btn-calc" onclick="calcular()">Simular rendimento →</button>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="result-card" id="result-card">
+    <div class="result-main">
+      <div class="result-label">Patrimônio Final</div>
+      <div class="result-value" id="res-total">—</div>
+    </div>
+    <div class="result-grid">
+      <div class="result-item"><div class="result-item-label">💵 Total investido</div><div class="result-item-value gold" id="res-investido">—</div></div>
+      <div class="result-item"><div class="result-item-label">📈 Juros ganhos</div><div class="result-item-value green" id="res-juros">—</div></div>
+      <div class="result-item"><div class="result-item-label">🔁 Multiplicação</div><div class="result-item-value gold" id="res-multi">—</div></div>
+      <div class="result-item"><div class="result-item-label">📅 Renda mensal est.</div><div class="result-item-value green" id="res-renda">—</div></div>
+    </div>
+    <div class="share-section">
+      <div class="share-title">✦ Compartilhe seu resultado</div>
+      <div class="share-btns">
+        <button class="share-btn btn-whatsapp"  onclick="compartilharWpp()">📱 WhatsApp</button>
+        <button class="share-btn btn-instagram" onclick="compartilharInsta()">📸 Instagram</button>
+        <button class="share-btn btn-copy"      onclick="copyLink()">📋 Copiar link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRÁFICO -->
+  <div class="chart-card" id="chart-card">
+    <div class="section-title">📈 Evolução do Patrimônio</div>
+    <div class="chart-wrap"><canvas id="myChart"></canvas></div>
+  </div>
+
+  <!-- EDITORIAL -->
+  <section class="card">
+    <h2 class="section-title">💡 O que fazer com R$ 1.000?</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">R$ 1.000 é um ponto de partida excelente. Com esse valor, você já consegue acessar Tesouro Direto (a partir de R$ 30), CDBs de bancos digitais com alta rentabilidade e fundos de investimento de renda fixa.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">A poupança ainda é a opção mais popular, mas raramente a mais rentável. Com a Selic elevada, o CDB e o Tesouro Selic rendem cerca de 70% a mais que a poupança, com liquidez equivalente e segurança garantida pelo FGC ou pelo governo federal.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">O verdadeiro poder, porém, está em manter a consistência: adicionar aportes mensais regulares, mesmo que pequenos, acelera o crescimento de forma exponencial ao longo dos anos.</p>
+  </section>
+
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-icon">🎯</div><div class="tip-title">Comece pequeno</div><div class="tip-text">R$ 1.000 já dão acesso a bons investimentos. O importante é começar e manter o hábito.</div></div>
+    <div class="tip-card"><div class="tip-icon">📅</div><div class="tip-title">Invista todo mês</div><div class="tip-text">Aportes mensais regulares potencializam muito o efeito dos juros compostos no longo prazo.</div></div>
+    <div class="tip-card"><div class="tip-icon">🔒</div><div class="tip-title">Escolha liquidez</div><div class="tip-text">Para reserva de emergência, prefira CDB com liquidez diária ou Tesouro Selic.</div></div>
+    <div class="tip-card"><div class="tip-icon">📊</div><div class="tip-title">Compare antes</div><div class="tip-text">Pequenas diferenças de taxa fazem grande diferença no longo prazo. Use o comparador.</div></div>
+  </div>
+
+  <!-- OUTRAS CALCULADORAS -->
+  <div class="section-title">🛠️ Outras Simulações</div>
+  <div class="tools-grid">
+    <a href="quanto-rende-5000-no-cdi.html" class="tool-card"><div class="tool-icon">📊</div><div class="tool-name">Quanto Rende R$ 5.000 no CDI?</div><div class="tool-desc">Simule R$ 5.000 com taxa CDI dinâmica e veja a diferença dos percentuais.</div></a>
+    <a href="quanto-rende-1-milhao.html" class="tool-card"><div class="tool-icon">💎</div><div class="tool-name">Quanto Rende R$ 1 Milhão?</div><div class="tool-desc">Descubra a renda passiva mensal gerada por um patrimônio de R$ 1 milhão.</div></a>
+    <a href="renda-passiva-100-mil.html" class="tool-card"><div class="tool-icon">🌴</div><div class="tool-name">Renda Passiva com R$ 100 Mil</div><div class="tool-desc">Quanto você recebe por mês com R$ 100.000 investidos?</div></a>
+    <a href="comparador-investimentos.html" class="tool-card"><div class="tool-icon">⚖️</div><div class="tool-name">Comparador de Investimentos</div><div class="tool-desc">Poupança vs CDB vs Tesouro lado a lado.</div></a>
+    <a href="index.html" class="tool-card"><div class="tool-icon">📊</div><div class="tool-name">Calculadora de Juros Compostos</div><div class="tool-desc">Simule qualquer cenário com valor inicial, aportes e taxa personalizada.</div></a>
+    <a href="juros-compostos-20-anos.html" class="tool-card"><div class="tool-icon">⏳</div><div class="tool-name">Juros Compostos em 20 Anos</div><div class="tool-desc">Veja o que acontece com seu dinheiro em duas décadas de investimento.</div></a>
+  </div>
+
+</div>
+
+<script src="shared-calc.js"></script>
+<script>
+let chartInstance = null;
+let lastResult = null;
+
+function setEx(ini, ap, taxa, meses) {
+  document.getElementById('s-inicial').value = ini;
+  document.getElementById('s-aporte').value  = ap;
+  document.getElementById('s-taxa').value    = taxa;
+  document.getElementById('s-meses').value   = meses;
+  calcular();
+}
+
+function calcular() {
+  const P  = parseFloat(document.getElementById('s-inicial').value) || 0;
+  const Ap = parseFloat(document.getElementById('s-aporte').value)  || 0;
+  const i  = parseFloat(document.getElementById('s-taxa').value) / 100 || 0;
+  const n  = parseInt(document.getElementById('s-meses').value) || 0;
+
+  const r = calcJuros(P, Ap, i, n);
+  lastResult = { P, Ap, i, meses: n, ...r };
+
+  document.getElementById('res-total').textContent     = fmtBRL(r.total);
+  document.getElementById('res-investido').textContent = fmtBRL(r.investido);
+  document.getElementById('res-juros').textContent     = fmtBRL(r.juros);
+  document.getElementById('res-multi').textContent     = r.investido > 0 ? (r.total / r.investido).toFixed(2) + 'x' : '—';
+  document.getElementById('res-renda').textContent     = fmtBRL(r.renda) + '/mês';
+
+  document.getElementById('result-card').classList.add('show');
+  document.getElementById('chart-card').classList.add('show');
+
+  if (chartInstance) chartInstance.destroy();
+  chartInstance = renderLineChart('myChart', r.labels, r.totais, r.investidos);
+}
+
+function compartilharWpp() {
+  if (!lastResult) return;
+  shareWhatsApp(`💰 R$ 1.000 investidos podem virar ${fmtBRL(lastResult.total)}!\n📈 Simule você também: https://calculamundo.com.br/quanto-rende-1000-reais.html`);
+}
+function compartilharInsta() {
+  if (!lastResult) return;
+  shareInstagram(`💰 R$ 1.000 investidos podem virar ${fmtBRL(lastResult.total)}!\n📈 ${SITE_URL}/quanto-rende-1000-reais.html`);
+}
+
+calcular();
+</script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renda Passiva com R$ 100 Mil: Quanto Você Recebe por Mês? | calculamundo</title>
+<meta name="description" content="Descubra quanto você recebe por mês com R$ 100.000 investidos. Simule diferentes taxas, compare poupança, CDB, Tesouro e FIIs, e descubra a taxa de retirada ideal.">
+<link rel="canonical" href="https://calculamundo.com.br/renda-passiva-100-mil.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Quanto rende R$ 100.000 por mês?","acceptedAnswer":{"@type":"Answer","text":"R$ 100.000 investidos a 1% ao mês rendem R$ 1.000 mensais. A taxas mais conservadoras de 0,8% ao mês, o rendimento é de R$ 800. A rentabilidade exata depende do investimento escolhido e das taxas de mercado vigentes."}},
+    {"@type":"Question","name":"Dá para viver de renda com R$ 100.000?","acceptedAnswer":{"@type":"Answer","text":"Para a maioria das pessoas no Brasil, R$ 100.000 não é suficiente para viver de renda, pois gera entre R$ 600 e R$ 1.000 mensais. Mas é um patrimônio que complementa bem a renda de trabalho e forma uma base sólida para crescimento futuro."}},
+    {"@type":"Question","name":"Qual o melhor investimento para R$ 100.000?","acceptedAnswer":{"@type":"Answer","text":"Depende do objetivo. Para renda imediata: Tesouro IPCA+ com juros semestrais, FIIs ou CDBs com liquidez. Para crescimento: diversifique entre renda fixa e renda variável. Com R$ 100.000, você tem acesso a excelentes opções em todas as categorias."}},
+    {"@type":"Question","name":"Quanto tempo leva para ter R$ 100.000?","acceptedAnswer":{"@type":"Answer","text":"Investindo R$ 1.000 por mês a 1% ao mês, você atinge R$ 100.000 em aproximadamente 6 anos e 4 meses. Com R$ 2.000 por mês, em cerca de 4 anos. Use a calculadora de juros compostos para simular seu cenário."}}
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ3JR6GST6"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EZ3JR6GST6');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="shared-calc.css">
+<style>
+/* === CSS ESPECÍFICO — Renda Passiva 100 Mil === */
+.container { max-width: 780px; }
+
+.renda-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.renda-card {
+  background: var(--dark3); border: 1px solid var(--dark4);
+  border-radius: 12px; padding: 16px; text-align: center;
+  transition: border-color 0.2s;
+}
+.renda-card.best { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+.renda-tipo  { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase; }
+.renda-val   { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--gold); }
+.renda-taxa  { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+.patrimonio-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.patrimonio-tab {
+  background: var(--dark3); border: 1px solid var(--dark4);
+  border-radius: 8px; color: var(--text-muted); cursor: pointer;
+  font-size: 13px; padding: 8px 16px; transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.patrimonio-tab.active { background: var(--gold); color: var(--dark); border-color: var(--gold); font-weight: 600; }
+
+.scenario-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--dark4); margin-bottom: 20px; }
+
+.meta-bar-wrap { margin-top: 12px; }
+.meta-bar-label { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; display: flex; justify-content: space-between; }
+.meta-bar { background: var(--dark4); border-radius: 100px; height: 8px; overflow: hidden; }
+.meta-bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transition: width 0.6s ease; }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<header>
+  <div class="badge">✦ calculamundo · Renda Passiva</div>
+  <h1>Renda Passiva<br>com R$ 100 Mil</h1>
+  <p class="subtitle">Quanto você recebe por mês com R$ 100.000 investidos? Simule diferentes cenários e descubra o potencial do seu patrimônio.</p>
+</header>
+
+<div class="container">
+
+  <!-- CARDS DE RENDA POR TIPO DE INVESTIMENTO -->
+  <div class="card">
+    <div class="card-title">📊 Renda estimada por tipo de investimento</div>
+    <div class="renda-grid">
+      <div class="renda-card"><div class="renda-tipo">Poupança</div><div class="renda-val">R$ 500</div><div class="renda-taxa">0,50%/mês · Isento</div></div>
+      <div class="renda-card"><div class="renda-tipo">CDB 100% CDI</div><div class="renda-val">R$ 739</div><div class="renda-taxa">0,87%/mês líquido</div></div>
+      <div class="renda-card best"><div class="renda-tipo">Tesouro Selic</div><div class="renda-val">R$ 748</div><div class="renda-taxa">~0,88%/mês líquido</div></div>
+      <div class="renda-card"><div class="renda-tipo">CDB 110% CDI</div><div class="renda-val">R$ 816</div><div class="renda-taxa">~0,96%/mês líquido</div></div>
+      <div class="renda-card"><div class="renda-tipo">FIIs (estimado)</div><div class="renda-val">R$ 700–900</div><div class="renda-taxa">~0,8–1,0%/mês · Isento</div></div>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);">* CDB e Tesouro com IR de 15% (prazo acima de 2 anos). CDI referência: ~10,5% a.a. FIIs: estimativa de dividend yield médio.</p>
+  </div>
+
+  <!-- SIMULADOR PERSONALIZADO -->
+  <div class="card">
+    <div class="card-title">🎛️ Simule com seu patrimônio</div>
+    <div class="field">
+      <label>Patrimônio investido (R$)</label>
+      <div class="patrimonio-tabs" id="pat-tabs">
+        <button class="patrimonio-tab" onclick="setPat(50000,this)">R$ 50k</button>
+        <button class="patrimonio-tab active" onclick="setPat(100000,this)">R$ 100k</button>
+        <button class="patrimonio-tab" onclick="setPat(200000,this)">R$ 200k</button>
+        <button class="patrimonio-tab" onclick="setPat(500000,this)">R$ 500k</button>
+      </div>
+      <div class="input-row" style="margin-top:8px;"><span class="input-prefix">R$</span><input type="number" id="s-patrimonio" value="100000" min="0" oninput="clearPatTabActive()"></div>
+    </div>
+    <div class="field">
+      <label>Taxa de rentabilidade mensal (%)</label>
+      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="s-taxa" value="1.0" step="0.01" min="0.01"></div>
+    </div>
+    <div class="field">
+      <label>Meta de renda mensal (R$) — opcional</label>
+      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="s-meta" value="5000" min="0"></div>
+    </div>
+    <button class="btn-calc" onclick="calcular()">Calcular minha renda →</button>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="result-card" id="result-card">
+    <div class="result-main">
+      <div class="result-label">Renda mensal gerada</div>
+      <div class="result-value" id="res-renda">—</div>
+    </div>
+    <div class="result-grid">
+      <div class="result-item"><div class="result-item-label">💵 Patrimônio</div><div class="result-item-value gold" id="res-patrimonio">—</div></div>
+      <div class="result-item"><div class="result-item-label">📈 Renda anual</div><div class="result-item-value green" id="res-anual">—</div></div>
+      <div class="result-item"><div class="result-item-label">🎯 % da meta</div><div class="result-item-value gold" id="res-pct-meta">—</div></div>
+      <div class="result-item"><div class="result-item-label">💎 Patrimônio p/ meta</div><div class="result-item-value green" id="res-pat-meta">—</div></div>
+    </div>
+
+    <!-- BARRA DE PROGRESSO PARA META -->
+    <div class="meta-bar-wrap" id="meta-wrap">
+      <div class="meta-bar-label">
+        <span>Progresso para a meta de renda</span>
+        <span id="meta-pct-label">—</span>
+      </div>
+      <div class="meta-bar"><div class="meta-bar-fill" id="meta-bar-fill" style="width:0%"></div></div>
+    </div>
+
+    <div class="share-section">
+      <div class="share-title">✦ Compartilhe</div>
+      <div class="share-btns">
+        <button class="share-btn btn-whatsapp"  onclick="compartilharWpp()">📱 WhatsApp</button>
+        <button class="share-btn btn-instagram" onclick="compartilharInsta()">📸 Instagram</button>
+        <button class="share-btn btn-copy"      onclick="copyLink()">📋 Copiar link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRÁFICO DE CRESCIMENTO -->
+  <div class="chart-card" id="chart-card">
+    <div class="section-title">📈 Crescimento do patrimônio ao longo do tempo</div>
+    <div class="chart-wrap"><canvas id="myChart"></canvas></div>
+  </div>
+
+  <!-- TABELA: QUANTO PATRIMÔNIO PARA CADA META DE RENDA -->
+  <div class="card">
+    <div class="card-title">🎯 Quanto patrimônio para atingir sua meta de renda?</div>
+    <div class="scenario-wrap">
+      <table class="scenario-table">
+        <thead>
+          <tr><th>Meta de renda/mês</th><th>Necessário a 0,8%/mês</th><th>Necessário a 1,0%/mês</th><th>Necessário a 1,2%/mês</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>R$ 1.000</td><td>R$ 125.000</td><td class="highlight">R$ 100.000</td><td class="green">R$ 83.333</td></tr>
+          <tr><td>R$ 2.000</td><td>R$ 250.000</td><td class="highlight">R$ 200.000</td><td class="green">R$ 166.667</td></tr>
+          <tr><td>R$ 5.000</td><td>R$ 625.000</td><td class="highlight">R$ 500.000</td><td class="green">R$ 416.667</td></tr>
+          <tr><td>R$ 10.000</td><td>R$ 1.250.000</td><td class="highlight">R$ 1.000.000</td><td class="green">R$ 833.333</td></tr>
+          <tr><td>R$ 20.000</td><td>R$ 2.500.000</td><td class="highlight">R$ 2.000.000</td><td class="green">R$ 1.666.667</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- EDITORIAL -->
+  <section class="card">
+    <h2 class="section-title">🌴 O caminho para a renda passiva</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">Renda passiva não significa trabalhar menos — significa ter fontes de renda que funcionam mesmo quando você não está trabalhando. R$ 100.000 investidos são um marco importante: com esse patrimônio, você já tem uma renda extra consistente todos os meses.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Para quem busca viver exclusivamente de renda passiva, o número necessário depende do seu custo de vida. Uma família que gasta R$ 5.000 por mês precisa de aproximadamente R$ 500.000 a R$ 600.000 investidos, dependendo da taxa de retorno.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">O caminho mais eficiente é combinar renda fixa (para segurança e liquidez), FIIs (para renda mensal isenta de IR) e ações de dividendos (para crescimento e proteção contra inflação). Cada pilar desempenha um papel no portfólio ideal de renda passiva.</p>
+  </section>
+
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-icon">🏢</div><div class="tip-title">Considere os FIIs</div><div class="tip-text">Fundos Imobiliários pagam dividendos mensais isentos de IR para pessoa física, com yields entre 0,7% e 1,2% ao mês.</div></div>
+    <div class="tip-card"><div class="tip-icon">📈</div><div class="tip-title">Reinvista nos primeiros anos</div><div class="tip-text">Quanto mais você reinvestir os rendimentos antes de precisar da renda, mais rápido o patrimônio cresce.</div></div>
+    <div class="tip-card"><div class="tip-icon">🛡️</div><div class="tip-title">Proteja da inflação</div><div class="tip-text">Tesouro IPCA+ garante rendimento real acima da inflação. Essencial para renda passiva de longo prazo.</div></div>
+    <div class="tip-card"><div class="tip-icon">🧮</div><div class="tip-title">Calcule o suficiente</div><div class="tip-text">Defina quanto você precisa por mês e calcule o patrimônio necessário. Ter um número claro acelera o foco.</div></div>
+  </div>
+
+  <div class="section-title">🛠️ Continue planejando</div>
+  <div class="tools-grid">
+    <a href="aposentadoria-com-1-milhao.html" class="tool-card"><div class="tool-icon">💎</div><div class="tool-name">Aposentadoria com R$ 1 Milhão</div><div class="tool-desc">Veja se R$ 1 milhão é suficiente para o seu padrão de vida.</div></a>
+    <a href="calculadora-aposentadoria.html" class="tool-card"><div class="tool-icon">🏖️</div><div class="tool-name">Calculadora de Aposentadoria</div><div class="tool-desc">Descubra em quanto tempo você atinge sua meta de patrimônio.</div></a>
+    <a href="juros-compostos-20-anos.html" class="tool-card"><div class="tool-icon">⏳</div><div class="tool-name">Juros Compostos em 20 Anos</div><div class="tool-desc">Simule o crescimento do seu patrimônio ao longo de duas décadas.</div></a>
+    <a href="index.html" class="tool-card"><div class="tool-icon">📊</div><div class="tool-name">Calculadora de Juros Compostos</div><div class="tool-desc">Ferramenta completa para simular qualquer cenário de investimento.</div></a>
+  </div>
+
+</div>
+
+<script src="shared-calc.js"></script>
+<script>
+let chartInstance = null;
+let lastCalc = null;
+
+function setPat(val, btn) {
+  document.getElementById('s-patrimonio').value = val;
+  document.querySelectorAll('.patrimonio-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  calcular();
+}
+
+function clearPatTabActive() {
+  document.querySelectorAll('.patrimonio-tab').forEach(b => b.classList.remove('active'));
+}
+
+function calcular() {
+  const P    = parseFloat(document.getElementById('s-patrimonio').value) || 0;
+  const i    = parseFloat(document.getElementById('s-taxa').value) / 100 || 0;
+  const meta = parseFloat(document.getElementById('s-meta').value) || 0;
+
+  const renda  = P * i;
+  const anual  = renda * 12;
+  const patMeta = meta > 0 && i > 0 ? meta / i : 0;
+  const pctMeta = meta > 0 ? Math.min((renda / meta) * 100, 100) : 0;
+
+  document.getElementById('res-renda').textContent     = fmtBRL(renda) + '/mês';
+  document.getElementById('res-patrimonio').textContent = fmtBRL(P);
+  document.getElementById('res-anual').textContent     = fmtBRL(anual) + '/ano';
+  document.getElementById('res-pct-meta').textContent  = meta > 0 ? (renda / meta * 100).toFixed(1) + '%' : '—';
+  document.getElementById('res-pat-meta').textContent  = meta > 0 ? fmtBRL(patMeta) : '—';
+
+  // Barra de progresso
+  if (meta > 0) {
+    document.getElementById('meta-wrap').style.display = 'block';
+    document.getElementById('meta-bar-fill').style.width = pctMeta.toFixed(1) + '%';
+    document.getElementById('meta-pct-label').textContent = pctMeta.toFixed(1) + '%';
+  }
+
+  // Gráfico de crescimento (sem retiradas, 120 meses)
+  const n = 120;
+  const r = calcJuros(P, 0, i, n);
+  document.getElementById('result-card').classList.add('show');
+  document.getElementById('chart-card').classList.add('show');
+
+  if (chartInstance) chartInstance.destroy();
+  chartInstance = renderLineChart('myChart', r.labels, r.totais, r.investidos);
+
+  lastCalc = { P, i, renda };
+}
+
+function compartilharWpp() {
+  if (!lastCalc) return;
+  shareWhatsApp(`💰 Meus R$ ${fmtBRL(lastCalc.P)} geram ${fmtBRL(lastCalc.renda)}/mês de renda passiva!\n🔗 Simule: https://calculamundo.com.br/renda-passiva-100-mil.html`);
+}
+function compartilharInsta() {
+  if (!lastCalc) return;
+  shareInstagram(`💰 ${fmtBRL(lastCalc.P)} = ${fmtBRL(lastCalc.renda)}/mês de renda passiva!\n📈 ${SITE_URL}/renda-passiva-100-mil.html`);
+}
+
+calcular();
+</script>
+</body>
+</html>

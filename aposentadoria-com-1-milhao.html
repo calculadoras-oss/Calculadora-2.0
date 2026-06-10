@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aposentadoria com R$ 1 Milhão: Dá Para Viver de Renda? | calculamundo</title>
+<meta name="description" content="Descubra se dá para se aposentar com R$ 1 milhão. Simule quanto tempo seu patrimônio dura, qual renda mensal ele gera e como preservar o capital.">
+<link rel="canonical" href="https://calculamundo.com.br/aposentadoria-com-1-milhao.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Dá para se aposentar com R$ 1 milhão?","acceptedAnswer":{"@type":"Answer","text":"Sim, dependendo do estilo de vida. R$ 1 milhão a 0,8% ao mês gera cerca de R$ 8.000 mensais, preservando o capital. Se a taxa cobrir suas despesas mensais, você pode viver de renda indefinidamente sem consumir o patrimônio."}},
+    {"@type":"Question","name":"Quanto rende R$ 1 milhão por mês?","acceptedAnswer":{"@type":"Answer","text":"R$ 1 milhão investido a 1% ao mês gera R$ 10.000 mensais. A taxas de 0,8% ao mês (referência conservadora de renda fixa), gera R$ 8.000 por mês. Esses valores podem variar conforme as taxas de mercado."}},
+    {"@type":"Question","name":"Quanto tempo R$ 1 milhão dura se eu sacar todo mês?","acceptedAnswer":{"@type":"Answer","text":"Depende do valor do saque e da taxa de rentabilidade. Se os saques mensais forem iguais ou menores que os rendimentos, o patrimônio dura indefinidamente. Se os saques excederem os rendimentos, o capital vai sendo consumido gradualmente."}},
+    {"@type":"Question","name":"Como atingir R$ 1 milhão investindo?","acceptedAnswer":{"@type":"Answer","text":"Investindo R$ 1.000 por mês a 1% ao mês, você atinge R$ 1 milhão em aproximadamente 20 anos. Com aportes maiores ou taxas melhores, o prazo diminui. Use a calculadora de juros compostos para simular seu cenário específico."}}
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ3JR6GST6"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EZ3JR6GST6');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="shared-calc.css">
+<style>
+/* === CSS ESPECÍFICO — Aposentadoria com 1 Milhão === */
+.container { max-width: 780px; }
+
+.renda-highlight {
+  background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04));
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 20px;
+}
+.renda-val { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; color: var(--gold); }
+.renda-label { color: var(--text-muted); font-size: 14px; margin-top: 6px; }
+
+.status-badge {
+  display: inline-block; border-radius: 100px;
+  font-size: 12px; font-weight: 700; padding: 4px 14px; margin-top: 10px;
+}
+.status-ok  { background: rgba(46,204,113,0.15); color: var(--green); border: 1px solid rgba(46,204,113,0.3); }
+.status-warn { background: rgba(231,76,60,0.15); color: #E74C3C; border: 1px solid rgba(231,76,60,0.3); }
+
+.scenario-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--dark4); margin-bottom: 20px; }
+
+.durabilidade-bar {
+  background: var(--dark3); border-radius: 8px; height: 10px; margin-top: 8px; overflow: hidden;
+}
+.durabilidade-fill { height: 100%; border-radius: 8px; transition: width 0.6s ease; }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<header>
+  <div class="badge">✦ calculamundo · Aposentadoria</div>
+  <h1>Aposentadoria<br>com R$ 1 Milhão</h1>
+  <p class="subtitle">Dá para viver de renda com R$ 1 milhão? Simule quanto seu patrimônio rende, quanto tempo dura e qual é a taxa de retirada segura.</p>
+</header>
+
+<div class="container">
+
+  <!-- SIMULADOR PRINCIPAL -->
+  <div class="card">
+    <div class="card-title">💎 Configure seu cenário</div>
+    <div class="field">
+      <label>Patrimônio acumulado (R$)</label>
+      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="s-patrimonio" value="1000000" min="0"></div>
+    </div>
+    <div class="field">
+      <label>Taxa de rentabilidade mensal (%)</label>
+      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="s-taxa" value="0.8" step="0.01" min="0.01"></div>
+    </div>
+    <div class="field">
+      <label>Retirada mensal desejada (R$)</label>
+      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="s-retirada" value="8000" min="0"></div>
+    </div>
+    <div class="field">
+      <label>Exemplos rápidos</label>
+      <div class="examples-row">
+        <button class="example-btn" onclick="setEx(1000000, 0.8, 5000)">🌱 Conservador</button>
+        <button class="example-btn" onclick="setEx(1000000, 1.0, 8000)">⚖️ Equilibrado</button>
+        <button class="example-btn" onclick="setEx(1000000, 1.2, 12000)">🚀 Arrojado</button>
+      </div>
+    </div>
+    <button class="btn-calc" onclick="calcular()">Analisar meu cenário →</button>
+  </div>
+
+  <!-- RESULTADO: RENDA GERADA -->
+  <div class="result-card" id="result-card">
+    <div id="renda-box" class="renda-highlight">
+      <div class="renda-label">Rendimento mensal gerado</div>
+      <div class="renda-val" id="res-rendimento">—</div>
+      <div id="status-badge"></div>
+    </div>
+    <div class="result-grid">
+      <div class="result-item"><div class="result-item-label">💵 Retirada mensal</div><div class="result-item-value gold" id="res-retirada">—</div></div>
+      <div class="result-item"><div class="result-item-label">📈 Saldo mensal</div><div class="result-item-value" id="res-saldo">—</div></div>
+      <div class="result-item"><div class="result-item-label">⏳ Duração estimada</div><div class="result-item-value gold" id="res-duracao">—</div></div>
+      <div class="result-item"><div class="result-item-label">📅 Taxa de retirada</div><div class="result-item-value" id="res-taxa-ret">—</div></div>
+    </div>
+    <div class="share-section">
+      <div class="share-title">✦ Compartilhe sua análise</div>
+      <div class="share-btns">
+        <button class="share-btn btn-whatsapp"  onclick="compartilharWpp()">📱 WhatsApp</button>
+        <button class="share-btn btn-instagram" onclick="compartilharInsta()">📸 Instagram</button>
+        <button class="share-btn btn-copy"      onclick="copyLink()">📋 Copiar link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRÁFICO DE EVOLUÇÃO DO PATRIMÔNIO COM RETIRADAS -->
+  <div class="chart-card" id="chart-card">
+    <div class="section-title">📊 Evolução do patrimônio com retiradas mensais</div>
+    <div class="chart-wrap"><canvas id="myChart"></canvas></div>
+  </div>
+
+  <!-- TABELA DE CENÁRIOS DE RENDA -->
+  <div class="card">
+    <div class="card-title">📋 Quanto R$ 1 milhão rende por taxa</div>
+    <div class="scenario-wrap">
+      <table class="scenario-table">
+        <thead>
+          <tr><th>Taxa/mês</th><th>Renda mensal</th><th>Renda anual</th><th>Taxa de retirada</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0,6%</td><td class="highlight">R$ 6.000</td><td>R$ 72.000</td><td>7,2% a.a.</td></tr>
+          <tr><td>0,7%</td><td class="highlight">R$ 7.000</td><td>R$ 84.000</td><td>8,4% a.a.</td></tr>
+          <tr><td>0,8%</td><td class="highlight">R$ 8.000</td><td>R$ 96.000</td><td>9,6% a.a.</td></tr>
+          <tr><td>0,9%</td><td class="highlight">R$ 9.000</td><td>R$ 108.000</td><td>10,8% a.a.</td></tr>
+          <tr><td>1,0%</td><td class="green">R$ 10.000</td><td class="green">R$ 120.000</td><td>12,0% a.a.</td></tr>
+          <tr><td>1,2%</td><td class="green">R$ 12.000</td><td class="green">R$ 144.000</td><td>14,4% a.a.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);">* Valores brutos sem desconto de IR. Patrimônio preservado quando a retirada ≤ rendimento mensal.</p>
+  </div>
+
+  <!-- EDITORIAL -->
+  <section class="card">
+    <h2 class="section-title">💡 R$ 1 Milhão é suficiente para se aposentar?</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">A resposta depende do seu custo de vida. Com R$ 1 milhão rendendo 1% ao mês, você tem R$ 10.000 mensais — sem consumir o capital principal. Para quem vive com menos que isso, R$ 1 milhão é suficiente para uma aposentadoria tranquila e sustentável.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">O conceito-chave aqui é a <strong style="color:var(--gold);">taxa de retirada segura</strong>: a proporção do patrimônio que você saca mensalmente. Quando os saques ficam abaixo do rendimento, o patrimônio se mantém ou até cresce. Quando excedem, o capital vai sendo consumido gradualmente.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Uma referência internacional muito usada é a <strong style="color:var(--gold);">regra dos 4%</strong>: sacar 4% do patrimônio por ano (0,33% ao mês) historicamente sustentou aposentadorias de 30 anos em mercados diversificados. Para o Brasil, dada a Selic mais alta, taxas maiores costumam ser sustentáveis na renda fixa.</p>
+  </section>
+
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-icon">🛡️</div><div class="tip-title">Preserve o capital</div><div class="tip-text">Nunca retire mais do que os rendimentos mensais. Isso garante que o patrimônio dure para sempre.</div></div>
+    <div class="tip-card"><div class="tip-icon">📊</div><div class="tip-title">Diversifique os ativos</div><div class="tip-text">FIIs, Tesouro IPCA+ e ações de dividendos ajudam a proteger contra a inflação no longo prazo.</div></div>
+    <div class="tip-card"><div class="tip-icon">🧮</div><div class="tip-title">Considere o IR</div><div class="tip-text">Nos saques de renda fixa, há IR de 15% sobre os rendimentos. Planeje seus saques considerando esse custo.</div></div>
+    <div class="tip-card"><div class="tip-icon">📅</div><div class="tip-title">Revise anualmente</div><div class="tip-text">Reavalie sua taxa de retirada todo ano conforme as taxas de mercado e seu custo de vida mudam.</div></div>
+  </div>
+
+  <div class="section-title">🛠️ Continue planejando</div>
+  <div class="tools-grid">
+    <a href="calculadora-aposentadoria.html" class="tool-card"><div class="tool-icon">🏖️</div><div class="tool-name">Calculadora de Aposentadoria</div><div class="tool-desc">Descubra em quanto tempo você atinge sua meta de patrimônio.</div></a>
+    <a href="quanto-rende-1-milhao.html" class="tool-card"><div class="tool-icon">💎</div><div class="tool-name">Quanto Rende R$ 1 Milhão?</div><div class="tool-desc">Análise completa do rendimento de R$ 1 milhão em diferentes cenários.</div></a>
+    <a href="renda-passiva-100-mil.html" class="tool-card"><div class="tool-icon">🌴</div><div class="tool-name">Renda Passiva com R$ 100 Mil</div><div class="tool-desc">Dá para viver de renda com R$ 100.000? Veja os cenários.</div></a>
+    <a href="juros-compostos-20-anos.html" class="tool-card"><div class="tool-icon">⏳</div><div class="tool-name">Juros Compostos em 20 Anos</div><div class="tool-desc">Veja quanto tempo leva para acumular R$ 1 milhão com diferentes aportes.</div></a>
+  </div>
+
+</div>
+
+<script src="shared-calc.js"></script>
+<script>
+let chartInstance = null;
+let lastCalc = null;
+
+function setEx(patrimonio, taxa, retirada) {
+  document.getElementById('s-patrimonio').value = patrimonio;
+  document.getElementById('s-taxa').value       = taxa;
+  document.getElementById('s-retirada').value   = retirada;
+  calcular();
+}
+
+function calcular() {
+  const P        = parseFloat(document.getElementById('s-patrimonio').value) || 0;
+  const i        = parseFloat(document.getElementById('s-taxa').value) / 100 || 0;
+  const retirada = parseFloat(document.getElementById('s-retirada').value) || 0;
+
+  const rendimentoMensal = P * i;
+  const saldoMensal      = rendimentoMensal - retirada;
+  const taxaRetirada     = P > 0 ? (retirada / P * 100).toFixed(2) : 0;
+
+  document.getElementById('res-rendimento').textContent = fmtBRL(rendimentoMensal);
+  document.getElementById('res-retirada').textContent   = fmtBRL(retirada);
+
+  const saldoEl = document.getElementById('res-saldo');
+  if (saldoMensal >= 0) {
+    saldoEl.textContent = '+' + fmtBRL(saldoMensal) + '/mês';
+    saldoEl.className = 'result-item-value green';
+    document.getElementById('status-badge').innerHTML = '<span class="status-badge status-ok">✅ Patrimônio se preserva</span>';
+  } else {
+    saldoEl.textContent = fmtBRL(saldoMensal) + '/mês';
+    saldoEl.className = 'result-item-value';
+    saldoEl.style.color = 'var(--red)';
+    document.getElementById('status-badge').innerHTML = '<span class="status-badge status-warn">⚠️ Patrimônio sendo consumido</span>';
+  }
+
+  // Duração estimada
+  let duracaoEl = document.getElementById('res-duracao');
+  if (saldoMensal >= 0) {
+    duracaoEl.textContent = '♾️ Indefinido';
+    duracaoEl.className = 'result-item-value green';
+  } else {
+    // Calcula meses até zerar
+    let saldo = P;
+    let meses = 0;
+    while (saldo > 0 && meses < 1200) {
+      saldo = saldo * (1 + i) - retirada;
+      meses++;
+    }
+    const anos = Math.floor(meses / 12);
+    const mesesRest = meses % 12;
+    duracaoEl.textContent = anos + 'a ' + mesesRest + 'm';
+    duracaoEl.className = 'result-item-value';
+    duracaoEl.style.color = 'var(--red)';
+  }
+
+  document.getElementById('res-taxa-ret').textContent = taxaRetirada + '%/mês';
+
+  // Gráfico: evolução do patrimônio com retiradas (60 meses ou até zerar)
+  const labels = ['Hoje'];
+  const patrimonios = [P];
+  const rendimentos = [0];
+  let saldo = P;
+  const mesesGrafico = saldoMensal >= 0 ? 120 : Math.min(
+    (() => { let s = P, m = 0; while (s > 0 && m < 600) { s = s * (1 + i) - retirada; m++; } return m; })(),
+    120
+  );
+
+  for (let m = 1; m <= mesesGrafico; m++) {
+    saldo = saldo * (1 + i) - retirada;
+    if (saldo < 0) saldo = 0;
+    labels.push(m % 12 === 0 ? (m / 12) + 'a' : '');
+    patrimonios.push(+saldo.toFixed(2));
+    rendimentos.push(+(saldo * i).toFixed(2));
+  }
+
+  document.getElementById('result-card').classList.add('show');
+  document.getElementById('chart-card').classList.add('show');
+
+  if (chartInstance) chartInstance.destroy();
+  const ctx = document.getElementById('myChart').getContext('2d');
+  chartInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Patrimônio', data: patrimonios, borderColor: '#C9A84C', backgroundColor: 'rgba(201,168,76,0.08)', fill: true, tension: 0.4, pointRadius: 0, borderWidth: 2.5 },
+        { label: 'Rendimento mensal', data: rendimentos, borderColor: '#2ECC71', backgroundColor: 'transparent', fill: false, tension: 0.4, pointRadius: 0, borderWidth: 2, borderDash: [5, 3] },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { labels: { color: '#8888AA', font: { family: 'DM Sans', size: 11 } } },
+        tooltip: { backgroundColor: '#12121A', borderColor: '#C9A84C', borderWidth: 1, titleColor: '#C9A84C', bodyColor: '#E8E8F0', callbacks: { label: c => ' ' + c.dataset.label + ': ' + fmtBRL(c.parsed.y) } },
+      },
+      scales: {
+        x: { ticks: { color: '#555577', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' } },
+        y: { ticks: { color: '#555577', font: { size: 10 }, callback: v => 'R$' + (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? (v / 1e3).toFixed(0) + 'k' : v) }, grid: { color: 'rgba(255,255,255,0.04)' } },
+      },
+    },
+  });
+
+  lastCalc = { P, i, retirada, rendimentoMensal };
+}
+
+function compartilharWpp() {
+  if (!lastCalc) return;
+  shareWhatsApp(`💎 Com R$ 1 milhão investido, gero ${fmtBRL(lastCalc.rendimentoMensal)}/mês!\n🔗 Simule: https://calculamundo.com.br/aposentadoria-com-1-milhao.html`);
+}
+function compartilharInsta() {
+  if (!lastCalc) return;
+  shareInstagram(`💎 Renda de ${fmtBRL(lastCalc.rendimentoMensal)}/mês com R$ 1 milhão investido\n📈 ${SITE_URL}/aposentadoria-com-1-milhao.html`);
+}
+
+calcular();
+</script>
+</body>
+</html>

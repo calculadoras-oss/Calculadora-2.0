@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juros Compostos em 20 Anos: Simulação Completa 2025 | calculamundo</title>
+<meta name="description" content="Veja o poder dos juros compostos em 20 anos. Simule diferentes aportes mensais e taxas. Descubra quanto R$ 500, R$ 1.000 ou R$ 2.000 por mês viram em duas décadas.">
+<link rel="canonical" href="https://calculamundo.com.br/juros-compostos-20-anos.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Quanto rende R$ 500 por mês em 20 anos?","acceptedAnswer":{"@type":"Answer","text":"Investindo R$ 500 por mês a 1% ao mês durante 20 anos (240 meses), o patrimônio final chega a aproximadamente R$ 495.000. O total investido seria R$ 120.000, e os juros acumulados seriam de cerca de R$ 375.000."}},
+    {"@type":"Question","name":"Quanto rende R$ 1.000 por mês em 20 anos?","acceptedAnswer":{"@type":"Answer","text":"Investindo R$ 1.000 por mês a 1% ao mês durante 20 anos, o patrimônio final é de aproximadamente R$ 989.000 — quase R$ 1 milhão. O total investido seria R$ 240.000."}},
+    {"@type":"Question","name":"Qual é a melhor taxa para 20 anos?","acceptedAnswer":{"@type":"Answer","text":"Para horizontes de 20 anos, vale a pena considerar investimentos de renda variável como ações e FIIs, que historicamente superam a renda fixa no longo prazo. Uma taxa real de 0,8% a 1,2% ao mês é uma referência razoável para planejamento."}},
+    {"@type":"Question","name":"O que são 20 anos de juros compostos?","acceptedAnswer":{"@type":"Answer","text":"Em 20 anos (240 meses), os juros compostos mostram todo o seu poder. O patrimônio cresce de forma exponencial: nos primeiros anos o crescimento parece lento, mas nos últimos anos a aceleração é impressionante — esse fenômeno é chamado de efeito da curva exponencial."}}
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ3JR6GST6"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EZ3JR6GST6');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="shared-calc.css">
+<style>
+/* === CSS ESPECÍFICO — Juros Compostos 20 Anos === */
+.container { max-width: 820px; }
+
+.milestone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.milestone-card {
+  background: var(--dark3); border: 1px solid var(--dark4);
+  border-radius: 12px; padding: 16px; text-align: center;
+}
+.milestone-year { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; letter-spacing: 2px; text-transform: uppercase; }
+.milestone-val  { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--gold); }
+.milestone-inv  { font-size: 11px; color: var(--green); margin-top: 4px; }
+
+.aporte-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.aporte-tab {
+  background: var(--dark3); border: 1px solid var(--dark4);
+  border-radius: 8px; color: var(--text-muted); cursor: pointer;
+  font-size: 13px; padding: 8px 16px; transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.aporte-tab.active { background: var(--gold); color: var(--dark); border-color: var(--gold); font-weight: 600; }
+
+.scenario-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--dark4); margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<header>
+  <div class="badge">✦ calculamundo · Longo Prazo</div>
+  <h1>Juros Compostos<br>em 20 Anos</h1>
+  <p class="subtitle">Descubra o impacto real de duas décadas de investimento consistente. Os números surpreendem.</p>
+</header>
+
+<div class="container">
+
+  <!-- SIMULADOR -->
+  <div class="card">
+    <div class="card-title">⚙️ Configure sua simulação de 20 anos</div>
+    <div class="field">
+      <label>Valor inicial (R$)</label>
+      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="s-inicial" value="0" min="0"></div>
+    </div>
+    <div class="field">
+      <label>Aporte mensal (R$)</label>
+      <div class="aporte-tabs" id="aporte-tabs">
+        <button class="aporte-tab" onclick="setAporte(500,this)">R$ 500</button>
+        <button class="aporte-tab active" onclick="setAporte(1000,this)">R$ 1.000</button>
+        <button class="aporte-tab" onclick="setAporte(2000,this)">R$ 2.000</button>
+        <button class="aporte-tab" onclick="setAporte(5000,this)">R$ 5.000</button>
+      </div>
+      <div class="input-row" style="margin-top:8px;"><span class="input-prefix">R$</span><input type="number" id="s-aporte" value="1000" min="0" oninput="clearTabActive()"></div>
+    </div>
+    <div class="field">
+      <label>Taxa mensal (%)</label>
+      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="s-taxa" value="1.0" step="0.01" min="0"></div>
+    </div>
+    <button class="btn-calc" onclick="calcular()">Simular 20 anos →</button>
+  </div>
+
+  <!-- RESULTADO PRINCIPAL -->
+  <div class="result-card" id="result-card">
+    <div class="result-main">
+      <div class="result-label">Patrimônio em 20 anos</div>
+      <div class="result-value" id="res-total">—</div>
+    </div>
+    <div class="result-grid">
+      <div class="result-item"><div class="result-item-label">💵 Total investido</div><div class="result-item-value gold" id="res-investido">—</div></div>
+      <div class="result-item"><div class="result-item-label">📈 Juros gerados</div><div class="result-item-value green" id="res-juros">—</div></div>
+      <div class="result-item"><div class="result-item-label">🔁 Patrimônio / investido</div><div class="result-item-value gold" id="res-multi">—</div></div>
+      <div class="result-item"><div class="result-item-label">📅 Renda mensal est.</div><div class="result-item-value green" id="res-renda">—</div></div>
+    </div>
+    <div class="share-section">
+      <div class="share-title">✦ Compartilhe sua projeção</div>
+      <div class="share-btns">
+        <button class="share-btn btn-whatsapp"  onclick="compartilharWpp()">📱 WhatsApp</button>
+        <button class="share-btn btn-instagram" onclick="compartilharInsta()">📸 Instagram</button>
+        <button class="share-btn btn-copy"      onclick="copyLink()">📋 Copiar link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARCO ANUAL -->
+  <div class="card" id="milestones-card" style="display:none">
+    <div class="card-title">🏁 Marco por ano</div>
+    <div class="milestone-grid" id="milestone-grid"></div>
+  </div>
+
+  <!-- GRÁFICO -->
+  <div class="chart-card" id="chart-card">
+    <div class="section-title">📈 Crescimento ao longo dos 20 anos</div>
+    <div class="chart-wrap"><canvas id="myChart"></canvas></div>
+  </div>
+
+  <!-- TABELA COMPARATIVA DE APORTES -->
+  <div class="card">
+    <div class="card-title">📊 Comparativo: quanto rende cada aporte mensal em 20 anos?</div>
+    <div class="scenario-wrap">
+      <table class="scenario-table">
+        <thead>
+          <tr><th>Aporte/mês</th><th>Total investido</th><th>Patrimônio (1%/mês)</th><th>Juros</th><th>Renda passiva/mês</th></tr>
+        </thead>
+        <tbody id="tabela-aportes"></tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);">* Calculado com 240 meses (20 anos) e taxa de 1% ao mês. Sem valor inicial.</p>
+  </div>
+
+  <!-- EDITORIAL -->
+  <section class="card">
+    <h2 class="section-title">⏳ A mágica dos 20 anos</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">Vinte anos pode parecer muito tempo, mas é exatamente o horizonte em que os juros compostos começam a mostrar seu lado mais impressionante. A curva de crescimento do patrimônio é exponencial: nos primeiros cinco anos o progresso parece modesto. Nos últimos cinco anos, o salto é espetacular.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Um exemplo claro: quem investe R$ 1.000 por mês a 1% ao mês por 20 anos acumula quase R$ 1 milhão. O total investido é de R$ 240.000 — menos de um quarto do patrimônio final. O restante vem dos juros sobre juros.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">E o que torna esse período ainda mais valioso é a renda passiva gerada: com R$ 989.000 a 1% ao mês, você recebe cerca de R$ 9.890 mensais sem tocar no principal. Esse é o objetivo da independência financeira.</p>
+  </section>
+
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-icon">📅</div><div class="tip-title">Constância acima de tudo</div><div class="tip-text">Manter os aportes em crises e quedas é o que separa quem chega ao objetivo de quem desiste.</div></div>
+    <div class="tip-card"><div class="tip-icon">📈</div><div class="tip-title">Aumente os aportes com o tempo</div><div class="tip-text">Reinvestir aumentos de salário acelera muito o crescimento. Mesmo R$ 100 a mais por mês fazem diferença em 20 anos.</div></div>
+    <div class="tip-card"><div class="tip-icon">🎯</div><div class="tip-title">Diversifique no longo prazo</div><div class="tip-text">Para horizontes de 20 anos, ações e FIIs historicamente oferecem retornos superiores à renda fixa.</div></div>
+    <div class="tip-card"><div class="tip-icon">🔄</div><div class="tip-title">Reinvista os rendimentos</div><div class="tip-text">Nunca retire os juros antes de atingir a meta. Cada rendimento reinvestido potencializa o crescimento futuro.</div></div>
+  </div>
+
+  <div class="section-title">🛠️ Outras Simulações</div>
+  <div class="tools-grid">
+    <a href="index.html" class="tool-card"><div class="tool-icon">📊</div><div class="tool-name">Calculadora de Juros Compostos</div><div class="tool-desc">Simule qualquer prazo com valor inicial, aportes e taxa personalizada.</div></a>
+    <a href="calculadora-aposentadoria.html" class="tool-card"><div class="tool-icon">🏖️</div><div class="tool-name">Calculadora de Aposentadoria</div><div class="tool-desc">Descubra quanto você precisa acumular para se aposentar.</div></a>
+    <a href="quanto-rende-1-milhao.html" class="tool-card"><div class="tool-icon">💎</div><div class="tool-name">Quanto Rende R$ 1 Milhão?</div><div class="tool-desc">A renda passiva gerada por um patrimônio de sete dígitos.</div></a>
+    <a href="aposentadoria-com-1-milhao.html" class="tool-card"><div class="tool-icon">🏖️</div><div class="tool-name">Aposentadoria com R$ 1 Milhão</div><div class="tool-desc">Dá para se aposentar com R$ 1 milhão? Veja os cenários.</div></a>
+  </div>
+
+</div>
+
+<script src="shared-calc.js"></script>
+<script>
+let chartInstance = null;
+let lastResult = null;
+
+function setAporte(val, btn) {
+  document.getElementById('s-aporte').value = val;
+  document.querySelectorAll('.aporte-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  calcular();
+}
+
+function clearTabActive() {
+  document.querySelectorAll('.aporte-tab').forEach(b => b.classList.remove('active'));
+}
+
+function calcular() {
+  const P  = parseFloat(document.getElementById('s-inicial').value) || 0;
+  const Ap = parseFloat(document.getElementById('s-aporte').value)  || 0;
+  const i  = parseFloat(document.getElementById('s-taxa').value) / 100 || 0;
+  const n  = 240; // 20 anos fixo
+
+  const r = calcJuros(P, Ap, i, n);
+  lastResult = { P, Ap, i, meses: n, ...r };
+
+  document.getElementById('res-total').textContent     = fmtBRL(r.total);
+  document.getElementById('res-investido').textContent = fmtBRL(r.investido);
+  document.getElementById('res-juros').textContent     = fmtBRL(r.juros);
+  document.getElementById('res-multi').textContent     = r.investido > 0 ? (r.total / r.investido).toFixed(2) + 'x' : '—';
+  document.getElementById('res-renda').textContent     = fmtBRL(r.renda) + '/mês';
+
+  document.getElementById('result-card').classList.add('show');
+  document.getElementById('chart-card').classList.add('show');
+
+  // Marcos anuais (a cada 5 anos)
+  const anos = [1, 2, 5, 10, 15, 20];
+  document.getElementById('milestone-grid').innerHTML = anos.map(a => {
+    const m = a * 12;
+    const saldo = i > 0
+      ? P * Math.pow(1 + i, m) + Ap * (Math.pow(1 + i, m) - 1) / i
+      : P + Ap * m;
+    const inv = P + Ap * m;
+    return `<div class="milestone-card">
+      <div class="milestone-year">${a} ${a === 1 ? 'ano' : 'anos'}</div>
+      <div class="milestone-val">${fmtBRL(saldo)}</div>
+      <div class="milestone-inv">investido: ${fmtBRL(inv)}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('milestones-card').style.display = 'block';
+
+  // Tabela comparativa de aportes
+  const aportes = [200, 500, 1000, 2000, 5000];
+  document.getElementById('tabela-aportes').innerHTML = aportes.map(ap => {
+    const rt = calcJuros(0, ap, i, n);
+    return `<tr>
+      <td>${fmtBRL(ap)}/mês</td>
+      <td>${fmtBRL(rt.investido)}</td>
+      <td class="highlight">${fmtBRL(rt.total)}</td>
+      <td class="green">+${fmtBRL(rt.juros)}</td>
+      <td class="green">${fmtBRL(rt.renda)}/mês</td>
+    </tr>`;
+  }).join('');
+
+  if (chartInstance) chartInstance.destroy();
+  chartInstance = renderLineChart('myChart', r.labels, r.totais, r.investidos);
+}
+
+function compartilharWpp() {
+  if (!lastResult) return;
+  shareWhatsApp(`💰 Investindo ${fmtBRL(lastResult.Ap)}/mês por 20 anos = ${fmtBRL(lastResult.total)}!\n📈 Simule você também: https://calculamundo.com.br/juros-compostos-20-anos.html`);
+}
+function compartilharInsta() {
+  if (!lastResult) return;
+  shareInstagram(`💰 ${fmtBRL(lastResult.Ap)}/mês por 20 anos = ${fmtBRL(lastResult.total)}!\n📈 ${SITE_URL}/juros-compostos-20-anos.html`);
+}
+
+calcular();
+</script>
+</body>
+</html>
