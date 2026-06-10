@@ -9,7 +9,7 @@ const SITE_NAME = 'calculamundo';
 
 /* ---------- Páginas do site (nav) ---------- */
 const CM_PAGES = [
-  { href: 'index.html',                    label: 'Juros Compostos' },
+  
   { href: 'calculadora-aposentadoria.html',label: 'Aposentadoria'   },
   { href: 'simulador-financiamento.html',  label: 'Financiamento'   },
   { href: 'comparador-investimentos.html', label: 'Comparador'      },
