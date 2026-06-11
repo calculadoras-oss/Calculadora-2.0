@@ -17,7 +17,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://calculamundo.com.br/og-image.jpg">
-<link rel="canonical" href="https://calculamundo.com.br">
+<link rel="canonical" href="https://calculamundo.com.br/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -45,10 +45,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+ 
 <!-- CSS COMPARTILHADO -->
 <link rel="stylesheet" href="shared-calc.css">
-
+ 
 <style>
 /* === CSS ESPECÍFICO DO INDEX === */
 /* Nada extra necessário — tudo já está no shared */
@@ -58,18 +58,24 @@
 <div class="bg-grid"></div>
 <div class="bg-glow"></div>
 <!-- NAV injetado pelo shared-calc.js -->
-
+ 
 <header>
   <div class="badge">✦ calculamundo · Educação Financeira</div>
   <h1>Calculadora de<br>Juros Compostos</h1>
   <p class="subtitle">Descubra o poder dos juros sobre juros e veja quanto seu dinheiro pode crescer ao longo do tempo.</p>
 </header>
-
+ 
 <div class="ad-banner">
   <div class="ad-label">Publicidade</div>
-  <div class="ad-slot"><ins class="adsbygoogle" style="display:block;width:728px;height:90px;" data-ad-client="ca-pub-9184321382546271" data-ad-slot="SEU_SLOT_AQUI"></ins></div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle"
+         style="display:block;width:728px;height:90px;"
+         data-ad-client="ca-pub-9184321382546271"
+         data-ad-slot="2814955290"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 </div>
-
+ 
 <div class="container">
   <div class="grid">
     <!-- FORMULÁRIO -->
@@ -77,15 +83,15 @@
       <div class="card-title">💰 Dados do Investimento</div>
       <div class="field">
         <label>Valor inicial (aporte único)</label>
-        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="inicial" placeholder="1000" min="0" value="1000"></div>
+        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="inicial" placeholder="1000" min="0" value="1000" inputmode="decimal"></div>
       </div>
       <div class="field">
         <label>Aporte mensal</label>
-        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="aporte" placeholder="100" min="0" value="100"></div>
+        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="aporte" placeholder="100" min="0" value="100" inputmode="decimal"></div>
       </div>
       <div class="field">
         <label>Taxa de juros (ao período)</label>
-        <div class="input-row"><span class="input-prefix">%</span><input type="number" id="taxa" placeholder="1.0" step="0.01" min="0" value="1"></div>
+        <div class="input-row"><span class="input-prefix">%</span><input type="number" id="taxa" placeholder="1.0" step="0.01" min="0" value="1" inputmode="decimal"></div>
       </div>
       <div class="field">
         <label>Período</label>
@@ -96,19 +102,19 @@
       </div>
       <div class="field">
         <label>Prazo (em meses)</label>
-        <div class="input-row"><input type="number" id="meses" placeholder="24" min="1" value="24"></div>
+        <div class="input-row"><input type="number" id="meses" placeholder="24" min="1" value="24" inputmode="numeric"></div>
       </div>
       <div class="field">
         <label>Exemplos rápidos</label>
         <div class="examples-row">
-          <button class="example-btn" onclick="loadExample(1000,100,0.8,24)">🌱 Iniciante</button>
-          <button class="example-btn" onclick="loadExample(5000,500,1.0,60)">🚀 Médio</button>
-          <button class="example-btn" onclick="loadExample(20000,1000,1.2,120)">⭐ Avançado</button>
+          <button class="example-btn" type="button" onclick="loadExample(1000,100,0.8,24)">🌱 Iniciante</button>
+          <button class="example-btn" type="button" onclick="loadExample(5000,500,1.0,60)">🚀 Médio</button>
+          <button class="example-btn" type="button" onclick="loadExample(20000,1000,1.2,120)">⭐ Avançado</button>
         </div>
       </div>
-      <button class="btn-calc" onclick="calcular()">Calcular meu patrimônio →</button>
+      <button class="btn-calc" type="button" onclick="calcular()">Calcular meu patrimônio →</button>
     </div>
-
+ 
     <!-- RESULTADO -->
     <div>
       <div class="result-card" id="result-card">
@@ -125,9 +131,9 @@
         <div class="share-section">
           <div class="share-title">✦ Compartilhe seu resultado</div>
           <div class="share-btns">
-            <button class="share-btn btn-whatsapp"  onclick="compartilharWpp()">📱 WhatsApp</button>
-            <button class="share-btn btn-instagram" onclick="compartilharInsta()">📸 Instagram</button>
-            <button class="share-btn btn-copy"      onclick="copyLink()">📋 Copiar link</button>
+            <button class="share-btn btn-whatsapp"  type="button" onclick="compartilharWpp()">📱 WhatsApp</button>
+            <button class="share-btn btn-instagram" type="button" onclick="compartilharInsta()">📸 Instagram</button>
+            <button class="share-btn btn-copy"      type="button" onclick="copyLink()">📋 Copiar link</button>
           </div>
         </div>
       </div>
@@ -138,30 +144,30 @@
       </div>
     </div>
   </div>
-
+ 
   <!-- GRÁFICO -->
   <div class="chart-card" id="chart-card">
     <div class="section-title">📈 Evolução do Patrimônio</div>
-    <div class="chart-wrap"><canvas id="myChart"></canvas></div>
+    <div class="chart-wrap"><canvas id="myChart" aria-label="Gráfico de evolução do patrimônio ao longo do tempo"></canvas></div>
   </div>
-
+ 
   <!-- IA -->
   <div class="ai-card" id="ai-card">
     <div class="ai-header">
       <div class="ai-icon">🤖</div>
       <div>
         <div class="ai-title">Consultor Financeiro IA</div>
-        <div class="ai-subtitle">Tire dúvidas sobre seu resultado com o ChatGPT</div>
+        <div class="ai-subtitle">Analise seu resultado com o ChatGPT</div>
       </div>
     </div>
     <div class="ai-response" style="margin-bottom:16px;">
-      Sua simulação está pronta! Clique no botão abaixo para abrir o ChatGPT com os seus dados já preenchidos — é só perguntar o que quiser sobre seu investimento. 💡
+      Sua simulação está pronta! Clique no botão abaixo — o prompt com seus dados será copiado automaticamente. É só abrir o ChatGPT e colar (Ctrl+V ou Cmd+V). 💡
     </div>
-    <button class="btn-calc" onclick="abrirIA()" style="background:linear-gradient(135deg,#10a37f,#1a7f64);margin-top:0;">
+    <button class="btn-calc" type="button" onclick="abrirIA()" style="background:linear-gradient(135deg,#10a37f,#1a7f64);margin-top:0;">
       💬 Analisar com ChatGPT →
     </button>
   </div>
-
+ 
   <!-- CONTEÚDO EDITORIAL -->
   <section class="card">
     <h2 class="section-title">🚀 O Poder dos Juros Compostos</h2>
@@ -169,14 +175,14 @@
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Na prática, isso significa que o crescimento do patrimônio tende a acelerar com o passar do tempo. Quanto maior o prazo e mais consistente for a estratégia de investimento, maior tende a ser o efeito dos juros sobre juros.</p>
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Por esse motivo, investidores de longo prazo costumam dar grande importância ao tempo de investimento. Em muitos casos, começar cedo pode fazer mais diferença do que investir valores elevados por um período curto.</p>
   </section>
-
+ 
   <section class="card">
     <h2 class="section-title">⏳ Por Que Começar a Investir o Quanto Antes?</h2>
     <p style="line-height:1.8;color:var(--text-muted);">O tempo é um dos fatores mais importantes para o crescimento do patrimônio. Imagine duas pessoas que investem exatamente o mesmo valor mensal. Aquela que começa dez anos antes normalmente terá uma vantagem significativa ao final da jornada.</p>
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Isso acontece porque os juros compostos precisam de tempo para mostrar todo seu potencial. Nos primeiros anos o crescimento pode parecer lento, mas após uma ou duas décadas o patrimônio tende a acelerar de forma expressiva.</p>
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Por isso, mesmo pequenos aportes mensais podem fazer diferença quando mantidos de forma consistente ao longo dos anos.</p>
   </section>
-
+ 
   <section class="card">
     <h2 class="section-title">💰 Quanto Pode Crescer um Investimento?</h2>
     <p style="line-height:1.8;color:var(--text-muted);">Muitas pessoas procuram respostas para perguntas como:</p>
@@ -188,7 +194,7 @@
     </ul>
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">A resposta depende principalmente da taxa de rentabilidade, do prazo e dos aportes realizados ao longo do tempo. Utilizando a calculadora acima é possível criar cenários personalizados para entender melhor o potencial de crescimento do patrimônio.</p>
   </section>
-
+ 
   <section class="card">
     <h2 class="section-title">🎯 Benefícios de Entender os Juros Compostos</h2>
     <ul style="line-height:2;color:var(--text-muted);padding-left:20px;">
@@ -201,14 +207,14 @@
       <li>Desenvolver hábitos financeiros mais saudáveis.</li>
     </ul>
   </section>
-
+ 
   <section class="card">
     <h2 class="section-title">🏖️ Como Planejar a Aposentadoria</h2>
     <p style="line-height:1.8;color:var(--text-muted);">Planejar a aposentadoria não significa apenas acumular dinheiro. O objetivo é construir uma fonte de renda capaz de ajudar a manter o padrão de vida desejado no futuro.</p>
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Quanto antes o planejamento começar, menor tende a ser o esforço necessário para atingir a meta. Por isso, a combinação entre tempo, disciplina e juros compostos é uma das bases do planejamento financeiro de longo prazo.</p>
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Você também pode utilizar a <a href="calculadora-aposentadoria.html" style="color:var(--gold);text-decoration:none;font-weight:500;">Calculadora de Aposentadoria →</a> para estimar quanto precisa acumular para alcançar seus objetivos financeiros.</p>
   </section>
-
+ 
   <!-- AFILIADOS -->
   <div class="aff-section">
     <div class="aff-title">🏦 Comece a investir hoje</div>
@@ -228,58 +234,64 @@
       </a>
     </div>
   </div>
-
+ 
   <!-- PRODUTOS -->
   <div class="prod-section">
     <div class="aff-title">📚 Aprenda mais sobre investimentos</div>
     <div class="aff-sub">Livros e ferramentas recomendados para turbinar seus resultados:</div>
     <div class="prod-grid">
       <a href="https://s.shopee.com.br/4qCtaeoTQO?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
-        <div class="prod-img-wrap"><img src="img-mente-milionaria.jpg" alt="Segredos da Mente Milionária" loading="lazy"></div>
+        <div class="prod-img-wrap"><img src="img-mente-milionaria.jpg" alt="Segredos da Mente Milionária" loading="lazy" width="180" height="240"></div>
         <div class="prod-info"><div class="prod-name">Segredos da Mente Milionária</div><div class="prod-tag">T. Harv Eker · Best-seller mundial</div><span class="cta-shopee">Ver na Shopee →</span></div>
       </a>
       <a href="https://s.shopee.com.br/5VSaNhYmR0?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
-        <div class="prod-img-wrap"><img src="img-kit-pai-rico.jpg" alt="Kit Pai Rico Pai Pobre" loading="lazy"></div>
+        <div class="prod-img-wrap"><img src="img-kit-pai-rico.jpg" alt="Kit Pai Rico Pai Pobre" loading="lazy" width="180" height="240"></div>
         <div class="prod-info"><div class="prod-name">Kit Pai Rico Pai Pobre</div><div class="prod-tag">Robert Kiyosaki · Kit completo</div><span class="cta-shopee">Ver na Shopee →</span></div>
       </a>
       <a href="https://s.shopee.com.br/8KmllFgFkw?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
-        <div class="prod-img-wrap"><img src="img-pai-rico.jpg" alt="Pai Rico Pai Pobre" loading="lazy"></div>
+        <div class="prod-img-wrap"><img src="img-pai-rico.jpg" alt="Pai Rico Pai Pobre" loading="lazy" width="180" height="240"></div>
         <div class="prod-info"><div class="prod-name">Pai Rico Pai Pobre</div><div class="prod-tag">Robert Kiyosaki · O clássico</div><span class="cta-shopee">Ver na Shopee →</span></div>
       </a>
       <a href="https://meli.la/1PFqGCz" target="_blank" rel="noopener" class="prod-card mercado">
-        <div class="prod-img-wrap calc-img"><img src="img-hp12c.jpg" alt="Calculadora HP 12C" loading="lazy"></div>
+        <div class="prod-img-wrap calc-img"><img src="img-hp12c.jpg" alt="Calculadora HP 12C" loading="lazy" width="180" height="180"></div>
         <div class="prod-info"><div class="prod-name">Calculadora Financeira HP 12C</div><div class="prod-tag">Indispensável para investidores</div><span class="cta-mercado">Ver no Mercado Livre →</span></div>
       </a>
       <a href="https://meli.la/1Xdf84B" target="_blank" rel="noopener" class="prod-card mercado">
-        <div class="prod-img-wrap calc-img"><img src="img-casio-fx82.jpg" alt="Calculadora Casio FX-82" loading="lazy"></div>
+        <div class="prod-img-wrap calc-img"><img src="img-casio-fx82.jpg" alt="Calculadora Casio FX-82" loading="lazy" width="180" height="180"></div>
         <div class="prod-info"><div class="prod-name">Calculadora Científica Casio FX-82</div><div class="prod-tag">Para alunos de Engenharia e Exatas</div><span class="cta-mercado">Ver no Mercado Livre →</span></div>
       </a>
     </div>
   </div>
-
+ 
   <div class="ad-middle">
     <div class="ad-label">Publicidade</div>
-    <div class="ad-slot" style="height:250px;"><ins class="adsbygoogle" style="display:block;width:300px;height:250px;" data-ad-client="ca-pub-9184321382546271" data-ad-slot="SEU_SLOT_AQUI"></ins></div>
+    <div class="ad-slot" style="height:250px;">
+      <ins class="adsbygoogle"
+           style="display:block;width:300px;height:250px;"
+           data-ad-client="ca-pub-9184321382546271"
+           data-ad-slot="6492318075"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
   </div>
-
+ 
   <!-- "Outras Calculadoras" injetado pelo shared-calc.js -->
 </div>
-
+ 
 <!-- JS COMPARTILHADO -->
 <script src="shared-calc.js"></script>
-
+ 
 <!-- JS ESPECÍFICO DO INDEX -->
 <script>
 let period = 'mensal';
 let chartInstance = null;
 let lastResult = null;
-
+ 
 function setPeriod(p, btn) {
   period = p;
   document.querySelectorAll('#period-group button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 }
-
+ 
 function loadExample(ini, ap, taxa, meses) {
   document.getElementById('inicial').value = ini;
   document.getElementById('aporte').value  = ap;
@@ -287,51 +299,51 @@ function loadExample(ini, ap, taxa, meses) {
   document.getElementById('meses').value   = meses;
   calcular();
 }
-
+ 
 function calcular() {
   const P  = parseFloat(document.getElementById('inicial').value) || 0;
   const Ap = parseFloat(document.getElementById('aporte').value)  || 0;
   let i    = parseFloat(document.getElementById('taxa').value) / 100 || 0;
   const n  = parseInt(document.getElementById('meses').value) || 0;
-
+ 
   if (period === 'anual') i = Math.pow(1 + i, 1 / 12) - 1;
-
+ 
   const r = calcJuros(P, Ap, i, n);
   lastResult = { P, Ap, i, meses: n, ...r };
-
+ 
   document.getElementById('res-total').textContent     = fmtBRL(r.total);
   document.getElementById('res-investido').textContent = fmtBRL(r.investido);
   document.getElementById('res-juros').textContent     = fmtBRL(r.juros);
   document.getElementById('res-multi').textContent     = r.investido > 0 ? (r.total / r.investido).toFixed(2) + 'x' : '—';
   document.getElementById('res-renda').textContent     = fmtBRL(r.renda) + '/mês';
-
+ 
   document.getElementById('result-card').classList.add('show');
   document.getElementById('result-placeholder').style.display = 'none';
-
+ 
   document.getElementById('chart-card').classList.add('show');
   if (chartInstance) chartInstance.destroy();
   chartInstance = renderLineChart('myChart', r.labels, r.totais, r.investidos);
-
+ 
   document.getElementById('ai-card').classList.add('show');
 }
-
+ 
 function abrirIA() {
   if (!lastResult) return;
   abrirChatGPT(lastResult);
 }
-
+ 
 function compartilharWpp() {
   if (!lastResult) return;
   const txt = `🤑 Simulei na calculamundo!\n💰 Patrimônio: ${fmtBRL(lastResult.total)}\n📈 Juros ganhos: ${fmtBRL(lastResult.juros)}\n\n🔗 Simule você também: https://calculamundo.com.br`;
   shareWhatsApp(txt);
 }
-
+ 
 function compartilharInsta() {
   if (!lastResult) return;
   const txt = `🤑 Simulei na calculamundo!\n💰 Patrimônio: ${fmtBRL(lastResult.total)}\n📈 Juros ganhos: ${fmtBRL(lastResult.juros)}\n\n🔗 ${SITE_URL}`;
   shareInstagram(txt);
 }
-
+ 
 // Calcula ao carregar
 calcular();
 </script>
