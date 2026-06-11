@@ -54,16 +54,6 @@
 .res-item { background: var(--dark); border-radius: 10px; padding: 14px; text-align: center; }
 .res-item-label { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
 .res-item-value { font-size: 0.95rem; font-weight: 600; color: var(--gold); }
- 
-.other-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.tool-link {
-  background: var(--dark3); border: 1px solid var(--dark4);
-  border-radius: 12px; padding: 16px; text-decoration: none; transition: all 0.2s;
-  display: block;
-}
-.tool-link:hover { border-color: var(--gold); }
-.tool-link-name { font-size: 0.9rem; color: var(--gold); margin-bottom: 4px; }
-.tool-link-desc { font-size: 12px; color: var(--text-muted); }
 </style>
 </head>
 <body>
@@ -82,17 +72,17 @@
     <div class="card-title">🏖️ Seus dados de aposentadoria</div>
     <div class="field">
       <label>Renda mensal desejada na aposentadoria (R$)</label>
-      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="ap-renda" value="5000" min="0"></div>
+      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="ap-renda" value="5000" min="0" inputmode="decimal"></div>
     </div>
     <div class="field">
       <label>Taxa de juros esperada (% ao mês)</label>
-      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="ap-taxa" value="0.8" step="0.1" min="0.1"></div>
+      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="ap-taxa" value="0.8" step="0.1" min="0.1" inputmode="decimal"></div>
     </div>
     <div class="field">
       <label>Anos até a aposentadoria</label>
-      <div class="input-row"><input type="number" id="ap-anos" value="20" min="1"></div>
+      <div class="input-row"><input type="number" id="ap-anos" value="20" min="1" inputmode="numeric"></div>
     </div>
-    <button class="btn-calc" onclick="calcAposentadoria()">Calcular minha aposentadoria →</button>
+    <button class="btn-calc" type="button" onclick="calcAposentadoria()">Calcular minha aposentadoria →</button>
   </div>
  
   <div class="result-box" id="ap-result">
@@ -123,13 +113,7 @@
     <a href="quanto-rende-1-milhao.html" style="display:inline-block;margin-top:14px;color:var(--gold);font-weight:600;font-size:14px;text-decoration:none;">💎 Veja quanto rende R$ 1 milhão investido →</a>
   </section>
  
-  <div class="section-title">🛠️ Outras Calculadoras</div>
-  <div class="other-tools" style="margin-bottom:24px;">
-    <a href="index.html" class="tool-link"><div class="tool-link-name">📊 Juros Compostos</div><div class="tool-link-desc">Simule seu crescimento patrimonial</div></a>
-    <a href="simulador-financiamento.html" class="tool-link"><div class="tool-link-name">🏠 Financiamento</div><div class="tool-link-desc">Compare Price e SAC</div></a>
-    <a href="comparador-investimentos.html" class="tool-link"><div class="tool-link-name">⚖️ Comparador</div><div class="tool-link-desc">Poupança vs CDB vs Tesouro</div></a>
-    <a href="quanto-rende-1-milhao.html" class="tool-link"><div class="tool-link-name">💎 R$ 1 Milhão</div><div class="tool-link-desc">Quanto rende um patrimônio de 1 mi</div></a>
-  </div>
+  <!-- "Outras Calculadoras" injetado pelo shared-calc.js -->
 </div>
  
 <!-- JS COMPARTILHADO -->
@@ -154,6 +138,9 @@ function calcAposentadoria() {
  
   document.getElementById('ap-result').classList.add('show');
 }
+ 
+// Calcula ao carregar com os valores padrão
+calcAposentadoria();
 </script>
 </body>
 </html>
