@@ -22,14 +22,14 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EZ3JR6GST6');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
- 
+
 <!-- CSS COMPARTILHADO -->
 <link rel="stylesheet" href="shared-calc.css">
- 
+
 <style>
 /* === CSS ESPECÍFICO — Aposentadoria === */
 .container { max-width: 700px; }
- 
+
 .result-box {
   display: none;
   background: linear-gradient(135deg, var(--dark2), var(--dark3));
@@ -40,7 +40,7 @@
   margin-bottom: 20px;
 }
 .result-box.show { display: block; }
- 
+
 .res-main { text-align: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--dark4); }
 .res-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
 .res-val {
@@ -49,7 +49,7 @@
   background: linear-gradient(135deg, var(--gold-light), var(--gold));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
- 
+
 .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .res-item { background: var(--dark); border-radius: 10px; padding: 14px; text-align: center; }
 .res-item-label { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
@@ -60,13 +60,13 @@
 <div class="bg-grid"></div>
 <div class="bg-glow"></div>
 <!-- NAV injetado pelo shared-calc.js -->
- 
+
 <header>
   <div class="badge">✦ calculamundo · Planejamento</div>
   <h1>Calculadora de<br>Aposentadoria</h1>
   <p class="subtitle">Descubra quanto precisa acumular e quanto investir por mês para se aposentar com a renda que deseja.</p>
 </header>
- 
+
 <div class="container">
   <div class="card">
     <div class="card-title">🏖️ Seus dados de aposentadoria</div>
@@ -84,7 +84,7 @@
     </div>
     <button class="btn-calc" type="button" onclick="calcAposentadoria()">Calcular minha aposentadoria →</button>
   </div>
- 
+
   <div class="result-box" id="ap-result">
     <div class="res-main">
       <div class="res-label">Patrimônio necessário</div>
@@ -97,7 +97,7 @@
       <div class="res-item"><div class="res-item-label">📈 Taxa mensal</div><div class="res-item-value" id="ap-taxa-show">—</div></div>
     </div>
   </div>
- 
+
   <!-- Conteúdo editorial -->
   <section class="card">
     <h2 class="section-title">🏖️ Como Funciona o Cálculo</h2>
@@ -105,20 +105,20 @@
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">O aporte mensal necessário é quanto você precisa investir todo mês, a partir de hoje, para acumular esse patrimônio no prazo definido — considerando os juros compostos trabalhando a seu favor.</p>
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Lembre-se: a inflação corrói o poder de compra ao longo do tempo. Revise suas metas periodicamente e considere indexar parte do patrimônio ao IPCA com produtos como o Tesouro IPCA+.</p>
   </section>
- 
+
   <section class="card">
     <h2 class="section-title">📐 A Regra dos 25x</h2>
     <p style="line-height:1.8;color:var(--text-muted);">Uma regra prática do planejamento financeiro: multiplique sua despesa anual por 25 para encontrar o patrimônio necessário para a aposentadoria. Esse número assume uma taxa de retirada segura de 4% ao ano — historicamente sustentável por mais de 30 anos.</p>
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Exemplo: se você gasta R$ 5.000/mês (R$ 60.000/ano), o patrimônio alvo seria R$ 1.500.000. Com esse valor investido a 1% ao mês, você teria R$ 15.000 brutos mensais — quase três vezes seu custo de vida, dando margem para inflação e imprevistos.</p>
     <a href="quanto-rende-1-milhao.html" style="display:inline-block;margin-top:14px;color:var(--gold);font-weight:600;font-size:14px;text-decoration:none;">💎 Veja quanto rende R$ 1 milhão investido →</a>
   </section>
- 
+
   <!-- "Outras Calculadoras" injetado pelo shared-calc.js -->
 </div>
- 
+
 <!-- JS COMPARTILHADO -->
 <script src="shared-calc.js"></script>
- 
+
 <!-- JS ESPECÍFICO -->
 <script>
 function calcAposentadoria() {
@@ -126,19 +126,19 @@ function calcAposentadoria() {
   const taxa  = parseFloat(document.getElementById('ap-taxa').value) / 100 || 0;
   const anos  = parseInt(document.getElementById('ap-anos').value) || 0;
   const meses = anos * 12;
- 
+
   const pat = taxa > 0 ? renda / taxa : renda * 12 * 20;
   const ap  = taxa > 0 && meses > 0 ? pat * taxa / (Math.pow(1 + taxa, meses) - 1) : pat / meses;
- 
+
   document.getElementById('ap-patrimonio').textContent  = fmtBRL(pat);
   document.getElementById('ap-aporte').textContent      = fmtBRL(ap) + '/mês';
   document.getElementById('ap-renda-show').textContent  = fmtBRL(renda) + '/mês';
   document.getElementById('ap-prazo').textContent       = anos + ' anos (' + meses + ' meses)';
   document.getElementById('ap-taxa-show').textContent   = (taxa * 100).toFixed(2) + '% a.m.';
- 
+
   document.getElementById('ap-result').classList.add('show');
 }
- 
+
 // Calcula ao carregar com os valores padrão
 calcAposentadoria();
 </script>

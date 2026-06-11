@@ -29,7 +29,7 @@
 <style>
 /* === CSS ESPECÍFICO — Quanto Rende 5000 CDI === */
 .container { max-width: 780px; }
- 
+
 .cdi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 20px; }
 .cdi-card {
   background: var(--dark3); border: 1px solid var(--dark4);
@@ -41,22 +41,22 @@
 .cdi-label { font-size: 11px; color: var(--text-muted); margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; }
 .cdi-val  { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
 .cdi-liq  { font-size: 12px; color: var(--green); }
- 
+
 .scenario-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--dark4); margin-bottom: 20px; }
 </style>
 </head>
 <body>
 <div class="bg-grid"></div>
 <div class="bg-glow"></div>
- 
+
 <header>
   <div class="badge">✦ calculamundo · CDI</div>
   <h1>Quanto Rende<br>R$ 5.000 no CDI?</h1>
   <p class="subtitle">Compare o rendimento de R$ 5.000 em diferentes percentuais do CDI, com e sem desconto de IR.</p>
 </header>
- 
+
 <div class="container">
- 
+
   <!-- SIMULADOR CDI DINÂMICO -->
   <div class="card">
     <div class="card-title">⚙️ Ajuste o CDI e simule</div>
@@ -74,7 +74,7 @@
     </div>
     <button class="btn-calc" type="button" onclick="calcCDI()">Calcular rendimento →</button>
   </div>
- 
+
   <!-- CARDS CDI DINÂMICOS -->
   <div class="cdi-grid" id="cdi-cards" style="display:none">
     <div class="cdi-card" id="card-80">
@@ -102,7 +102,7 @@
       <div class="cdi-liq" id="liq-120">—</div>
     </div>
   </div>
- 
+
   <!-- TABELA POR PRAZO -->
   <div class="card">
     <div class="card-title">📊 Rendimento de R$ 5.000 a 100% do CDI por prazo</div>
@@ -116,13 +116,13 @@
     </div>
     <p style="font-size:12px;color:var(--text-muted);">* Calculado com CDI de 10,5% a.a. IR regressivo: 22,5% (até 6m) → 20% (6-12m) → 17,5% (12-24m) → 15% (acima de 24m).</p>
   </div>
- 
+
   <!-- GRÁFICO DE EVOLUÇÃO -->
   <div class="chart-card show">
     <div class="section-title">📈 Evolução comparativa por percentual do CDI</div>
     <div class="chart-wrap"><canvas id="cdiChart" aria-label="Gráfico comparativo de rendimento por percentual do CDI"></canvas></div>
   </div>
- 
+
   <!-- EDITORIAL -->
   <section class="card">
     <h2 class="section-title">🏦 CDI: o termômetro da renda fixa</h2>
@@ -130,28 +130,28 @@
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Bancos menores e fintechs costumam oferecer CDBs com percentuais mais altos do CDI — às vezes 120%, 130% ou até mais — porque precisam captar recursos com mais atratividade. Desde que o valor total na instituição seja de até R$ 250.000, o FGC (Fundo Garantidor de Créditos) cobre eventuais problemas.</p>
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Lembre-se também do IR regressivo: quanto mais tempo você mantiver o investimento, menor será a alíquota de imposto de renda, o que favorece estratégias de longo prazo.</p>
   </section>
- 
+
   <div class="tips-grid">
     <div class="tip-card"><div class="tip-icon">⏳</div><div class="tip-title">Prazo importa no IR</div><div class="tip-text">Acima de 2 anos, o IR cai para 15%. Planejar o resgate faz diferença no rendimento líquido.</div></div>
     <div class="tip-card"><div class="tip-icon">🏦</div><div class="tip-title">Bancos menores, mais CDI</div><div class="tip-text">Fintechs frequentemente oferecem 110-130% do CDI. O FGC garante até R$ 250k por CPF.</div></div>
     <div class="tip-card"><div class="tip-icon">🔄</div><div class="tip-title">Liquidez diária</div><div class="tip-text">CDBs com liquidez diária têm taxas menores, mas são ideais para a reserva de emergência.</div></div>
     <div class="tip-card"><div class="tip-icon">📊</div><div class="tip-title">Compare sempre</div><div class="tip-text">Use o comparador para ver Poupança, CDB e Tesouro lado a lado antes de decidir.</div></div>
   </div>
- 
+
   <!-- "Outras Calculadoras" injetado pelo shared-calc.js -->
 </div>
- 
+
 <script src="shared-calc.js"></script>
 <script>
 let cdiChart = null;
- 
+
 function irRate(meses) {
   if (meses <= 6)  return 0.225;
   if (meses <= 12) return 0.20;
   if (meses <= 24) return 0.175;
   return 0.15;
 }
- 
+
 function calcLiquid(valor, taxaAnual, meses) {
   const i = Math.pow(1 + taxaAnual / 100, 1 / 12) - 1;
   const bruto = valor * Math.pow(1 + i, meses);
@@ -159,12 +159,12 @@ function calcLiquid(valor, taxaAnual, meses) {
   const liquido = valor + lucro * (1 - irRate(meses));
   return { bruto, liquido, rendLiq: liquido - valor };
 }
- 
+
 function calcCDI() {
   const cdiAnual = parseFloat(document.getElementById('cdi-anual').value) || 10.5;
   const valor    = parseFloat(document.getElementById('cdi-valor').value) || 5000;
   const meses    = parseInt(document.getElementById('cdi-meses').value) || 12;
- 
+
   // Cards por percentual
   const pcts = [80, 100, 110, 120];
   pcts.forEach(pct => {
@@ -174,7 +174,7 @@ function calcCDI() {
     document.getElementById('liq-' + pct).textContent = '+' + fmtBRL(rendLiq) + ' líquido';
   });
   document.getElementById('cdi-cards').style.display = 'grid';
- 
+
   // Tabela de prazos (a 100% CDI)
   const prazosMeses = [3, 6, 12, 24, 36, 60];
   const tbody = document.getElementById('tabela-prazos');
@@ -190,7 +190,7 @@ function calcCDI() {
       <td class="green">+${fmtBRL(rendLiq)}</td>
     </tr>`;
   }).join('');
- 
+
   // Gráfico comparativo por percentual
   // CORREÇÃO: m=0 é o ponto inicial (valor sem rendimento, sem IR)
   const labels = [];
@@ -221,7 +221,7 @@ function calcCDI() {
       borderDash: idx === 0 ? [4, 4] : [],
     };
   });
- 
+
   if (cdiChart) cdiChart.destroy();
   const ctx = document.getElementById('cdiChart').getContext('2d');
   cdiChart = new Chart(ctx, {
@@ -248,7 +248,7 @@ function calcCDI() {
     },
   });
 }
- 
+
 calcCDI();
 </script>
 </body>
