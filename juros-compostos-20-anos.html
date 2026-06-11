@@ -67,23 +67,23 @@
     <div class="card-title">⚙️ Configure sua simulação de 20 anos</div>
     <div class="field">
       <label>Valor inicial (R$)</label>
-      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="s-inicial" value="0" min="0"></div>
+      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="s-inicial" value="0" min="0" inputmode="decimal"></div>
     </div>
     <div class="field">
       <label>Aporte mensal (R$)</label>
       <div class="aporte-tabs" id="aporte-tabs">
-        <button class="aporte-tab" onclick="setAporte(500,this)">R$ 500</button>
-        <button class="aporte-tab active" onclick="setAporte(1000,this)">R$ 1.000</button>
-        <button class="aporte-tab" onclick="setAporte(2000,this)">R$ 2.000</button>
-        <button class="aporte-tab" onclick="setAporte(5000,this)">R$ 5.000</button>
+        <button class="aporte-tab" type="button" onclick="setAporte(500,this)">R$ 500</button>
+        <button class="aporte-tab active" type="button" onclick="setAporte(1000,this)">R$ 1.000</button>
+        <button class="aporte-tab" type="button" onclick="setAporte(2000,this)">R$ 2.000</button>
+        <button class="aporte-tab" type="button" onclick="setAporte(5000,this)">R$ 5.000</button>
       </div>
-      <div class="input-row" style="margin-top:8px;"><span class="input-prefix">R$</span><input type="number" id="s-aporte" value="1000" min="0" oninput="clearTabActive()"></div>
+      <div class="input-row" style="margin-top:8px;"><span class="input-prefix">R$</span><input type="number" id="s-aporte" value="1000" min="0" inputmode="decimal" oninput="clearTabActive()"></div>
     </div>
     <div class="field">
       <label>Taxa mensal (%)</label>
-      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="s-taxa" value="1.0" step="0.01" min="0"></div>
+      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="s-taxa" value="1.0" step="0.01" min="0" inputmode="decimal"></div>
     </div>
-    <button class="btn-calc" onclick="calcular()">Simular 20 anos →</button>
+    <button class="btn-calc" type="button" onclick="calcular()">Simular 20 anos →</button>
   </div>
 
   <!-- RESULTADO PRINCIPAL -->
@@ -101,9 +101,9 @@
     <div class="share-section">
       <div class="share-title">✦ Compartilhe sua projeção</div>
       <div class="share-btns">
-        <button class="share-btn btn-whatsapp"  onclick="compartilharWpp()">📱 WhatsApp</button>
-        <button class="share-btn btn-instagram" onclick="compartilharInsta()">📸 Instagram</button>
-        <button class="share-btn btn-copy"      onclick="copyLink()">📋 Copiar link</button>
+        <button class="share-btn btn-whatsapp"  type="button" aria-label="Compartilhar no WhatsApp" onclick="compartilharWpp()">📱 WhatsApp</button>
+        <button class="share-btn btn-instagram" type="button" aria-label="Compartilhar no Instagram" onclick="compartilharInsta()">📸 Instagram</button>
+        <button class="share-btn btn-copy"      type="button" aria-label="Copiar link" onclick="copyLink()">📋 Copiar link</button>
       </div>
     </div>
   </div>
@@ -117,7 +117,7 @@
   <!-- GRÁFICO -->
   <div class="chart-card" id="chart-card">
     <div class="section-title">📈 Crescimento ao longo dos 20 anos</div>
-    <div class="chart-wrap"><canvas id="myChart"></canvas></div>
+    <div class="chart-wrap"><canvas id="myChart" aria-label="Gráfico de crescimento do patrimônio ao longo de 20 anos"></canvas></div>
   </div>
 
   <!-- TABELA COMPARATIVA DE APORTES -->
@@ -149,14 +149,7 @@
     <div class="tip-card"><div class="tip-icon">🔄</div><div class="tip-title">Reinvista os rendimentos</div><div class="tip-text">Nunca retire os juros antes de atingir a meta. Cada rendimento reinvestido potencializa o crescimento futuro.</div></div>
   </div>
 
-  <div class="section-title">🛠️ Outras Simulações</div>
-  <div class="tools-grid">
-    <a href="index.html" class="tool-card"><div class="tool-icon">📊</div><div class="tool-name">Calculadora de Juros Compostos</div><div class="tool-desc">Simule qualquer prazo com valor inicial, aportes e taxa personalizada.</div></a>
-    <a href="calculadora-aposentadoria.html" class="tool-card"><div class="tool-icon">🏖️</div><div class="tool-name">Calculadora de Aposentadoria</div><div class="tool-desc">Descubra quanto você precisa acumular para se aposentar.</div></a>
-    <a href="quanto-rende-1-milhao.html" class="tool-card"><div class="tool-icon">💎</div><div class="tool-name">Quanto Rende R$ 1 Milhão?</div><div class="tool-desc">A renda passiva gerada por um patrimônio de sete dígitos.</div></a>
-    <a href="aposentadoria-com-1-milhao.html" class="tool-card"><div class="tool-icon">🏖️</div><div class="tool-name">Aposentadoria com R$ 1 Milhão</div><div class="tool-desc">Dá para se aposentar com R$ 1 milhão? Veja os cenários.</div></a>
-  </div>
-
+  <!-- "Outras Calculadoras" injetado pelo shared-calc.js -->
 </div>
 
 <script src="shared-calc.js"></script>
@@ -193,7 +186,7 @@ function calcular() {
   document.getElementById('result-card').classList.add('show');
   document.getElementById('chart-card').classList.add('show');
 
-  // Marcos anuais (a cada 5 anos)
+  // Marcos anuais
   const anos = [1, 2, 5, 10, 15, 20];
   document.getElementById('milestone-grid').innerHTML = anos.map(a => {
     const m = a * 12;
@@ -235,6 +228,7 @@ function compartilharInsta() {
   shareInstagram(`💰 ${fmtBRL(lastResult.Ap)}/mês por 20 anos = ${fmtBRL(lastResult.total)}!\n📈 ${SITE_URL}/juros-compostos-20-anos.html`);
 }
 
+// Calcula ao carregar com os valores padrão
 calcular();
 </script>
 </body>

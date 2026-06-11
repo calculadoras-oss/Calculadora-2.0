@@ -53,15 +53,6 @@
 .economy-val { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--green); font-weight: 700; }
 .economy-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
 
-.other-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.tool-link {
-  background: var(--dark3); border: 1px solid var(--dark4);
-  border-radius: 12px; padding: 16px; text-decoration: none; transition: all 0.2s; display: block;
-}
-.tool-link:hover { border-color: var(--gold); }
-.tool-link-name { font-size: 0.9rem; color: var(--gold); margin-bottom: 4px; }
-.tool-link-desc  { font-size: 12px; color: var(--text-muted); }
-
 @media(max-width:500px) { .compare-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -81,17 +72,17 @@
     <div class="card-title">🏠 Dados do financiamento</div>
     <div class="field">
       <label>Valor do financiamento (R$)</label>
-      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="fin-valor" value="300000" min="0"></div>
+      <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="fin-valor" value="300000" min="0" inputmode="decimal"></div>
     </div>
     <div class="field">
       <label>Taxa de juros mensal (%)</label>
-      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="fin-taxa" value="0.9" step="0.1" min="0.1"></div>
+      <div class="input-row"><span class="input-prefix">%</span><input type="number" id="fin-taxa" value="0.9" step="0.1" min="0.1" inputmode="decimal"></div>
     </div>
     <div class="field">
       <label>Prazo (meses)</label>
-      <div class="input-row"><input type="number" id="fin-meses" value="360" min="1"></div>
+      <div class="input-row"><input type="number" id="fin-meses" value="360" min="1" inputmode="numeric"></div>
     </div>
-    <button class="btn-calc" onclick="calcFinanciamento()">Simular financiamento →</button>
+    <button class="btn-calc" type="button" onclick="calcFinanciamento()">Simular financiamento →</button>
   </div>
 
   <div class="result-box" id="fin-result">
@@ -124,13 +115,7 @@
     <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">A escolha ideal depende do seu fluxo de caixa: se você consegue arcar com as parcelas iniciais mais altas do SAC, ele tende a ser mais econômico. Para quem precisa de previsibilidade e parcelas menores no começo, o Price pode ser a melhor opção.</p>
   </section>
 
-  <div class="section-title">🛠️ Outras Calculadoras</div>
-  <div class="other-tools" style="margin-bottom:24px;">
-    <a href="index.html" class="tool-link"><div class="tool-link-name">📊 Juros Compostos</div><div class="tool-link-desc">Simule seu crescimento patrimonial</div></a>
-    <a href="calculadora-aposentadoria.html" class="tool-link"><div class="tool-link-name">🏖️ Aposentadoria</div><div class="tool-link-desc">Planeje sua independência financeira</div></a>
-    <a href="comparador-investimentos.html" class="tool-link"><div class="tool-link-name">⚖️ Comparador</div><div class="tool-link-desc">Poupança vs CDB vs Tesouro</div></a>
-    <a href="quanto-rende-1-milhao.html" class="tool-link"><div class="tool-link-name">💎 R$ 1 Milhão</div><div class="tool-link-desc">Quanto rende um patrimônio de 1 mi</div></a>
-  </div>
+  <!-- "Outras Calculadoras" injetado pelo shared-calc.js -->
 </div>
 
 <!-- JS COMPARTILHADO -->
@@ -143,9 +128,9 @@ function calcFinanciamento() {
   const i     = parseFloat(document.getElementById('fin-taxa').value) / 100 || 0;
   const n     = parseInt(document.getElementById('fin-meses').value) || 0;
 
-  const price   = i > 0 ? valor * i * Math.pow(1 + i, n) / (Math.pow(1 + i, n) - 1) : valor / n;
-  const tPrice  = price * n;
-  const jPrice  = tPrice - valor;
+  const price  = i > 0 ? valor * i * Math.pow(1 + i, n) / (Math.pow(1 + i, n) - 1) : valor / n;
+  const tPrice = price * n;
+  const jPrice = tPrice - valor;
 
   const sacAmort = valor / n;
   const sacP1    = sacAmort + valor * i;
@@ -165,6 +150,9 @@ function calcFinanciamento() {
 
   document.getElementById('fin-result').classList.add('show');
 }
+
+// Calcula ao carregar com os valores padrão
+calcFinanciamento();
 </script>
 </body>
 </html>
