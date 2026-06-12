@@ -1,34 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | calculamundo</title>
-<meta name="description" content="Artigos sobre juros compostos, investimentos, aposentadoria e Tesouro Direto. Conteúdo educativo para você tomar decisões financeiras mais conscientes.">
-<meta name="keywords" content="blog finanças, educação financeira, investimentos, aposentadoria, tesouro direto, juros compostos">
-<meta property="og:title" content="Blog | calculamundo">
-<meta property="og:description" content="Artigos sobre investimentos, aposentadoria e educação financeira.">
-<meta property="og:url" content="https://calculamundo.com.br/artigos/">
+<title>Calculadora de Juros Compostos | calculamundo</title>
+<meta name="description" content="Calculadora gratuita de juros compostos. Simule quanto seu dinheiro vai render com aportes mensais. Descubra o poder dos juros sobre juros e planeje sua aposentadoria.">
+<meta name="keywords" content="calculadora juros compostos, simulador investimento, juros sobre juros, rendimento mensal, aposentadoria, tesouro direto, CDB">
+<meta property="og:title" content="Calculadora de Juros Compostos | calculamundo">
+<meta property="og:description" content="Simule quanto seu dinheiro vai render. Descubra o poder dos juros sobre juros!">
+<meta property="og:url" content="https://calculamundo.com.br">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://calculamundo.com.br/artigos/">
+<meta property="og:image" content="https://calculamundo.com.br/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://calculamundo.com.br/og-image.jpg">
+<link rel="canonical" href="https://calculamundo.com.br/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"O que são juros compostos?","acceptedAnswer":{"@type":"Answer","text":"É o efeito bola de neve onde os juros rendem sobre os juros já acumulados, multiplicando seu capital no longo prazo."}},
+    {"@type":"Question","name":"Qual a diferença entre juros simples e compostos?","acceptedAnswer":{"@type":"Answer","text":"Os juros simples incidem apenas sobre o valor inicial. Os compostos rendem sobre o saldo total atualizado a cada período."}},
+    {"@type":"Question","name":"Quanto rende R$ 10.000 investidos?","acceptedAnswer":{"@type":"Answer","text":"Gera cerca de R$ 80 por mês em aplicações básicas de renda fixa com taxa de aproximadamente 1% ao mês."}},
+    {"@type":"Question","name":"Quanto rende R$ 100.000 investidos?","acceptedAnswer":{"@type":"Answer","text":"Rende cerca de R$ 800 por mês em renda fixa, gerando uma renda extra consistente sem consumir o capital principal."}},
+    {"@type":"Question","name":"Quanto rende R$ 1 milhão investidos?","acceptedAnswer":{"@type":"Answer","text":"Produz cerca de R$ 8.000 por mês em renda fixa, permitindo viver dos rendimentos sem reduzir o patrimônio principal."}},
+    {"@type":"Question","name":"Como usar a calculadora de juros compostos?","acceptedAnswer":{"@type":"Answer","text":"Preencha o valor inicial, aportes mensais, taxa de juros e prazo. A calculadora mostra o patrimônio final, total investido e juros ganhos."}},
+    {"@type":"Question","name":"Qual o melhor investimento?","acceptedAnswer":{"@type":"Answer","text":"Não existe um único ideal. Use o Tesouro Selic para curto prazo e ações ou FIIs para prazos mais longos."}},
+    {"@type":"Question","name":"Como planejar a aposentadoria?","acceptedAnswer":{"@type":"Answer","text":"Defina a renda mensal desejada, estime a taxa de retorno e calcule o patrimônio necessário. Nossa calculadora de aposentadoria faz isso automaticamente."}}
+  ]
+}
+</script>
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ3JR6GST6"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EZ3JR6GST6');</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EZ3JR6GST6');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../shared-calc.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
+<!-- CSS COMPARTILHADO -->
+<link rel="stylesheet" href="shared-calc.css">
+ 
+<style>
+/* === CSS ESPECÍFICO DO INDEX === */
+/* Nada extra necessário — tudo já está no shared */
+</style>
 </head>
 <body>
 <div class="bg-grid"></div>
 <div class="bg-glow"></div>
 <!-- NAV injetado pelo shared-calc.js -->
-
+ 
 <header>
-  <div class="badge">✦ calculamundo · Blog</div>
-  <h1>Educação<br>Financeira</h1>
-  <p class="subtitle">Artigos para te ajudar a entender investimentos, planejar a aposentadoria e tomar decisões financeiras mais conscientes.</p>
+  <div class="badge">✦ calculamundo · Educação Financeira</div>
+  <h1>Calculadora de<br>Juros Compostos</h1>
+  <p class="subtitle">Descubra o poder dos juros sobre juros e veja quanto seu dinheiro pode crescer ao longo do tempo.</p>
 </header>
-
+ 
 <div class="ad-banner">
   <div class="ad-label">Publicidade</div>
   <div class="ad-slot">
@@ -39,12 +75,277 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 </div>
-
+ 
 <div class="container">
-  <!-- A seção "Artigos do Blog" e "Outras Calculadoras" é injetada automaticamente pelo shared-calc.js -->
+  <div class="grid">
+    <!-- FORMULÁRIO -->
+    <div class="card">
+      <div class="card-title">💰 Dados do Investimento</div>
+      <div class="field">
+        <label>Valor inicial (aporte único)</label>
+        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="inicial" placeholder="1000" min="0" value="1000" inputmode="decimal"></div>
+      </div>
+      <div class="field">
+        <label>Aporte mensal</label>
+        <div class="input-row"><span class="input-prefix">R$</span><input type="number" id="aporte" placeholder="100" min="0" value="100" inputmode="decimal"></div>
+      </div>
+      <div class="field">
+        <label>Taxa de juros (ao período)</label>
+        <div class="input-row"><span class="input-prefix">%</span><input type="number" id="taxa" placeholder="1.0" step="0.01" min="0" value="1" inputmode="decimal"></div>
+      </div>
+      <div class="field">
+        <label>Período</label>
+        <div class="toggle-group" id="period-group">
+          <button class="active" onclick="setPeriod('mensal',this)">Mensal</button>
+          <button onclick="setPeriod('anual',this)">Anual</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>Prazo (em meses)</label>
+        <div class="input-row"><input type="number" id="meses" placeholder="24" min="1" value="24" inputmode="numeric"></div>
+      </div>
+      <div class="field">
+        <label>Exemplos rápidos</label>
+        <div class="examples-row">
+          <button class="example-btn" type="button" onclick="loadExample(1000,100,0.8,24)">🌱 Iniciante</button>
+          <button class="example-btn" type="button" onclick="loadExample(5000,500,1.0,60)">🚀 Médio</button>
+          <button class="example-btn" type="button" onclick="loadExample(20000,1000,1.2,120)">⭐ Avançado</button>
+        </div>
+      </div>
+      <button class="btn-calc" type="button" onclick="calcular()">Calcular meu patrimônio →</button>
+    </div>
+ 
+    <!-- RESULTADO -->
+    <div>
+      <div class="result-card" id="result-card">
+        <div class="result-main">
+          <div class="result-label">Patrimônio Final</div>
+          <div class="result-value" id="res-total">R$ 0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item"><div class="result-item-label">💵 Total investido</div><div class="result-item-value gold" id="res-investido">—</div></div>
+          <div class="result-item"><div class="result-item-label">📈 Juros ganhos</div><div class="result-item-value green" id="res-juros">—</div></div>
+          <div class="result-item"><div class="result-item-label">🔁 Multiplicação</div><div class="result-item-value gold" id="res-multi">—</div></div>
+          <div class="result-item"><div class="result-item-label">📅 Renda mensal</div><div class="result-item-value green" id="res-renda">—</div></div>
+        </div>
+        <div class="share-section">
+          <div class="share-title">✦ Compartilhe seu resultado</div>
+          <div class="share-btns">
+            <button class="share-btn btn-whatsapp"  type="button" onclick="compartilharWpp()">📱 WhatsApp</button>
+            <button class="share-btn btn-instagram" type="button" onclick="compartilharInsta()">📸 Instagram</button>
+            <button class="share-btn btn-copy"      type="button" onclick="copyLink()">📋 Copiar link</button>
+          </div>
+        </div>
+      </div>
+      <div id="result-placeholder" class="card" style="text-align:center;padding:60px 28px;">
+        <div style="font-size:48px;margin-bottom:16px;">📊</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);margin-bottom:8px;">Seus resultados aparecerão aqui</div>
+        <div style="font-size:13px;color:var(--text-muted);">Preencha os dados e clique em calcular</div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- GRÁFICO -->
+  <div class="chart-card" id="chart-card">
+    <div class="section-title">📈 Evolução do Patrimônio</div>
+    <div class="chart-wrap"><canvas id="myChart" aria-label="Gráfico de evolução do patrimônio ao longo do tempo"></canvas></div>
+  </div>
+ 
+  <!-- IA -->
+  <div class="ai-card" id="ai-card">
+    <div class="ai-header">
+      <div class="ai-icon">🤖</div>
+      <div>
+        <div class="ai-title">Consultor Financeiro IA</div>
+        <div class="ai-subtitle">Analise seu resultado com o ChatGPT</div>
+      </div>
+    </div>
+    <div class="ai-response" style="margin-bottom:16px;">
+      Sua simulação está pronta! Clique no botão abaixo — o prompt com seus dados será copiado automaticamente. É só abrir o ChatGPT e colar (Ctrl+V ou Cmd+V). 💡
+    </div>
+    <button class="btn-calc" type="button" onclick="abrirIA()" style="background:linear-gradient(135deg,#10a37f,#1a7f64);margin-top:0;">
+      💬 Analisar com ChatGPT →
+    </button>
+  </div>
+ 
+  <!-- CONTEÚDO EDITORIAL -->
+  <section class="card">
+    <h2 class="section-title">🚀 O Poder dos Juros Compostos</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">Os juros compostos são um dos conceitos mais importantes das finanças pessoais. Diferentemente dos juros simples, em que os rendimentos incidem apenas sobre o valor inicial investido, os juros compostos fazem com que os ganhos acumulados também passem a gerar novos ganhos.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Na prática, isso significa que o crescimento do patrimônio tende a acelerar com o passar do tempo. Quanto maior o prazo e mais consistente for a estratégia de investimento, maior tende a ser o efeito dos juros sobre juros.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Por esse motivo, investidores de longo prazo costumam dar grande importância ao tempo de investimento. Em muitos casos, começar cedo pode fazer mais diferença do que investir valores elevados por um período curto.</p>
+  </section>
+ 
+  <section class="card">
+    <h2 class="section-title">⏳ Por Que Começar a Investir o Quanto Antes?</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">O tempo é um dos fatores mais importantes para o crescimento do patrimônio. Imagine duas pessoas que investem exatamente o mesmo valor mensal. Aquela que começa dez anos antes normalmente terá uma vantagem significativa ao final da jornada.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Isso acontece porque os juros compostos precisam de tempo para mostrar todo seu potencial. Nos primeiros anos o crescimento pode parecer lento, mas após uma ou duas décadas o patrimônio tende a acelerar de forma expressiva.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Por isso, mesmo pequenos aportes mensais podem fazer diferença quando mantidos de forma consistente ao longo dos anos.</p>
+  </section>
+ 
+  <section class="card">
+    <h2 class="section-title">💰 Quanto Pode Crescer um Investimento?</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">Muitas pessoas procuram respostas para perguntas como:</p>
+    <ul style="line-height:2;color:var(--text-muted);padding-left:20px;margin-top:8px;">
+      <li>Quanto rende R$ 10.000 investidos?</li>
+      <li>Quanto rende R$ 100.000 investidos?</li>
+      <li><a href="quanto-rende-1-milhao.html" style="color:var(--gold);text-decoration:none;font-weight:500;">Quanto rende R$ 1.000.000 investidos? →</a></li>
+      <li>Quanto preciso investir para viver de renda?</li>
+    </ul>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">A resposta depende principalmente da taxa de rentabilidade, do prazo e dos aportes realizados ao longo do tempo. Utilizando a calculadora acima é possível criar cenários personalizados para entender melhor o potencial de crescimento do patrimônio.</p>
+  </section>
+ 
+  <section class="card">
+    <h2 class="section-title">🎯 Benefícios de Entender os Juros Compostos</h2>
+    <ul style="line-height:2;color:var(--text-muted);padding-left:20px;">
+      <li>Tomar decisões financeiras mais conscientes.</li>
+      <li>Planejar objetivos de médio e longo prazo.</li>
+      <li>Construir patrimônio de forma gradual.</li>
+      <li>Planejar uma aposentadoria mais confortável.</li>
+      <li>Compreender melhor investimentos de renda fixa e variável.</li>
+      <li>Evitar promessas de enriquecimento rápido.</li>
+      <li>Desenvolver hábitos financeiros mais saudáveis.</li>
+    </ul>
+  </section>
+ 
+  <section class="card">
+    <h2 class="section-title">🏖️ Como Planejar a Aposentadoria</h2>
+    <p style="line-height:1.8;color:var(--text-muted);">Planejar a aposentadoria não significa apenas acumular dinheiro. O objetivo é construir uma fonte de renda capaz de ajudar a manter o padrão de vida desejado no futuro.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Quanto antes o planejamento começar, menor tende a ser o esforço necessário para atingir a meta. Por isso, a combinação entre tempo, disciplina e juros compostos é uma das bases do planejamento financeiro de longo prazo.</p>
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">Você também pode utilizar a <a href="calculadora-aposentadoria.html" style="color:var(--gold);text-decoration:none;font-weight:500;">Calculadora de Aposentadoria →</a> para estimar quanto precisa acumular para alcançar seus objetivos financeiros.</p>
+  </section>
+ 
+  <!-- AFILIADOS -->
+  <div class="aff-section">
+    <div class="aff-title">🏦 Comece a investir hoje</div>
+    <div class="aff-sub">Plataformas recomendadas para colocar em prática sua simulação:</div>
+    <div class="aff-grid">
+      <a href="https://www.xpi.com.br" target="_blank" rel="noopener" class="aff-card">
+        <div class="aff-name">XP Investimentos</div><div class="aff-benefit">✅ Conta gratuita</div><span class="aff-cta">Abrir conta →</span>
+      </a>
+      <a href="https://www.rico.com.vc" target="_blank" rel="noopener" class="aff-card">
+        <div class="aff-name">Rico</div><div class="aff-benefit">✅ CDB acima da média</div><span class="aff-cta">Abrir conta →</span>
+      </a>
+      <a href="https://www.nubank.com.br" target="_blank" rel="noopener" class="aff-card">
+        <div class="aff-name">Nubank</div><div class="aff-benefit">✅ 100% digital, zero taxa</div><span class="aff-cta">Abrir conta →</span>
+      </a>
+      <a href="https://www.tesourodireto.com.br" target="_blank" rel="noopener" class="aff-card">
+        <div class="aff-name">Tesouro Direto</div><div class="aff-benefit">✅ Mais seguro do Brasil</div><span class="aff-cta">Conhecer →</span>
+      </a>
+    </div>
+  </div>
+ 
+  <!-- PRODUTOS -->
+  <div class="prod-section">
+    <div class="aff-title">📚 Aprenda mais sobre investimentos</div>
+    <div class="aff-sub">Livros e ferramentas recomendados para turbinar seus resultados:</div>
+    <div class="prod-grid">
+      <a href="https://s.shopee.com.br/4qCtaeoTQO?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
+        <div class="prod-img-wrap"><img src="img-mente-milionaria.jpg" alt="Segredos da Mente Milionária" loading="lazy" width="180" height="240"></div>
+        <div class="prod-info"><div class="prod-name">Segredos da Mente Milionária</div><div class="prod-tag">T. Harv Eker · Best-seller mundial</div><span class="cta-shopee">Ver na Shopee →</span></div>
+      </a>
+      <a href="https://s.shopee.com.br/5VSaNhYmR0?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
+        <div class="prod-img-wrap"><img src="img-kit-pai-rico.jpg" alt="Kit Pai Rico Pai Pobre" loading="lazy" width="180" height="240"></div>
+        <div class="prod-info"><div class="prod-name">Kit Pai Rico Pai Pobre</div><div class="prod-tag">Robert Kiyosaki · Kit completo</div><span class="cta-shopee">Ver na Shopee →</span></div>
+      </a>
+      <a href="https://s.shopee.com.br/8KmllFgFkw?share_channel_code=1" target="_blank" rel="noopener" class="prod-card shopee">
+        <div class="prod-img-wrap"><img src="img-pai-rico.jpg" alt="Pai Rico Pai Pobre" loading="lazy" width="180" height="240"></div>
+        <div class="prod-info"><div class="prod-name">Pai Rico Pai Pobre</div><div class="prod-tag">Robert Kiyosaki · O clássico</div><span class="cta-shopee">Ver na Shopee →</span></div>
+      </a>
+      <a href="https://meli.la/1PFqGCz" target="_blank" rel="noopener" class="prod-card mercado">
+        <div class="prod-img-wrap calc-img"><img src="img-hp12c.jpg" alt="Calculadora HP 12C" loading="lazy" width="180" height="180"></div>
+        <div class="prod-info"><div class="prod-name">Calculadora Financeira HP 12C</div><div class="prod-tag">Indispensável para investidores</div><span class="cta-mercado">Ver no Mercado Livre →</span></div>
+      </a>
+      <a href="https://meli.la/1Xdf84B" target="_blank" rel="noopener" class="prod-card mercado">
+        <div class="prod-img-wrap calc-img"><img src="img-casio-fx82.jpg" alt="Calculadora Casio FX-82" loading="lazy" width="180" height="180"></div>
+        <div class="prod-info"><div class="prod-name">Calculadora Científica Casio FX-82</div><div class="prod-tag">Para alunos de Engenharia e Exatas</div><span class="cta-mercado">Ver no Mercado Livre →</span></div>
+      </a>
+    </div>
+  </div>
+ 
+  <div class="ad-middle">
+    <div class="ad-label">Publicidade</div>
+    <div class="ad-slot" style="height:250px;">
+      <ins class="adsbygoogle"
+           style="display:block;width:300px;height:250px;"
+           data-ad-client="ca-pub-9184321382546271"
+           data-ad-slot="6492318075"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+ 
+  <!-- "Outras Calculadoras" injetado pelo shared-calc.js -->
 </div>
-
+ 
 <!-- JS COMPARTILHADO -->
-<script src="../shared-calc.js"></script>
+<script src="shared-calc.js"></script>
+ 
+<!-- JS ESPECÍFICO DO INDEX -->
+<script>
+let period = 'mensal';
+let chartInstance = null;
+let lastResult = null;
+ 
+function setPeriod(p, btn) {
+  period = p;
+  document.querySelectorAll('#period-group button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+ 
+function loadExample(ini, ap, taxa, meses) {
+  document.getElementById('inicial').value = ini;
+  document.getElementById('aporte').value  = ap;
+  document.getElementById('taxa').value    = taxa;
+  document.getElementById('meses').value   = meses;
+  calcular();
+}
+ 
+function calcular() {
+  const P  = parseFloat(document.getElementById('inicial').value) || 0;
+  const Ap = parseFloat(document.getElementById('aporte').value)  || 0;
+  let i    = parseFloat(document.getElementById('taxa').value) / 100 || 0;
+  const n  = parseInt(document.getElementById('meses').value) || 0;
+ 
+  if (period === 'anual') i = Math.pow(1 + i, 1 / 12) - 1;
+ 
+  const r = calcJuros(P, Ap, i, n);
+  lastResult = { P, Ap, i, meses: n, ...r };
+ 
+  document.getElementById('res-total').textContent     = fmtBRL(r.total);
+  document.getElementById('res-investido').textContent = fmtBRL(r.investido);
+  document.getElementById('res-juros').textContent     = fmtBRL(r.juros);
+  document.getElementById('res-multi').textContent     = r.investido > 0 ? (r.total / r.investido).toFixed(2) + 'x' : '—';
+  document.getElementById('res-renda').textContent     = fmtBRL(r.renda) + '/mês';
+ 
+  document.getElementById('result-card').classList.add('show');
+  document.getElementById('result-placeholder').style.display = 'none';
+ 
+  document.getElementById('chart-card').classList.add('show');
+  if (chartInstance) chartInstance.destroy();
+  chartInstance = renderLineChart('myChart', r.labels, r.totais, r.investidos);
+ 
+  document.getElementById('ai-card').classList.add('show');
+}
+ 
+function abrirIA() {
+  if (!lastResult) return;
+  abrirChatGPT(lastResult);
+}
+ 
+function compartilharWpp() {
+  if (!lastResult) return;
+  const txt = `🤑 Simulei na calculamundo!\n💰 Patrimônio: ${fmtBRL(lastResult.total)}\n📈 Juros ganhos: ${fmtBRL(lastResult.juros)}\n\n🔗 Simule você também: https://calculamundo.com.br`;
+  shareWhatsApp(txt);
+}
+ 
+function compartilharInsta() {
+  if (!lastResult) return;
+  const txt = `🤑 Simulei na calculamundo!\n💰 Patrimônio: ${fmtBRL(lastResult.total)}\n📈 Juros ganhos: ${fmtBRL(lastResult.juros)}\n\n🔗 ${SITE_URL}`;
+  shareInstagram(txt);
+}
+ 
+// Calcula ao carregar
+calcular();
+</script>
 </body>
 </html>
