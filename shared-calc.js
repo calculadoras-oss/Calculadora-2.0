@@ -41,9 +41,11 @@ const CM_ARTIGOS = [
   { file: 'artigo-juros-compostos-vs-simples.html', icon: '📊', name: 'Juros Compostos vs Juros Simples', desc: 'A diferença que define sua riqueza no longo prazo.' },
   { file: 'artigo-planejar-aposentadoria.html',      icon: '🏖️', name: 'Como Planejar a Aposentadoria',  desc: 'Passo a passo para construir sua independência financeira.' },
   { file: 'artigo-tesouro-direto.html',              icon: '🏛️', name: 'Tesouro Direto: Guia Completo',   desc: 'Como investir com segurança no título público.' },
-   { file: 'artigo-diversificacao.html',              icon: '🎯', name: 'Diversificação de Investimentos',  desc: 'Como proteger e fazer seu dinheiro crescer ao mesmo tempo.' },
+  { file: 'artigo-diversificacao.html',              icon: '🎯', name: 'Diversificação de Investimentos',  desc: 'Como proteger e fazer seu dinheiro crescer ao mesmo tempo.' },
   { file: 'artigo-reserva-emergencia.html',          icon: '🛡️', name: 'Reserva de Emergência',           desc: 'Quanto guardar e onde deixar para render sem perder liquidez.' },
   { file: 'artigo-inflacao-poder-compra.html',       icon: '📉', name: 'Inflação e Poder de Compra',       desc: 'Como o IPCA corrói seu patrimônio e como se proteger.' },
+ { file: 'artigo-cdi-renda-fixa.html',              icon: '💹', name: 'CDI - Renda Fixa´,                 desc: 'O Que É e Por Que Ele Define Seus Rendimentos em Renda Fixa.' },
+ { file: 'artigo-independencia-financeira.html',    icon: '📈', name: 'Independência Financeira',         desc: 'Independência Financeira: Como Calcular Seu Número e Chegar Lá.' },
 ];
 
 /* ---------- Injeta Nav ---------- */
