@@ -46,6 +46,9 @@ const CM_ARTIGOS = [
   { file: 'artigo-inflacao-poder-compra.html',       icon: '📉', name: 'Inflação e Poder de Compra',       desc: 'Como o IPCA corrói seu patrimônio e como se proteger.' },
  { file: 'artigo-cdi-renda-fixa.html',              icon: '💹', name: 'CDI - Renda Fixa',                 desc: 'O Que É e Por Que Ele Define Seus Rendimentos em Renda Fixa.' },
  { file: 'artigo-independencia-financeira.html',    icon: '📈', name: 'Independência Financeira',         desc: 'Independência Financeira: Como Calcular Seu Número e Chegar Lá.' },
+ { file: 'artigo-livros-financas-pessoais.html', icon: '📚', name: 'Livros de Finanças Essenciais', desc: 'Os 5 livros que realmente mudam sua relação com dinheiro.' },
+ { file: 'artigo-organizar-financas-zero.html', icon: '🗂️', name: 'Organize Suas Finanças do Zero', desc: 'O método que funciona — independente da ferramenta que você escolher.' },
+ { file: 'artigo-calculadora-financeira-hp12c.html', icon: '🧮', name: 'HP 12C vs. Calculadora Científica', desc: 'Qual calculadora financeira você realmente precisa?' },
 ];
 
 /* ---------- Injeta Nav ---------- */
