@@ -19,8 +19,8 @@
       "@type": "Person",
       "name": "Rafael Tavares",
       "url": "https://calculamundo.com.br/sobre.html",
-      "description": "Investidor pessoa física com mais de 10 anos de experiência em renda fixa e planejamento financeiro, criador do CalculaMundo.",
-      "knowsAbout": ["Juros Compostos", "Renda Fixa", "Tesouro Direto", "Planejamento Financeiro", "Investimentos"]
+      "description": "Ex-executivo aposentado (Chief of Staff e CEO) com vasta experiência em gestão corporativa e mais de uma década como investidor pessoa física em renda fixa, ETFs, criptomoedas e ações.",
+      "knowsAbout": ["Juros Compostos", "Renda Fixa", "Tesouro Direto", "ETF", "Criptomoedas", "Ações", "Planejamento Financeiro", "Investimentos"]
     },
     {
       "@type": "Organization",
@@ -36,6 +36,62 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared-calc.css">
+
+<style>
+  .author-card {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .author-avatar {
+    flex-shrink: 0;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--gold, #C9A84C);
+    background: #1a1a2e;
+  }
+  .author-avatar svg {
+    width: 100%;
+    height: 100%;
+  }
+  .author-info {
+    flex: 1;
+  }
+  .author-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text, #fff);
+    margin: 0 0 4px 0;
+  }
+  .author-role {
+    font-size: 0.82rem;
+    color: var(--gold, #C9A84C);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 12px 0;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .tag {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(201,168,76,0.12);
+    color: var(--gold, #C9A84C);
+    border: 1px solid rgba(201,168,76,0.25);
+  }
+  @media (max-width: 500px) {
+    .author-card { flex-direction: column; align-items: center; text-align: center; }
+    .tags { justify-content: center; }
+  }
+</style>
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -51,12 +107,57 @@
 
   <section class="card">
     <h2 class="section-title">👋 Quem Escreve o CalculaMundo</h2>
-    <p style="line-height:1.8;color:var(--text-muted);">
-      Olá! Meu nome é <strong style="color:var(--text)">Rafael Tavares</strong> e acompanho o mercado financeiro
-      brasileiro há mais de 10 anos como investidor pessoa física. Ao longo desse tempo, testei na prática
-      diferentes estratégias em renda fixa — Tesouro Direto, CDBs, fundos e planejamento de aportes mensais.
-    </p>
-    <p style="line-height:1.8;color:var(--text-muted);margin-top:12px;">
+
+    <div class="author-card">
+      <div class="author-avatar">
+        <!-- Avatar SVG: homem executivo maduro, tons sóbrios -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" fill="#1a1a2e"/>
+          <!-- corpo / terno -->
+          <ellipse cx="50" cy="95" rx="32" ry="20" fill="#2a2a4a"/>
+          <rect x="35" y="62" width="30" height="30" rx="4" fill="#2a2a4a"/>
+          <!-- gravata -->
+          <polygon points="50,63 53,70 50,82 47,70" fill="#C9A84C"/>
+          <!-- camisa -->
+          <rect x="44" y="62" width="12" height="6" fill="#e8e8f0"/>
+          <!-- pescoço -->
+          <rect x="44" y="52" width="12" height="12" fill="#c8a882"/>
+          <!-- cabeça -->
+          <ellipse cx="50" cy="42" rx="18" ry="20" fill="#c8a882"/>
+          <!-- cabelo grisalho -->
+          <ellipse cx="50" cy="26" rx="18" ry="10" fill="#8a8a9a"/>
+          <ellipse cx="33" cy="35" rx="6" ry="10" fill="#8a8a9a"/>
+          <ellipse cx="67" cy="35" rx="6" ry="10" fill="#8a8a9a"/>
+          <!-- olhos -->
+          <ellipse cx="43" cy="42" rx="2.5" ry="2.5" fill="#2a2a2a"/>
+          <ellipse cx="57" cy="42" rx="2.5" ry="2.5" fill="#2a2a2a"/>
+          <!-- sobrancelhas -->
+          <rect x="39" y="37" width="8" height="2" rx="1" fill="#6a6a7a"/>
+          <rect x="53" y="37" width="8" height="2" rx="1" fill="#6a6a7a"/>
+          <!-- sorriso sutil -->
+          <path d="M44 50 Q50 54 56 50" stroke="#a07858" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="author-info">
+        <p class="author-name">Rafael Tavares</p>
+        <p class="author-role">Fundador · Investidor Pessoa Física</p>
+        <p style="line-height:1.8;color:var(--text-muted);margin:0;">
+          Funcionário público aposentado com trajetória executiva de destaque — atuou como
+          <strong style="color:var(--text)">Chief of Staff e CEO</strong> ao longo de sua carreira corporativa.
+          Após a aposentadoria, transformou o interesse por investimentos em estudo sistemático e, na prática,
+          aumentou significativamente seu patrimônio pessoal ao longo de mais de uma década operando no mercado financeiro.
+        </p>
+        <div class="tags">
+          <span class="tag">Renda Fixa</span>
+          <span class="tag">ETFs Brasil &amp; Exterior</span>
+          <span class="tag">Ações (B3)</span>
+          <span class="tag">Criptomoedas</span>
+          <span class="tag">XP · BTG · C6 · Revolut</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="line-height:1.8;color:var(--text-muted);margin-top:20px;">
       Em algum momento, percebi que boa parte das decisões financeiras dependia de simulações que nem sempre
       estavam disponíveis de forma simples e gratuita em português. Foi assim que nasceu o
       <strong style="color:var(--text)">CalculaMundo</strong>: um espaço para reunir as ferramentas que eu mesmo
