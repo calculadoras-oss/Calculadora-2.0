@@ -361,5 +361,30 @@ function abrirChatGPT({ P, Ap, i, meses, total, investido, juros, renda }) {
     showToast('📋 Prompt copiado! Cole no ChatGPT com Ctrl+V.');
   }
 
+   /* ---------- Byline automático nas calculadoras ---------- */
+   function injectByline() {
+      if (CM_IN_ARTIGOS) return;
+      
+      const h1 = document.querySelector('h1');
+      if (!h1) return;
+      
+      const dateEl = document.querySelector('[data-date]');
+      let dataFormatada = '14 de junho de 2026';
+      if (dateEl) {
+         const raw = dateEl.getAttribute('data-date');
+         const MESES = ['janeiro','fevereiro','março','abril','maio','junho',
+                   'julho','agosto','setembro','outubro','novembro','dezembro'];
+         const [y, m, d] = raw.split('-').map(Number);
+         if (y && m && d) dataFormatada = `${d} de ${MESES[m - 1]} de ${y}`;
+  }
+
+  const byline = document.createElement('p');
+  byline.className = 'calc-byline';
+  byline.innerHTML = `✍️ Por <a href="${cmRootHref('sobre.html')}" style="color:var(--gold);text-decoration:none;font-weight:600;">Rafael Tavares</a> &nbsp;📅 Atualizado em ${dataFormatada}`;
+  byline.style.cssText = 'font-size:.85rem;color:var(--text-muted);margin:8px 0 24px;';
+
+  h1.insertAdjacentElement('afterend', byline);
+}
+   document.addEventListener('DOMContentLoaded', injectByline);
   window.open('https://chatgpt.com/', '_blank');
 }
