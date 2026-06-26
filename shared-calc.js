@@ -77,13 +77,15 @@ const CM_ARTIGOS = [
   const isBlogIndexPage = CM_IN_ARTIGOS && window.location.pathname.endsWith('/');
   const container = document.querySelector('.container');
 
-  /* --- Seção "Artigos do Blog" ---
+   const isInstitucional = document.body.getAttribute('data-page') === 'institucional';
+ 
+   /* --- Seção "Artigos do Blog" ---
      Por padrão, é inserida no lugar do elemento com id="cm-blog-placeholder"
      (permitindo controlar a posição na página). Se esse placeholder não
      existir, cai no comportamento antigo: anexa ao final do .container. */
   const artigosFiltrados = CM_ARTIGOS.filter(a => !(CM_IN_ARTIGOS && !isBlogIndexPage && current === a.file));
 
-  if (artigosFiltrados.length > 0) {
+  if (!isInstitucional && artigosFiltrados.length > 0) {
     const artigosCards = artigosFiltrados.map(a => `
       <a href="${cmArtigoHref(a.file)}" class="aff-card">
         <div class="aff-name">${a.icon} ${a.name}</div>
