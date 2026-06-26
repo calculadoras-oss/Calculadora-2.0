@@ -15,40 +15,39 @@ function cmArtigoHref(file) { return CM_IN_ARTIGOS ? file : 'artigos/' + file; }
 
 /* ---------- Páginas do site (nav) ---------- */
 const CM_PAGES = [
-  { href: 'calculadora-aposentadoria.html',label: 'Aposentadoria'   },
-  { href: 'simulador-financiamento.html',  label: 'Financiamento'   },
-  { href: 'comparador-investimentos.html', label: 'Comparador'      },
-  { href: 'quanto-rende-1-milhao.html',    label: 'R$ 1 Milhão'     },
+  { href: 'calculadora-aposentadoria.html', label: 'Aposentadoria' },
+  { href: 'simulador-financiamento.html',   label: 'Financiamento' },
+  { href: 'comparador-investimentos.html',  label: 'Comparador'    },
+  { href: 'quanto-rende-1-milhao.html',     label: 'R$ 1 Milhão'   },
 ];
 
 /* ---------- Todas as calculadoras (para seção "Outras") ---------- */
 const CM_CALCULADORAS = [
-  { href: 'index.html',                     icon: '📈', name: 'Calculadora de Juros Compostos',      desc: 'Simule o crescimento do seu patrimônio com juros compostos.' },
-  { href: 'calculadora-aposentadoria.html', icon: '🏖️', name: 'Calculadora de Aposentadoria',        desc: 'Descubra quanto precisa investir para se aposentar com a renda que deseja.' },
-  { href: 'simulador-financiamento.html',   icon: '🏠', name: 'Simulador de Financiamento',          desc: 'Compare sistemas Price e SAC para financiamentos imobiliários e veículos.' },
-  { href: 'comparador-investimentos.html',  icon: '⚖️', name: 'Comparador de Investimentos',         desc: 'Tesouro Direto vs CDB vs Poupança: qual rende mais para o seu perfil?' },
-  { href: 'aposentadoria-com-1-milhao.html',icon: '💰', name: 'Aposentadoria com 1 Milhão',          desc: 'Descubra se dá para se aposentar com R$ 1 milhão.' },
-  { href: 'juros-compostos-20-anos.html',   icon: '💲', name: 'Juros Compostos em 20 Anos',          desc: 'Veja o poder dos juros compostos em 20 anos.' },
-  { href: 'quanto-rende-1000-reais.html',   icon: '🤑', name: 'Quanto Rende R$ 1.000?',             desc: 'Descubra quanto rende R$ 1.000 na poupança, CDB, Tesouro Direto e outros.' },
-  { href: 'quanto-rende-5000-no-cdi.html',  icon: '🤑', name: 'Quanto Rende R$ 5.000?',             desc: 'Simule quanto R$ 5.000 rendem no CDI: 100%, 110%, 120%. Compare prazos e veja o rendimento líquido após IR.' },
-  { href: 'renda-passiva-100-mil.html',     icon: '💵', name: 'Renda Passiva com R$ 100 Mil',        desc: 'Descubra quanto você recebe por mês com R$ 100.000 investidos.' },
-  { href: 'quanto-rende-1-milhao.html',     icon: '💎', name: 'Quanto Rende R$ 1 Milhão?',          desc: 'Simule a renda passiva mensal gerada por um patrimônio de R$ 1 milhão.' },
+  { href: 'index.html',                     icon: '📈', name: 'Calculadora de Juros Compostos',  desc: 'Simule o crescimento do seu patrimônio com juros compostos.' },
+  { href: 'calculadora-aposentadoria.html', icon: '🏖️', name: 'Calculadora de Aposentadoria',    desc: 'Descubra quanto precisa investir para se aposentar com a renda que deseja.' },
+  { href: 'simulador-financiamento.html',   icon: '🏠', name: 'Simulador de Financiamento',      desc: 'Compare sistemas Price e SAC para financiamentos imobiliários e veículos.' },
+  { href: 'comparador-investimentos.html',  icon: '⚖️', name: 'Comparador de Investimentos',     desc: 'Tesouro Direto vs CDB vs Poupança: qual rende mais para o seu perfil?' },
+  { href: 'aposentadoria-com-1-milhao.html',icon: '💰', name: 'Aposentadoria com 1 Milhão',      desc: 'Descubra se dá para se aposentar com R$ 1 milhão.' },
+  { href: 'juros-compostos-20-anos.html',   icon: '💲', name: 'Juros Compostos em 20 Anos',      desc: 'Veja o poder dos juros compostos em 20 anos.' },
+  { href: 'quanto-rende-1000-reais.html',   icon: '🤑', name: 'Quanto Rende R$ 1.000?',         desc: 'Descubra quanto rende R$ 1.000 na poupança, CDB, Tesouro Direto e outros.' },
+  { href: 'quanto-rende-5000-no-cdi.html',  icon: '🤑', name: 'Quanto Rende R$ 5.000?',         desc: 'Simule quanto R$ 5.000 rendem no CDI: 100%, 110%, 120%. Compare prazos e veja o rendimento líquido após IR.' },
+  { href: 'renda-passiva-100-mil.html',     icon: '💵', name: 'Renda Passiva com R$ 100 Mil',    desc: 'Descubra quanto você recebe por mês com R$ 100.000 investidos.' },
+  { href: 'quanto-rende-1-milhao.html',     icon: '💎', name: 'Quanto Rende R$ 1 Milhão?',      desc: 'Simule a renda passiva mensal gerada por um patrimônio de R$ 1 milhão.' },
 ];
 
 /* ---------- Artigos do blog ---------- */
-/* Para adicionar um novo artigo, basta acrescentar uma linha aqui. */
 const CM_ARTIGOS = [
-  { file: 'artigo-juros-compostos-vs-simples.html', icon: '📊', name: 'Juros Compostos vs Juros Simples', desc: 'A diferença que define sua riqueza no longo prazo.' },
-  { file: 'artigo-planejar-aposentadoria.html',      icon: '🏖️', name: 'Como Planejar a Aposentadoria',  desc: 'Passo a passo para construir sua independência financeira.' },
-  { file: 'artigo-tesouro-direto.html',              icon: '🏛️', name: 'Tesouro Direto: Guia Completo',   desc: 'Como investir com segurança no título público.' },
-  { file: 'artigo-diversificacao.html',              icon: '🎯', name: 'Diversificação de Investimentos',  desc: 'Como proteger e fazer seu dinheiro crescer ao mesmo tempo.' },
-  { file: 'artigo-reserva-emergencia.html',          icon: '🛡️', name: 'Reserva de Emergência',           desc: 'Quanto guardar e onde deixar para render sem perder liquidez.' },
-  { file: 'artigo-inflacao-poder-compra.html',       icon: '📉', name: 'Inflação e Poder de Compra',       desc: 'Como o IPCA corrói seu patrimônio e como se proteger.' },
- { file: 'artigo-cdi-renda-fixa.html',              icon: '💹', name: 'CDI - Renda Fixa',                 desc: 'O Que É e Por Que Ele Define Seus Rendimentos em Renda Fixa.' },
- { file: 'artigo-independencia-financeira.html',    icon: '📈', name: 'Independência Financeira',         desc: 'Independência Financeira: Como Calcular Seu Número e Chegar Lá.' },
- { file: 'artigo-livros-financas-pessoais.html', icon: '📚', name: 'Livros de Finanças Essenciais', desc: 'Os 5 livros que realmente mudam sua relação com dinheiro.' },
- { file: 'artigo-organizar-financas-zero.html', icon: '🗂️', name: 'Organize Suas Finanças do Zero', desc: 'O método que funciona — independente da ferramenta que você escolher.' },
- { file: 'artigo-calculadora-financeira-hp12c.html', icon: '🧮', name: 'HP 12C vs. Calculadora Científica', desc: 'Qual calculadora financeira você realmente precisa?' },
+  { file: 'artigo-juros-compostos-vs-simples.html',   icon: '📊', name: 'Juros Compostos vs Juros Simples',  desc: 'A diferença que define sua riqueza no longo prazo.' },
+  { file: 'artigo-planejar-aposentadoria.html',        icon: '🏖️', name: 'Como Planejar a Aposentadoria',    desc: 'Passo a passo para construir sua independência financeira.' },
+  { file: 'artigo-tesouro-direto.html',                icon: '🏛️', name: 'Tesouro Direto: Guia Completo',    desc: 'Como investir com segurança no título público.' },
+  { file: 'artigo-diversificacao.html',                icon: '🎯', name: 'Diversificação de Investimentos',   desc: 'Como proteger e fazer seu dinheiro crescer ao mesmo tempo.' },
+  { file: 'artigo-reserva-emergencia.html',            icon: '🛡️', name: 'Reserva de Emergência',            desc: 'Quanto guardar e onde deixar para render sem perder liquidez.' },
+  { file: 'artigo-inflacao-poder-compra.html',         icon: '📉', name: 'Inflação e Poder de Compra',        desc: 'Como o IPCA corrói seu patrimônio e como se proteger.' },
+  { file: 'artigo-cdi-renda-fixa.html',               icon: '💹', name: 'CDI - Renda Fixa',                  desc: 'O Que É e Por Que Ele Define Seus Rendimentos em Renda Fixa.' },
+  { file: 'artigo-independencia-financeira.html',      icon: '📈', name: 'Independência Financeira',          desc: 'Independência Financeira: Como Calcular Seu Número e Chegar Lá.' },
+  { file: 'artigo-livros-financas-pessoais.html',      icon: '📚', name: 'Livros de Finanças Essenciais',     desc: 'Os 5 livros que realmente mudam sua relação com dinheiro.' },
+  { file: 'artigo-organizar-financas-zero.html',       icon: '🗂️', name: 'Organize Suas Finanças do Zero',   desc: 'O método que funciona — independente da ferramenta que você escolher.' },
+  { file: 'artigo-calculadora-financeira-hp12c.html',  icon: '🧮', name: 'HP 12C vs. Calculadora Científica', desc: 'Qual calculadora financeira você realmente precisa?' },
 ];
 
 /* ---------- Injeta Nav ---------- */
@@ -77,12 +76,9 @@ const CM_ARTIGOS = [
   const isBlogIndexPage = CM_IN_ARTIGOS && window.location.pathname.endsWith('/');
   const container = document.querySelector('.container');
 
-   const isInstitucional = document.body.getAttribute('data-page') === 'institucional';
- 
-   /* --- Seção "Artigos do Blog" ---
-     Por padrão, é inserida no lugar do elemento com id="cm-blog-placeholder"
-     (permitindo controlar a posição na página). Se esse placeholder não
-     existir, cai no comportamento antigo: anexa ao final do .container. */
+  const isInstitucional = document.body.getAttribute('data-page') === 'institucional';
+
+  /* --- Seção "Artigos do Blog" --- */
   const artigosFiltrados = CM_ARTIGOS.filter(a => !(CM_IN_ARTIGOS && !isBlogIndexPage && current === a.file));
 
   if (!isInstitucional && artigosFiltrados.length > 0) {
@@ -108,28 +104,28 @@ const CM_ARTIGOS = [
     }
   }
 
-  /* --- Seção "Outras Calculadoras" ---
-     Mesma lógica: usa o placeholder id="cm-outras-placeholder" se existir,
-     senão anexa ao final do .container (comportamento antigo). */
-  if (!isInstitucional) {const outras = CM_CALCULADORAS.filter(c => c.href !== current);
+  /* --- Seção "Outras Calculadoras" --- */
+  if (!isInstitucional) {
+    const outras = CM_CALCULADORAS.filter(c => c.href !== current);
 
-  const cards = outras.map(c => `
-    <a href="${cmRootHref(c.href)}" class="tool-card">
-      <div class="tool-icon">${c.icon}</div>
-      <div class="tool-name">${c.name}</div>
-      <div class="tool-desc">${c.desc}</div>
-    </a>`).join('');
+    const cards = outras.map(c => `
+      <a href="${cmRootHref(c.href)}" class="tool-card">
+        <div class="tool-icon">${c.icon}</div>
+        <div class="tool-name">${c.name}</div>
+        <div class="tool-desc">${c.desc}</div>
+      </a>`).join('');
 
-  const outrasSection = `
-    <div class="section-title">🛠️ Outras Calculadoras</div>
-    <div class="tools-grid">${cards}</div>`;
+    const outrasSection = `
+      <div class="section-title">🛠️ Outras Calculadoras</div>
+      <div class="tools-grid">${cards}</div>`;
 
-  const outrasPlaceholder = document.getElementById('cm-outras-placeholder');
-  if (outrasPlaceholder) {
-    outrasPlaceholder.outerHTML = outrasSection;
-  } else if (container) {
-    container.insertAdjacentHTML('beforeend', outrasSection);
-  }
+    const outrasPlaceholder = document.getElementById('cm-outras-placeholder');
+    if (outrasPlaceholder) {
+      outrasPlaceholder.outerHTML = outrasSection;
+    } else if (container) {
+      container.insertAdjacentHTML('beforeend', outrasSection);
+    }
+  } // fecha if (!isInstitucional) — Outras Calculadoras
 
   /* --- Footer --- */
   const footerHTML = `
@@ -197,7 +193,6 @@ function copyLink() {
       if (b) { b.textContent = '✅ Copiado!'; setTimeout(() => b.textContent = '📋 Copiar link', 2000); }
     });
   } else {
-    // Fallback para navegadores sem clipboard API (HTTP, Safari antigo)
     const ta = document.createElement('textarea');
     ta.value = url;
     ta.style.position = 'fixed';
@@ -234,9 +229,6 @@ function shareInstagram(texto) {
    MOTOR DE CÁLCULO — reutilizável por todas as páginas
    ============================================================ */
 
-/**
- * Calcula juros compostos mês a mês.
- */
 function calcJuros(P, Ap, i, n) {
   const labels    = [];
   const totais    = [];
@@ -259,16 +251,10 @@ function calcJuros(P, Ap, i, n) {
   return { total, investido, juros, renda, labels, totais, investidos };
 }
 
-/**
- * Formata número como moeda BRL.
- */
 function fmtBRL(v) {
   return 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-/**
- * Renderiza gráfico de linha (patrimônio vs investido).
- */
 function renderLineChart(canvasId, labels, totais, investidos) {
   const ctx = document.getElementById(canvasId).getContext('2d');
   return new Chart(ctx, {
@@ -321,11 +307,6 @@ function renderLineChart(canvasId, labels, totais, investidos) {
   });
 }
 
-/**
- * Abre o ChatGPT com o prompt da simulação copiado para a área de transferência.
- * Como o chatgpt.com não aceita parâmetros de URL para pré-preencher mensagens,
- * copiamos o prompt e abrimos o chat — o usuário só precisa colar (Ctrl+V / Cmd+V).
- */
 function abrirChatGPT({ P, Ap, i, meses, total, investido, juros, renda }) {
   const prompt =
     'Você é um consultor financeiro. Analise esta simulação de juros compostos:\n\n' +
@@ -363,21 +344,24 @@ function abrirChatGPT({ P, Ap, i, meses, total, investido, juros, renda }) {
     showToast('📋 Prompt copiado! Cole no ChatGPT com Ctrl+V.');
   }
 
-   /* ---------- Byline automático nas calculadoras ---------- */
-   function injectByline() {
-      if (CM_IN_ARTIGOS) return;
-      
-      const h1 = document.querySelector('h1');
-      if (!h1) return;
-      
-      const dateEl = document.querySelector('[data-date]');
-      let dataFormatada = '14 de junho de 2026';
-      if (dateEl) {
-         const raw = dateEl.getAttribute('data-date');
-         const MESES = ['janeiro','fevereiro','março','abril','maio','junho',
+  window.open('https://chatgpt.com/', '_blank');
+}
+
+/* ---------- Byline automático nas calculadoras ---------- */
+function injectByline() {
+  if (CM_IN_ARTIGOS) return;
+
+  const h1 = document.querySelector('h1');
+  if (!h1) return;
+
+  const dateEl = document.querySelector('[data-date]');
+  let dataFormatada = '14 de junho de 2026';
+  if (dateEl) {
+    const raw = dateEl.getAttribute('data-date');
+    const MESES = ['janeiro','fevereiro','março','abril','maio','junho',
                    'julho','agosto','setembro','outubro','novembro','dezembro'];
-         const [y, m, d] = raw.split('-').map(Number);
-         if (y && m && d) dataFormatada = `${d} de ${MESES[m - 1]} de ${y}`;
+    const [y, m, d] = raw.split('-').map(Number);
+    if (y && m && d) dataFormatada = `${d} de ${MESES[m - 1]} de ${y}`;
   }
 
   const byline = document.createElement('p');
@@ -387,6 +371,5 @@ function abrirChatGPT({ P, Ap, i, meses, total, investido, juros, renda }) {
 
   h1.insertAdjacentElement('afterend', byline);
 }
-   document.addEventListener('DOMContentLoaded', injectByline);
-  window.open('https://chatgpt.com/', '_blank');
-}
+
+document.addEventListener('DOMContentLoaded', injectByline);
