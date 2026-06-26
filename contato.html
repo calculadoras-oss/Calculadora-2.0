@@ -9,6 +9,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184321382546271" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared-calc.css">
 <style>
 :root{--gold:#C9A84C;--gold-light:#E8C97A;--dark:#0A0A0F;--dark2:#12121A;--dark3:#1A1A26;--dark4:#22223A;--text:#E8E8F0;--text-muted:#8888AA;--green:#2ECC71;--radius:16px;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -79,18 +80,7 @@ label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;c
     <div class="info-row"><span class="info-icon">🔒</span><span>Seus dados são tratados conforme nossa <a href="privacidade.html" style="color:var(--gold)">Política de Privacidade</a></span></div>
   </div>
 </div>
-<footer style="text-align:center;padding:40px 20px;color:var(--text-muted);font-size:13px;border-top:1px solid var(--dark4);background:var(--dark2);position:relative;z-index:10;">
-  <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:15px;align-items:center;">
-    <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;">
-      <a href="/sobre.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Sobre Nós</a>
-      <a href="/contato.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Contato</a>
-      <a href="/privacidade.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidade</a>
-      <a href="/termos.html" style="color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Termos de Uso</a>
-    </div>
-    <p>© <span id="year-auto">2026</span> · <a href="https://calculamundo.com.br" style="color:var(--gold);text-decoration:none;font-weight:500;">calculamundo.com.br</a> · Todos os direitos reservados.</p>
-  </div>
-  <script>document.getElementById('year-auto').textContent = new Date().getFullYear();</script>
-</footer>
+
 <script>
 function toggleTheme(){document.body.classList.toggle('light');localStorage.setItem('theme',document.body.classList.contains('light')?'light':'dark');}
 const t=localStorage.getItem('theme');if(t==='light')document.body.classList.add('light');
