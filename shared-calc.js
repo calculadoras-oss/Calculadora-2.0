@@ -111,7 +111,7 @@ const CM_ARTIGOS = [
   /* --- Seção "Outras Calculadoras" ---
      Mesma lógica: usa o placeholder id="cm-outras-placeholder" se existir,
      senão anexa ao final do .container (comportamento antigo). */
-  const outras = CM_CALCULADORAS.filter(c => c.href !== current);
+  if (!isInstitucional) {const outras = CM_CALCULADORAS.filter(c => c.href !== current);
 
   const cards = outras.map(c => `
     <a href="${cmRootHref(c.href)}" class="tool-card">
