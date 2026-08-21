@@ -48,6 +48,7 @@ const CM_ARTIGOS = [
   { file: 'artigo-livros-financas-pessoais.html',      icon: '📚', name: 'Livros de Finanças Essenciais',     desc: 'Os 5 livros que realmente mudam sua relação com dinheiro.' },
   { file: 'artigo-organizar-financas-zero.html',       icon: '🗂️', name: 'Organize Suas Finanças do Zero',   desc: 'O método que funciona — independente da ferramenta que você escolher.' },
   { file: 'artigo-calculadora-financeira-hp12c.html',  icon: '🧮', name: 'HP 12C vs. Calculadora Científica', desc: 'Qual calculadora financeira você realmente precisa?' },
+  { file: 'artigo-split-payment.html', icon: '🧾', name: 'Split Payment: o que é', desc: 'Como o novo mecanismo de recolhimento automático de IBS/CBS muda o caixa das empresas.' },
 ];
 
 /* ---------- Injeta Nav ---------- */
