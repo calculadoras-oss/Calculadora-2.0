@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPCA, BCB ou M2: qual é a inflação real? | Calcula Mundo</title>
+<meta name="description" content="IPCA fechou 2025 em 4,26%, mas o M2 cresceu mais de 11% no mesmo período. Entenda por que essas duas medidas divergem e o que isso significa para o seu bolso.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared-calc.css">
+
+<style>
+  .highlight-box{
+    background:var(--dark2);
+    border:1px solid var(--gold-dark);
+    border-radius:var(--radius);
+    padding:1.5rem 1.75rem;
+    margin:1.75rem 0;
+  }
+  .highlight-box strong{color:var(--gold-light);}
+  .formula-box{
+    background:var(--dark3);
+    border-left:3px solid var(--gold);
+    border-radius:var(--radius);
+    padding:1.25rem 1.5rem;
+    margin:1.5rem 0;
+    font-family:'DM Sans',sans-serif;
+  }
+  .compare-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:1.75rem 0;
+    font-family:'DM Sans',sans-serif;
+  }
+  .compare-table th,.compare-table td{
+    padding:0.85rem 1rem;
+    text-align:left;
+    border-bottom:1px solid var(--dark4);
+  }
+  .compare-table th{
+    color:var(--gold-light);
+    font-weight:500;
+    background:var(--dark2);
+  }
+  .compare-table td{color:var(--text);}
+  .compare-table tr:last-child td{border-bottom:none;}
+  .use-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1rem;
+    margin:1.75rem 0;
+  }
+  .use-cards .card{
+    background:var(--dark2);
+    border:1px solid var(--dark4);
+    border-radius:var(--radius);
+    padding:1.25rem;
+  }
+  .use-cards .card h4{color:var(--gold-light);margin:0 0 .5rem 0;font-family:'Playfair Display',serif;}
+  .cta-box{
+    background:linear-gradient(135deg,var(--dark2),var(--dark3));
+    border:1px solid var(--gold-dark);
+    border-radius:var(--radius);
+    padding:1.75rem;
+    margin:2rem 0;
+    text-align:center;
+  }
+  .cta-box p{margin:0 0 1rem 0;color:var(--text-muted);}
+  .btn-calc{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--dark);
+    font-weight:500;
+    padding:0.75rem 1.75rem;
+    border-radius:var(--radius);
+    text-decoration:none;
+  }
+  .article-body table caption{color:var(--text-muted);font-size:.85rem;margin-top:.5rem;}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IPCA, BCB ou M2: qual é a inflação real?",
+  "description": "IPCA fechou 2025 em 4,26%, mas o M2 cresceu mais de 11% no mesmo período. Entenda por que essas duas medidas divergem e o que isso significa para o seu bolso.",
+  "author": {
+    "@type": "Person",
+    "name": "Rafael Tavares",
+    "url": "https://www.calculamundo.com.br/sobre.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Calcula Mundo",
+    "url": "https://www.calculamundo.com.br"
+  },
+  "datePublished": "2026-09-17",
+  "dateModified": "2026-09-17"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre IPCA, a meta do Banco Central e o M2?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O IPCA, calculado pelo IBGE, mede a variação de preços de uma cesta de bens e serviços consumida pelas famílias. A meta de inflação é o objetivo que o Banco Central persegue para esse mesmo IPCA, usando a Selic como instrumento. Já o M2 é um agregado monetário do Banco Central que soma o dinheiro em circulação, depósitos à vista, poupança e depósitos a prazo: mede a quantidade de moeda na economia, não o preço dos produtos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que o M2 costuma crescer mais rápido que o IPCA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque nem todo real criado na economia vira consumo imediato de bens e serviços. Parte dele fica represada em poupança, CDBs e outros títulos, ou é absorvida por ativos financeiros e imóveis, sem necessariamente pressionar o índice de preços ao consumidor no curto prazo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O M2 é uma medida melhor de inflação do que o IPCA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não exatamente melhor, mas complementar. O IPCA mede o que já aconteceu com os preços; o M2 funciona mais como um indicador antecedente de pressão inflacionária futura, usado por economistas monetaristas. A maioria dos bancos centrais, incluindo o brasileiro, ainda usa o IPCA como referência oficial de política monetária."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O crescimento do M2 sempre se transforma em inflação de preços?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não necessariamente. Isso depende também da velocidade com que esse dinheiro circula na economia e do crescimento da produção de bens e serviços. Se a economia produz mais na mesma proporção em que o dinheiro cresce, o efeito sobre os preços pode ser limitado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como acompanhar o M2 e o IPCA no Brasil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O IPCA é divulgado mensalmente pelo IBGE. O M2 e os demais agregados monetários (M1, M3, M4) são publicados pelo Banco Central em notas mensais e no Sistema Gerenciador de Séries Temporais (SGS), disponível no site do BCB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que o Plano Real mostra sobre a relação entre moeda e inflação?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O Plano Real, em 1994, reduziu drasticamente a expansão monetária descontrolada que alimentava a hiperinflação brasileira. Como consequência, a inflação anual caiu de milhares de por cento para 66% em 1995 e 16% em 1996, um exemplo histórico de como a oferta de moeda e os preços estão relacionados nos extremos."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<div class="article-container">
+
+<div class="article-hero">
+  <h1>IPCA, BCB ou M2: qual é a inflação real?</h1>
+  <p class="article-meta">Por <a href="../sobre.html">Rafael Tavares</a> · Atualizado em 17 de setembro de 2026</p>
+</div>
+
+<div class="article-body">
+
+<p>Em 2025, o IPCA fechou o ano em 4,26%, dentro da meta perseguida pelo Banco Central. No mesmo período, o M2 — o agregado monetário que soma papel-moeda, depósitos à vista, poupança e depósitos a prazo — cresceu 11,04%. São dois números sobre a economia brasileira no mesmo ano, mas contam histórias muito diferentes. Se a quantidade de reais em circulação cresce quase três vezes mais rápido que os preços medidos oficialmente, para onde vai essa diferença?</p>
+
+<h2>O que cada indicador realmente mede</h2>
+<p>É comum misturar os três conceitos, mas eles respondem perguntas diferentes:</p>
+
+<div class="use-cards">
+  <div class="card">
+    <h4>IPCA (IBGE)</h4>
+    <p>Mede quanto subiram, na média, os preços de uma cesta de produtos e serviços consumida por famílias de 1 a 40 salários mínimos. É o índice oficial de inflação do país.</p>
+  </div>
+  <div class="card">
+    <h4>Meta do Banco Central</h4>
+    <p>Não é um indicador, é um objetivo: o BC usa a Selic para tentar manter o IPCA dentro de uma banda definida pelo Conselho Monetário Nacional (3% ± 1,5 p.p. em 2025).</p>
+  </div>
+  <div class="card">
+    <h4>M2 (agregado monetário)</h4>
+    <p>Mede a quantidade de moeda na economia: dinheiro em papel, depósitos à vista, poupança e títulos de curto prazo emitidos por bancos. Não é, por definição, um índice de preços.</p>
+  </div>
+</div>
+
+<p>O ponto central da tese monetarista — associada a economistas como Milton Friedman — é que, na origem, a inflação de preços é sempre um fenômeno relacionado à quantidade de moeda em circulação frente à quantidade de bens e serviços disponíveis. Se a moeda cresce muito mais rápido que a produção, a tendência de longo prazo é que os preços se ajustem para cima, mesmo que isso não apareça de forma imediata no IPCA.</p>
+
+<h2>Os números lado a lado: IPCA x M2 em 2025</h2>
+<p>Usando dados oficiais do IBGE e do Banco Central, a diferença entre os dois indicadores fica clara ao longo do ano:</p>
+
+<table class="compare-table">
+  <caption>Fontes: IBGE (IPCA) e Banco Central do Brasil, séries de agregados monetários</caption>
+  <tr><th>Mês/2025</th><th>IPCA acumulado 12 meses</th><th>M2 acumulado 12 meses</th></tr>
+  <tr><td>Maio</td><td>5,32%</td><td>12,63%</td></tr>
+  <tr><td>Setembro</td><td>~5,0%</td><td>12,37%</td></tr>
+  <tr><td>Novembro</td><td>4,46%</td><td>11,42%</td></tr>
+  <tr><td>Dezembro (fechamento do ano)</td><td>4,26%</td><td>11,04%</td></tr>
+</table>
+
+<p>Em todos os meses do ano, o M2 cresceu em ritmo pelo menos duas vezes mais rápido que os preços ao consumidor. Esse descolamento não é exclusividade de 2025: é um padrão recorrente na série histórica do Banco Central, com o M2 quase sempre superando o IPCA por uma margem confortável.</p>
+
+<h2>Exemplo prático: o que esse descasamento significa no seu bolso</h2>
+<div class="highlight-box">
+<p><strong>Cenário:</strong> imagine que seu salário foi reajustado exatamente pelo IPCA de 2025, ou seja, 4,26%. Um salário de R$ 5.000 passaria a R$ 5.213.</p>
+<p>No mesmo período, a quantidade de reais circulando na economia (M2) cresceu 11,04%. Isso significa que a "fatia" de moeda que cada real representa no total do sistema ficou proporcionalmente menor — mesmo que isso ainda não tenha se refletido em todos os preços da economia.</p>
+<p>Na prática, quem sentiu esse excesso de liquidez primeiro geralmente não foi quem compra pão no mercado, e sim quem investe em ativos: imóveis, ações e dólar tendem a absorver parte dessa expansão monetária antes que ela chegue à prateleira do supermercado, num fenômeno que muitos analistas chamam de "inflação de ativos".</p>
+</div>
+
+<div class="formula-box">
+<strong>Como calcular o descolamento em qualquer período:</strong><br>
+Descolamento = Variação do M2 (%) − Variação do IPCA (%) no mesmo período<br>
+Exemplo 2025: 11,04% − 4,26% = 6,78 pontos percentuais de diferença
+</div>
+
+<h2>Por que o Banco Central mira o IPCA e não o M2</h2>
+<p>Vale entender por que a autoridade monetária brasileira não simplesmente adota o M2 como termômetro oficial. O regime de metas de inflação, adotado no Brasil desde 1999, usa o IPCA porque ele reflete diretamente o custo de vida percebido pela população — o que afeta salários, contratos e decisões de consumo no dia a dia. O M2, por sua vez, é volátil e depende de fatores como a preferência das pessoas por poupar ou gastar, o que dificulta seu uso como meta direta de política monetária.</p>
+<p>Ainda assim, o Banco Central acompanha de perto os agregados monetários — a série de M1 a M4 é publicada mensalmente — justamente porque expansões monetárias fora do padrão histórico costumam anteceder períodos de pressão inflacionária mais adiante.</p>
+
+<h2>O que dizem os críticos dessa tese</h2>
+<p>Nem todo economista concorda que o M2 seja "a inflação verdadeira" escondida atrás do IPCA. Os principais contrapontos são:</p>
+<ul>
+<li><strong>Velocidade da moeda:</strong> a relação entre quantidade de dinheiro e preços depende de quão rápido esse dinheiro circula. Se a velocidade cai — por exemplo, quando famílias preferem poupar em vez de consumir —, o M2 pode crescer sem gerar inflação proporcional de preços.</li>
+<li><strong>Aprofundamento financeiro:</strong> parte do crescimento do M2 no Brasil vem de mais pessoas migrando de dinheiro físico para depósitos e aplicações formais, o que aumenta o agregado monetário sem representar necessariamente mais poder de compra novo na economia.</li>
+<li><strong>Defasagem incerta:</strong> mesmo entre monetaristas, não há consenso sobre quanto tempo leva para uma expansão de M2 se refletir em preços — pode ser meses ou anos, e o efeito pode ser parcialmente absorvido pelo crescimento real da economia.</li>
+</ul>
+<p>Ou seja: o descolamento entre M2 e IPCA é um dado real e relevante para quem quer entender riscos futuros de inflação, mas tratá-lo como uma medição direta e imediata da "inflação real" simplifica um debate que segue em aberto entre economistas.</p>
+
+<h2>Erros comuns ao interpretar o M2</h2>
+<ul>
+<li><strong>Comparar M2 nominal com IPCA sem ajustar pelo crescimento do PIB:</strong> parte do crescimento do M2 é natural em uma economia que também está crescendo e se formalizando.</li>
+<li><strong>Ignorar a composição do M2:</strong> boa parte do crescimento recente veio de depósitos a prazo e poupança remunerada por juros altos (Selic elevada), não de dinheiro novo entrando em consumo imediato.</li>
+<li><strong>Tratar o descolamento como preço "escondido" já pago:</strong> o descolamento indica pressão inflacionária potencial, não um imposto invisível já cobrado no presente.</li>
+<li><strong>Usar apenas um mês de dado:</strong> agregados monetários têm ruído mensal alto; o acumulado em 12 meses é a leitura mais confiável.</li>
+</ul>
+
+<h2>O exemplo histórico do Plano Real</h2>
+<p>O caso mais claro da relação entre moeda e preços na história recente do Brasil é o Plano Real. Em 1994, a inflação anual passava de 2.000%. Ao conter a expansão monetária descontrolada que financiava o déficit público, o país viu a inflação recuar para 66% em 1995 e 16% em 1996. Nos extremos, a ligação entre oferta de moeda e preços fica evidente — o debate atual é sobre o quanto essa lógica se aplica com a mesma força em cenários de inflação baixa e sistema financeiro maduro, como o Brasil de hoje.</p>
+
+<h2>Como acompanhar você mesmo, mês a mês</h2>
+<p>Os dois indicadores são públicos e gratuitos: o IPCA sai todo mês pelo IBGE, geralmente por volta do dia 10, e o M2 é divulgado pelo Banco Central em notas mensais de estatísticas monetárias e de crédito, além do Sistema Gerenciador de Séries Temporais (SGS). Comparar os dois números lado a lado, acumulados em 12 meses, é a forma mais honesta de acompanhar esse descolamento sem cair em conclusões precipitadas de um único mês.</p>
+
+<div class="cta-box">
+<p>Quer ver o efeito da inflação oficial sobre o seu poder de compra ao longo do tempo? Nosso <a href="../artigo-inflacao-poder-compra.html">artigo sobre inflação e poder de compra</a> mostra como corrigir valores passados pelo IPCA — útil para comparar com o raciocínio do M2 apresentado aqui.</p>
+<a class="btn-calc" href="../artigo-inflacao-poder-compra.html">Calcular perda de poder de compra</a>
+</div>
+
+<div class="faq-section">
+<div class="card-title">❓ Perguntas Frequentes</div>
+
+<div class="faq-item">
+<div class="faq-q">Qual a diferença entre IPCA, a meta do Banco Central e o M2?</div>
+<div class="faq-a">O IPCA, calculado pelo IBGE, mede a variação de preços de uma cesta de bens e serviços consumida pelas famílias. A meta de inflação é o objetivo que o Banco Central persegue para esse mesmo IPCA, usando a Selic como instrumento. Já o M2 é um agregado monetário do Banco Central que soma o dinheiro em circulação, depósitos à vista, poupança e depósitos a prazo: mede a quantidade de moeda na economia, não o preço dos produtos.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Por que o M2 costuma crescer mais rápido que o IPCA?</div>
+<div class="faq-a">Porque nem todo real criado na economia vira consumo imediato de bens e serviços. Parte dele fica represada em poupança, CDBs e outros títulos, ou é absorvida por ativos financeiros e imóveis, sem necessariamente pressionar o índice de preços ao consumidor no curto prazo.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">O M2 é uma medida melhor de inflação do que o IPCA?</div>
+<div class="faq-a">Não exatamente melhor, mas complementar. O IPCA mede o que já aconteceu com os preços; o M2 funciona mais como um indicador antecedente de pressão inflacionária futura, usado por economistas monetaristas. A maioria dos bancos centrais, incluindo o brasileiro, ainda usa o IPCA como referência oficial de política monetária.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">O crescimento do M2 sempre se transforma em inflação de preços?</div>
+<div class="faq-a">Não necessariamente. Isso depende também da velocidade com que esse dinheiro circula na economia e do crescimento da produção de bens e serviços. Se a economia produz mais na mesma proporção em que o dinheiro cresce, o efeito sobre os preços pode ser limitado.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Como acompanhar o M2 e o IPCA no Brasil?</div>
+<div class="faq-a">O IPCA é divulgado mensalmente pelo IBGE. O M2 e os demais agregados monetários (M1, M3, M4) são publicados pelo Banco Central em notas mensais e no Sistema Gerenciador de Séries Temporais (SGS), disponível no site do BCB.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">O que o Plano Real mostra sobre a relação entre moeda e inflação?</div>
+<div class="faq-a">O Plano Real, em 1994, reduziu drasticamente a expansão monetária descontrolada que alimentava a hiperinflação brasileira. Como consequência, a inflação anual caiu de milhares de por cento para 66% em 1995 e 16% em 1996, um exemplo histórico de como a oferta de moeda e os preços estão relacionados nos extremos.</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<script src="../shared-calc.js"></script>
+</body>
+</html>
