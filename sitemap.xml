@@ -117,6 +117,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+  <loc>https://www.calculamundo.com.br/artigos/artigo-ipca-m2-inflacao-real.html</loc>
+  <lastmod>2026-09-17</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
   <loc>https://calculamundo.com.br/artigos/artigo-split-payment.html</loc>
   <lastmod>2026-08-21</lastmod>
   <changefreq>monthly</changefreq>
