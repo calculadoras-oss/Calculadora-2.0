@@ -463,3 +463,47 @@ footer {
   padding: 0 0 20px; margin-bottom: 4px;
 }
 .author-box a { color: var(--gold); text-decoration: none; font-weight: 500; }
+
+/* ============================================================
+   Article template base — hero/body/faq shared by all /artigos/*.html
+   Centralizado aqui para evitar duplicação divergente entre artigos.
+   ============================================================ */
+.article-container { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; position: relative; z-index: 10; }
+.article-hero { background: linear-gradient(135deg, var(--dark2), var(--dark3)); border: 1px solid rgba(201,168,76,0.2); border-radius: var(--radius); padding: 40px; margin-bottom: 32px; text-align: center; }
+.article-category { display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3); color: var(--gold); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+.article-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; line-height: 1.2; background: linear-gradient(135deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 16px; }
+.article-hero .lead { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; max-width: 580px; margin: 0 auto; }
+.article-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; font-size: 0.82rem; color: var(--text-muted); margin-top: 18px; }
+.article-meta a { color: var(--gold); text-decoration: none; font-weight: 600; }
+.article-meta a:hover { text-decoration: underline; }
+.article-body { background: var(--dark2); border: 1px solid var(--dark4); border-radius: var(--radius); padding: 40px; margin-bottom: 24px; }
+.article-body h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); margin: 32px 0 14px; }
+.article-body h2:first-child { margin-top: 0; }
+.article-body p { color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; font-size: 0.98rem; }
+.article-body strong { color: var(--text); }
+.article-body ul, .article-body ol { color: var(--text-muted); line-height: 2; padding-left: 22px; margin-bottom: 16px; font-size: 0.98rem; }
+.article-body li { margin-bottom: 4px; }
+.highlight-box { background: var(--dark3); border-left: 3px solid var(--gold); border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 24px 0; }
+.highlight-box p { margin: 0; color: var(--text); font-size: 0.95rem; }
+.comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+.comparison-table th { background: var(--dark3); color: var(--gold); padding: 14px 16px; text-align: left; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+.comparison-table td { padding: 13px 16px; border-bottom: 1px solid var(--dark4); color: var(--text-muted); }
+.comparison-table tr:last-child td { border-bottom: none; }
+.comparison-table tr:hover td { background: var(--dark3); color: var(--text); }
+.comparison-table .gold { color: var(--gold); font-weight: 600; }
+.comparison-table .green { color: var(--green); font-weight: 600; }
+.cta-box { background: linear-gradient(135deg, var(--dark3), var(--dark2)); border: 1px solid rgba(201,168,76,0.3); border-radius: var(--radius); padding: 32px; text-align: center; margin-top: 32px; }
+.cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 12px; }
+.cta-box p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+.breadcrumb { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; }
+.breadcrumb a { color: var(--gold); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.author-footer { display: flex; align-items: center; gap: 14px; background: var(--dark3); border: 1px solid var(--dark4); border-radius: 12px; padding: 18px 22px; margin-top: 24px; }
+.author-footer-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+.author-footer-text strong { color: var(--gold); }
+.author-footer-text a { color: var(--gold); text-decoration: none; }
+.author-footer-text a:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .article-body { padding: 24px; }
+  .article-hero { padding: 28px 20px; }
+}
